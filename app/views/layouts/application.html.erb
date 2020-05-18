@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index,follow" />
+    <meta
+      name="description"
+      content="QueMePongo es un sitio web donde te ayudamos a crear tu outfit de la manera mas divertida!"
+    />
+    <%= stylesheet_link_tag "application.css" %>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap"
+      rel="stylesheet"
+    />
+    <title>Que Me Pongo | El arte de vestirse bien</title>
+  </head>
+  <body>
+    <header class="main-head">
+      <nav>
+        <h1 class="logo">Que me pongo</h1>
+        <ul class="nav-links">
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#guardarropas">Guardarropas</a></li>
+          <li><a href="#contact">Contacto</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="prendas-index">
+        <div class="prendas-view">
+          <table class="prendas-tb">
+            <tr>
+              <th>Id</th>
+              <th>Textura</th>
+              <th>Color</th>
+              <th>Color Secundario</th>
+              <th>Categoria</th>
+              <th>Tipo de Prenda</th>
+            </tr>
+            <tr>
+              <td><%= yield :id %></td>
+              <td><%= yield :textura %></td>
+              <td><%= yield :color %></td>
+              <td><%= yield :color_secundario %></td>
+              <td><%= yield :categoria %></td>
+              <td><%= yield :tipo %></td>
+            </tr>
+          </table>
+        </div>
+        <div class="lady-container">
+         <%= link_to image_tag('lady.png')%>
+        </div>
+      </section>
+      <div class="background-img">
+      <%= link_to image_tag('back.jpg') %>
+      </div>
+    </main>
+  </body>
+</html>

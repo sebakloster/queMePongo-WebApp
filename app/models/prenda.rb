@@ -1,0 +1,3 @@
+class Prenda < ApplicationRecord
+
+end
