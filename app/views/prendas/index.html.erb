@@ -1,5 +1,37 @@
+
+<section class="prendas-index">
+<div class="prendas-view">
+    <div class="link-nueva-prenda">
+        <%= link_to "Crear nueva prenda", "/prendas/new" %>
+    </div>
+  <table class="prendas-tb">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Categoria</th>
+            <th>Tipo</th>
+            <th>Tela</th>
+            <th>Color Primario</th>
+            <th>Color Secundario</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @prendas.each do |p| %>
+            <tr>
+                <td><%= p.id %></td>
+                <td><%= p.categoria %></td>
+                <td><%= p.tipo %></td>
+                <td><%= p.tela %></td>
+                <td><%= p.color_primario %></td>
+                <td><%= p.color_secundario %></td>
+            </tr>
+        <%end%>
+    </tbody>
+    
+  </table>
+</div>
+
+</section>
 <div>
-    <% @prendas.each do |p| %>
-        <%= render 'prenda', prenda: p %>
-    <%end%>
+    
 </div>

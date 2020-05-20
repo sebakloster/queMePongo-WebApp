@@ -12,7 +12,7 @@ class PrendasController < ApplicationController
   end
 
   def create
-    @prenda=Prenda.create(prenda_params)
+    @prenda=Prenda.create(prenda_params);
     if @prenda.save
       flash[:success]="La prenda se guardó correctamente!"
       redirect_to @prenda
@@ -36,4 +36,9 @@ class PrendasController < ApplicationController
   def destroy
     Prenda.destroy(params[:id].to_i)
   end
+
+  private
+    def prenda_params
+      params.require(:prenda).permit(:categoria, :tipo, :color_primario, :color_secundario, :tela)
+    end
 end

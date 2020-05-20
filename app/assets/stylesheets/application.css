@@ -21,27 +21,6 @@ h1 {
   font-size: var(--header1);
 }
 
-li,
-button,
-label,
-input,
-a,
-p {
-  font-size: var(--text);
-}
-
-h2 {
-  font-size: var(--header2);
-}
-
-h3 {
-  font-size: var(--header3);
-}
-
-h4,
-h5 {
-  font-size: var(--header4);
-}
 
 ul {
   list-style: none;
@@ -82,13 +61,12 @@ h1 {
 .main-head {
   -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: burlywood;
 }
 
 nav {
   width: 90%;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -145,33 +123,19 @@ nav {
 }
 
 .prendas-view {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 40rem;
-          flex: 1 1 40rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
+ 
   display: flex;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
           align-items: flex-start;
-  -ms-flex-pack: distribute;
       justify-content: space-around;
+      margin: 5%;
 }
 
-.prendas-tb {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 10rem;
-}
+
 
 .prendas-tb td {
   padding: 0.5rem 5rem;
   text-align: center;
-  background-color: #e6395691;
+  background-color: #ffa928;
   font-size: 1.2rem;
   color: white;
   font-family: "Ruhl", sans-serif;
@@ -203,4 +167,25 @@ nav {
   bottom: 0;
   right: 19rem;
 }
-/*# sourceMappingURL=application.css.map */
+.link-nueva-prenda a{
+  padding: 5px;
+  background: brown;
+  border-radius: 30px;
+}
+.link-nueva-prenda{
+  margin-top: 5px;
+}
+.section-form{
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+.container-form{
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: cornsilk;
+  border-radius: 23px;
+  padding: 2%;
+}

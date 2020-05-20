@@ -27,34 +27,7 @@
       </nav>
     </header>
     <main>
-      <section class="prendas-index">
-        <div class="prendas-view">
-          <table class="prendas-tb">
-            <tr>
-              <th>Id</th>
-              <th>Categoria</th>
-              <th>Tipo</th>
-              <th>Tela</th>
-              <th>Color Primario</th>
-              <th>Color Secundario</th>
-            </tr>
-            <tr>
-              <td><%= yield :id %></td>
-              <td><%= yield :categoria %></td>
-               <td><%= yield :tipo %></td>
-              <td><%= yield :tela %></td>
-              <td><%= yield :color_primario %></td>
-              <td><%= yield :color_secundario %></td>
-            </tr>
-          </table>
-        </div>
-        <div class="lady-container">
-         <%= link_to image_tag('lady.png')%>
-        </div>
-      </section>
-      <div class="background-img">
-      <%= link_to image_tag('back.jpg') %>
-      </div>
+      <%= yield %>
     </main>
   </body>
 </html>
