@@ -3,6 +3,10 @@ class PrendasController < ApplicationController
     @prenda= Prenda.new
   end
 
+  def edit
+    @prenda = Prenda.find(params[:id])
+  end
+
   def index
     @prendas = Prenda.all
   end
@@ -23,8 +27,9 @@ class PrendasController < ApplicationController
   end
 
   def update
-    @prenda= Prenda.update(prenda_params)
-    if @prenda.save
+    @prenda = Prenda.find(params[:id])
+
+    if @prenda.update(prenda_params)
       flash[:success]="La prenda se actualizó correctamente!"
       redirect_to @prenda
     else

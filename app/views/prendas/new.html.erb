@@ -2,6 +2,8 @@
 
 <section class="section-form">
   <div class="container-form">
+    <div>
+    <h2>Creación de Prenda</h2>
     <%= form_for @prenda, :url => { :action => "create" } do |f| %>
       <p>
         <%= f.label :categoria %><br>
@@ -31,5 +33,6 @@
         <%= f.submit %>
       </p>
     <% end %>
+    </div>
   </div>
 </section>

@@ -13,6 +13,7 @@
             <th>Tela</th>
             <th>Color Primario</th>
             <th>Color Secundario</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,8 @@
                 <td><%= p.tela %></td>
                 <td><%= p.color_primario %></td>
                 <td><%= p.color_secundario %></td>
+                <td><%= link_to "Edit", :action => :edit, :id => p.id %>
+                <%= link_to "Show", :action => :show, :id => p.id %></td>
             </tr>
         <%end%>
     </tbody>
