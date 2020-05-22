@@ -1,38 +1,32 @@
-
-
 <section class="section-form">
   <div class="container-form">
     <div>
-    <h2>Creación de Prenda</h2>
-    <%= form_for @prenda, :url => { :action => "create" } do |f| %>
-      <p>
-        <%= f.label :categoria %><br>
-        <%= f.number_field :categoria %>
-      </p>
-    
-      <p>
-        <%= f.label :tipo %><br>
-        <%= f.number_field :tipo %>
-      </p>
-    
-      <p>
-        <%= f.label :tela %><br>
-        <%= f.text_field :tela %>
-      </p>
-
-      <p>
-        <%= f.label :color_primario %><br>
-        <%= f.color_field :color_primario %>
-      </p>
-
-      <p>
+      <h2>Creación de Prenda</h2>
+      <%= form_for @prenda, :url => { :action => "create" } do |f| %>
+        <p>
+          <%= f.label :categoria %><br>
+          <%= f.number_field :categoria ,required: true%>
+        </p>
+        <p>
+          <%= f.label :tipo %><br>
+          <%= f.number_field :tipo ,required: true%>
+        </p>
+        <p>
+          <%= f.label :tela %><br>
+          <%= f.text_field :tela ,required: true%>
+        </p>
+        <p>
+          <%= f.label :color_primario %><br>
+          <%= f.color_field :color_primario ,required: true %>
+        </p>
+        <p>
           <%= f.label :color_secundario %><br>
-          <%= f.color_field :color_secundario %>
-      </p>
-      <p>
-        <%= f.submit %>
-      </p>
-    <% end %>
+          <%= f.color_field :color_secundario ,required: true%>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+      <% end %>
     </div>
   </div>
 </section>
