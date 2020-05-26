@@ -12,7 +12,7 @@ class PrendasController < ApplicationController
   end
 
   def show
-    @prenda = Prenda.find(params[:id].to_i)
+    @prenda = Prenda.find(params[:id])
   end
 
   def create
@@ -39,7 +39,8 @@ class PrendasController < ApplicationController
   end
 
   def destroy
-    Prenda.destroy(params[:id].to_i)
+    Prenda.destroy(params[:id])
+    redirect_to @prenda
   end
 
   private

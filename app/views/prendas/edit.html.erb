@@ -1,39 +1,32 @@
-
-
 <section class="section-form">
   <div class="container-form">
     <div>
-         <h2>Edicion de Prenda</h2>
-        <%= form_for @prenda, :url => { :action => "update", :id => @prenda.id }, :method => :put do |f| %>
-        <p>
-            <%= f.label :categoria %><br>
-            <%= f.number_field :categoria %>
+      <h2>Edicion de Prenda</h2>
+      <%= form_for @prenda, :url => { :action => "update", :id => @prenda.id }, :method => :put do |f| %>
+        <p  class="form-group">
+          <%= f.label :categoria %>
+          <%= f.number_field :categoria ,required: true, :class => 'form-control'%>
         </p>
-        
-        <p>
-            <%= f.label :tipo %><br>
-            <%= f.number_field :tipo %>
+        <p class="form-group">
+          <%= f.label :tipo %>
+          <%= f.number_field :tipo ,required: true, :class => 'form-control'%>
         </p>
-        
-        <p>
-            <%= f.label :tela %><br>
-            <%= f.text_field :tela %>
+        <p class="form-group">
+          <%= f.label :tela %>
+          <%= f.text_field :tela ,required: true, :class => 'form-control'%>
         </p>
-
-        <p>
-            <%= f.label :color_primario %><br>
-            <%= f.color_field :color_primario %>
+        <p class="form-group">
+          <%= f.label :color_primario %>
+          <%= f.color_field :color_primario ,required: true, :class => 'form-control'%>
         </p>
-
-        <p>
-            <%= f.label :color_secundario %><br>
-            <%= f.color_field :color_secundario %>
+        <p class="form-group">
+          <%= f.label :color_secundario %>
+          <%= f.color_field :color_secundario ,required: true, :class => 'form-control'%>
         </p>
-        <p>
-            <%= f.submit %>
+        <p class="container-btn-default">
+          <%= f.submit :class=>'btn  btn-default' %>
         </p>
-        <% end %>
+      <% end %>
     </div>
-   
   </div>
 </section>
