@@ -9,7 +9,7 @@
       
       <%= link_to "Edit", action: :edit, id: prenda.id %>
       <%= link_to "Show", action: :show, id: prenda.id %>
-      <%= link_to "Destroy", action: :destroy, id: prenda.id %>
+      <%= link_to "Destroy", prenda, method: :delete %>
       <%
 =begin%>
  <button class="actions__like">editar &nbsp; <i class="fas fa-heart"></i> </button>
