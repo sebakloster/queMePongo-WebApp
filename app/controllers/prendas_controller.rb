@@ -40,6 +40,7 @@ class PrendasController < ApplicationController
 
   def destroy
     Prenda.destroy(params[:id])
+    redirect_to action: :index
   end
 
   private
