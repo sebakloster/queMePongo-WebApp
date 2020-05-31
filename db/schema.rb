@@ -10,14 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200518010837) do
+ActiveRecord::Schema.define(version: 20200531221022) do
+
+  create_table "prenda_tipos", force: :cascade do |t|
+    t.integer "categoria"
+    t.string "name"
+  end
 
   create_table "prendas", force: :cascade do |t|
-    t.integer "categoria"
     t.integer "tipo"
     t.string "tela"
     t.string "color_primario"
     t.string "color_secundario"
+    t.integer "prenda_tipo_id"
+    t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
   end
 
 end
