@@ -4,16 +4,16 @@
       <h2>Creación de Prenda</h2>
       <%= form_for @prenda, :url => { :action => "create" } do |f| %>
         <p class="form-group">
-          <%= f.label :categoria %><br>
-          <%= f.number_field :categoria ,required: true, :class => 'form-control'%>
+          <%= f.label :prenda_tipo %><br>
+          <%= f.select(:prenda_tipo, options_for_select(Prenda.prenda_tipo.categoria.keys.to_a),required: true, :class => 'form-control')%>
         </p>
         <p class="form-group">
           <%= f.label :tipo %><br>
-          <%= f.number_field :tipo ,required: true, :class => 'form-control'%>
+          <%= f.select(:tipo, options_for_select(Prenda.tipos.keys.to_a),required: true, :class => 'form-control')%>
         </p>
         <p class="form-group">
           <%= f.label :tela %><br>
-          <%= f.text_field :tela ,required: true, :class => 'form-control'%>
+          <%= f.select(:tela, options_for_select(Prenda.telas.keys.to_a),required: true, :class => 'form-control')%>
         </p>
         <p class="form-group">
           <%= f.label :color_primario %><br>

@@ -5,15 +5,15 @@
       <%= form_for @prenda, :url => { :action => "update", :id => @prenda.id }, :method => :put do |f| %>
         <p  class="form-group">
           <%= f.label :categoria %>
-          <%= f.number_field :categoria ,required: true, :class => 'form-control'%>
+          <%= f.select(:categoria, options_for_select(Prenda.categoria.keys.to_a),required: true, :class => 'form-control')%>
         </p>
         <p class="form-group">
           <%= f.label :tipo %>
-          <%= f.number_field :tipo ,required: true, :class => 'form-control'%>
+          <%= f.select(:tipo, options_for_select(Prenda.tipos.keys.to_a),required: true, :class => 'form-control')%>
         </p>
         <p class="form-group">
           <%= f.label :tela %>
-          <%= f.text_field :tela ,required: true, :class => 'form-control'%>
+          <%= f.select(:tela, options_for_select(Prenda.telas.keys.to_a),required: true, :class => 'form-control')%>
         </p>
         <p class="form-group">
           <%= f.label :color_primario %>
