@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200601195701) do
+ActiveRecord::Schema.define(version: 20200602145039) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "prenda_torso_id"
     t.integer "prenda_cabeza_id"
     t.integer "prenda_piernas_id"
     t.integer "prenda_pies_id"
+    t.integer "puntaje"
+    t.string "lista_etiquetas"
     t.index ["prenda_cabeza_id"], name: "index_atuendos_on_prenda_cabeza_id"
     t.index ["prenda_piernas_id"], name: "index_atuendos_on_prenda_piernas_id"
     t.index ["prenda_pies_id"], name: "index_atuendos_on_prenda_pies_id"
@@ -29,15 +31,15 @@ ActiveRecord::Schema.define(version: 20200601195701) do
 
   create_table "prenda_tipos", force: :cascade do |t|
     t.integer "categoria"
-    t.string "name"
+    t.integer "tipo"
   end
 
   create_table "prendas", force: :cascade do |t|
-    t.string "tela"
     t.string "color_primario"
     t.string "color_secundario"
     t.integer "prenda_tipo_id"
     t.integer "guardarropa_id"
+    t.integer "tela"
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
   end
