@@ -16,7 +16,10 @@ class PrendasController < ApplicationController
   end
 
   def create
+  #  logger.info(params[:prenda][:prenda_tipo_id])
     @prenda=Prenda.create(prenda_params);
+    @prenda.prenda_tipo = PrendaTipo.find(prenda_tipo_params.to_h[:prenda_tipo_id])
+    @prenda.guardarropa = Guardarropa.find(guardarropa_params.to_h[:guardarropa_id])
     if @prenda.save
       flash[:success]="La prenda se guardó correctamente!"
       redirect_to @prenda
@@ -45,6 +48,13 @@ class PrendasController < ApplicationController
 
   private
     def prenda_params
-      params.require(:prenda).permit(:categoria, :tipo, :color_primario, :color_secundario, :tela)
+      params.require(:prenda).permit(:tela, :color_primario, :color_secundario)
+    end
+    private
+    def prenda_tipo_params
+      params.require(:prenda).permit(:prenda_tipo_id)
+    end
+    def guardarropa_params
+      params.require(:prenda).permit(:guardarropa_id)
     end
 end

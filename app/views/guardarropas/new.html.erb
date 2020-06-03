@@ -1,0 +1,15 @@
+<section class="section-form">
+  <div class="container-form">
+    <div>
+      <h2>Creación de Guardarropa</h2>
+      <%= form_for @guardarropa, :url => { :action => "create" } do |f| %>
+        <p class="form-group">
+          <%= text_field(:guardarropa, :name) %>
+        </p>
+        <p class="container-btn-default">
+          <%= f.submit :class => 'btn btn-default'%>
+        </p>
+      <% end %>
+    </div>
+  </div>
+</section>

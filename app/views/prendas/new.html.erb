@@ -4,16 +4,9 @@
       <h2>Creación de Prenda</h2>
       <%= form_for @prenda, :url => { :action => "create" } do |f| %>
         <p class="form-group">
-          <%= f.label :prenda_tipo %><br>
-          <%
-=begin%>
- <%= f.select(:prenda_tipo, options_for_select(Prenda.prenda_tipo.categoria.keys.to_a),required: true, :class => 'form-control')%> 
-<%
-=end%>
-        </p>
-        <p class="form-group">
-          <%= f.label :tipo %><br>
-          <%= f.select(:tipo, options_for_select(Prenda.tipos.keys.to_a),{required: true}, {:class => "form-control"})%>
+          <%= f.label :prenda_tipo_id %><br>
+          <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :tipo, { :prompt => "Elija el Tipo de Prenda" }, { :class => "form-control",required: true  }%>
+          <!--  <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.tipos.keys.to_a),required: true, :class => 'form-control')%> -->
         </p>
         <p class="form-group">
           <%= f.label :tela %><br>
@@ -26,6 +19,11 @@
         <p class="form-group">
           <%= f.label :color_secundario %><br>
           <%= f.color_field :color_secundario ,required: true, :class => 'form-control', :value => '#FFFFFF',:id => 'container_color_secundario'%>
+        </p>
+        <p class="form-group">
+          <%= f.label :guardarropa_id %><br>
+          <%= f.collection_select :guardarropa_id, Guardarropa.all, :id, :name, { :prompt => "Elija un Guardarropas" }, { :class => "form-control" ,required: true} %>
+          <!--  <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.tipos.keys.to_a),required: true, :class => 'form-control')%> -->
         </p>
         <p class="container-btn-default">
           <%= f.submit :class => 'btn btn-default'%>

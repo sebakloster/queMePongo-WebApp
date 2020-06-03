@@ -13,28 +13,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.min.js" integrity="sha256-BbyWhCn0G+F6xbWJ2pcI5LnnpsnpSzyjJNVtl7ABp+M="crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Que Me Pongo | El arte de vestirse bien</title>
   </head>
   <body>
     <header class="main-head">
       <nav class="nav-bar">
         <h1 class="logo" ><a class="text-dark no-underline title-head" href="/prendas">Que me pongo</a></h1>
-        <%
-=begin%>
- <ul class="nav-links">
+        <ul class="nav-links">
           <li><a href="#about" class="text-dark no-underline">Nosotros</a></li>
           <li>
-            <a href="#guardarropas" class="text-dark no-underline"
+            <a href="/guardarropas" class="text-dark no-underline"
         >Guardarropas</a
       >
           </li>
           <li>
             <a href="#contact" class="text-dark no-underline">Contacto</a>
           </li>
-        </ul> 
-<%
-=end%>
+        </ul>
       </nav>
       <div class="flashes">
         <div class="border-nav-one" role="alert">
@@ -45,23 +41,19 @@
     </header>
     <main>
       <section class="main-section">
-      <%
+        <%
 =begin%>
-<div class="hero-img">
+        <div class="hero-img">
           <div class="hero-cindy"><%=image_tag("cindy-Sherman.png")%></div>
           <div class="plant1 plant" ><%=image_tag("plant1.png")%></div>
           <div class="plant2 plant"><%=image_tag("plant2.png")%></div>
-        </div> 
-<%
+        </div>
+        <%
 =end%>
         <div class="prendas-index">
           <%= yield %>
         </div>
-        
       </section>
     </main>
-    <a href="/prendas/new" class="link-nueva-prenda">
-      <i class="fa fa-plus"></i>
-    </a>
   </body>
 </html>
