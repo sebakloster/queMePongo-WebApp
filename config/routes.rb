@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :prendas, only: [:index, :show, :update, :destroy, :create, :new, :edit]
   resources :guardarropas
   resources :atuendos
-  root "prendas#index"
+  root "guardarropas#index"
 end
