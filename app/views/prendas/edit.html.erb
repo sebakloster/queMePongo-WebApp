@@ -11,13 +11,13 @@
           <%= f.label :tela %>
           <%= f.select(:tela, options_for_select(Prenda.telas.keys.to_a), required: true, :class => 'form-control')%>
         </p>
-        <p class="form-group">
-          <%= f.label :color_primario %>
-          <%= f.color_field :color_primario ,required: true, :class => 'form-control'%>
+         <p class="form-group">
+          <%= f.label :color_primario %><br>
+          <%= f.color_field :color_primario ,required: true, :class => 'form-control', :id => 'container_color_primario' %>
         </p>
         <p class="form-group">
           <%= f.label :color_secundario %>
-          <%= f.color_field :color_secundario, required: true, :class => 'form-control'%>
+          <%= f.color_field :color_secundario, required: true, :class => 'form-control',:id => 'container_color_secundario'%>
         </p>
         <p class="form-group">
           <%= f.label :guardarropa_id %><br>
