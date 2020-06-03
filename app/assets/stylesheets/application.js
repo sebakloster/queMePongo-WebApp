@@ -1,12 +1,11 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-
     /**--------------------------Validación de select de colores------------------------ */
 
     /**Variables de los inputs de colores*/
     const selectColorPrimario = document.querySelector('#container_color_primario');
     const selectColorSecundario = document.querySelector('#container_color_secundario');
-    let colorPrimario = null;
-    let colorSecundario = null;
+    let colorPrimario = document.querySelector('#container_color_primario').value;
+    let colorSecundario = document.querySelector('#container_color_secundario').value;
 
     /**Listener del select de color primario */
     selectColorPrimario.addEventListener('change', (event) => {
