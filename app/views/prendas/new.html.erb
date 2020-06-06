@@ -1,11 +1,11 @@
 <section class="section-form">
   <div class="container-form">
     <div>
-      <h2>Creación de Prenda</h2>
+      <h2>Creación de prenda</h2>
       <%= form_for @prenda, :url => { :action => "create" } do |f| %>
         <p class="form-group">
           <%= f.label :prenda_tipo_id %><br>
-          <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :tipo, { :prompt => "Elija el Tipo de Prenda" }, { :class => "form-control",required: true  }%>
+          <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :tipo, { :prompt => "Elija el tipo de Prenda" }, { :class => "form-control",required: true  }%>
           <!--  <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.tipos.keys.to_a),required: true, :class => 'form-control')%> -->
         </p>
         <p class="form-group">
@@ -22,7 +22,7 @@
         </p>
         <p class="form-group">
           <%= f.label :guardarropa_id %><br>
-          <%= f.collection_select :guardarropa_id, Guardarropa.all, :id, :name, { :prompt => "Elija un Guardarropas" }, { :class => "form-control" ,required: true} %>
+          <%= f.collection_select :guardarropa_id, Guardarropa.all, :id, :name, { :prompt => "Elija un guardarropas" }, { :class => "form-control" ,required: true} %>
           <!--  <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.tipos.keys.to_a),required: true, :class => 'form-control')%> -->
         </p>
         <p class="container-btn-default">

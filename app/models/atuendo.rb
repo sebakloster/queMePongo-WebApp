@@ -1,10 +1,11 @@
 class Atuendo < ApplicationRecord
-    has_one :prenda_torso, class_name: "Prenda"
-    has_one :prenda_pies, class_name: "Prenda"
-    has_one :prenda_cabeza, class_name: "Prenda"
-    has_one :prenda_piernas, class_name: "Prenda"
+    has_one :torso, class_name: "Prenda"
+    has_one :pies, class_name: "Prenda"
+    has_one :cabeza, class_name: "Prenda"
+    has_one :piernas, class_name: "Prenda"
 
-    attribute :lista_etiquetas, :string
+  # attribute :etiquetas, :string
+    serialize :etiquetas, JSON
     attribute :puntaje, :integer
 
 end
