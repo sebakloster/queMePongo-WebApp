@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200602145039) do
+ActiveRecord::Schema.define(version: 20200606181433) do
 
   create_table "atuendos", force: :cascade do |t|
-    t.integer "prenda_torso_id"
-    t.integer "prenda_cabeza_id"
-    t.integer "prenda_piernas_id"
-    t.integer "prenda_pies_id"
+    t.integer "torso_id"
+    t.integer "cabeza_id"
+    t.integer "piernas_id"
+    t.integer "pies_id"
     t.integer "puntaje"
-    t.string "lista_etiquetas"
-    t.index ["prenda_cabeza_id"], name: "index_atuendos_on_prenda_cabeza_id"
-    t.index ["prenda_piernas_id"], name: "index_atuendos_on_prenda_piernas_id"
-    t.index ["prenda_pies_id"], name: "index_atuendos_on_prenda_pies_id"
-    t.index ["prenda_torso_id"], name: "index_atuendos_on_prenda_torso_id"
+    t.string "etiquetas"
+    t.index ["cabeza_id"], name: "index_atuendos_on_cabeza_id"
+    t.index ["piernas_id"], name: "index_atuendos_on_piernas_id"
+    t.index ["pies_id"], name: "index_atuendos_on_pies_id"
+    t.index ["torso_id"], name: "index_atuendos_on_torso_id"
   end
 
   create_table "guardarropas", force: :cascade do |t|
