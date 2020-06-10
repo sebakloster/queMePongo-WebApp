@@ -1,3 +1,5 @@
 <% @guardarropa.prendas.each do |p| %>
   <%= render 'prenda', prenda: p %>
 <%end%>
+<%=@guardarropa.id%>
+<a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos/new">Crea un atuendo</a>
