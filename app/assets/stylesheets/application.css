@@ -204,6 +204,11 @@ body main .btn-default:hover {
       -ms-flex: 2 1 40rem;
           flex: 2 1 40rem;
   margin: 6em;
+  width: 100%;
+}
+
+.main-section .prendas-index .container_new_atuendos {
+  width: 100%;
 }
 
 .card-wrapper {
@@ -211,6 +216,11 @@ body main .btn-default:hover {
   display: -ms-flexbox;
   display: flex;
   padding: 1.5rem;
+}
+
+.container_prenda_atuendos {
+  display: inline-block;
+  width: 90%;
 }
 
 .hero-img {
@@ -236,8 +246,7 @@ body main .btn-default:hover {
   left: -20%;
   -webkit-transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
           transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
-  animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
- plant-shake 2.5s infinite ease alternate-reverse 2s;
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards, plant-shake 2.5s infinite ease alternate-reverse 2s;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   max-height: 80%;
@@ -299,12 +308,12 @@ body main .btn-default:hover {
 }
 
 .card .title--epic {
-  background-color: #D35400 ;
+  background-color: #8c14fc;
 }
 
 .card .title--epic:hover {
-  -webkit-box-shadow: 0 0 12px #D35400 ;
-          box-shadow: 0 0 12px #D35400;
+  -webkit-box-shadow: 0 0 12px rgba(140, 20, 252, 0.8);
+          box-shadow: 0 0 12px rgba(140, 20, 252, 0.8);
 }
 
 .card .title--common {

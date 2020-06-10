@@ -63,16 +63,24 @@ body {
     justify-content: center;
     flex: 2 1 40rem;
     margin: 6em;
+    width: 100%;
+    .container_new_atuendos{
+      width: 100%;
+    }
   }
  
 }
-
 
 
 .card-wrapper {
   display: flex;
   padding: 1.5rem;
 }
+.container_prenda_atuendos{
+  display: inline-block;
+  width: 90%;
+}
+
 .hero-img {
   flex: 1 1 40rem;
   background: linear-gradient(#dad8dd, #dad1d4);
