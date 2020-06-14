@@ -1,7 +1,13 @@
-<% @guardarropas.each do |p| %>
-  <%= render 'guardarropa', guardarropa: p %>
-<%end%>
-
+<div class=" margin-container">
+  <div class="row center">
+    <h2>Guardarropas</h2>
+  </div>
+  <div class="row">
+    <% @guardarropas.each do |p| %>
+      <%= render 'guardarropa', guardarropa: p %>
+    <%end%>
+  </div>
+<div>
 <a href="/guardarropas/new" class="link-nueva-prenda">
   <i class="fa fa-plus"></i>
 </a>

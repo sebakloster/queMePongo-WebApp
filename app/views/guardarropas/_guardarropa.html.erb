@@ -1,17 +1,11 @@
-<div class="card-wrapper">
-  <div class="card">
-    <div class="title title--epic"><%= guardarropa.name %></div>
-    <div class="actions">
-      <%= link_to "Edit", action: :edit, id: guardarropa.id %>
-      <%= link_to "Show", action: :show, id: guardarropa.id %>
-      <%= link_to "Destroy", guardarropa, method: :delete %>
-      <%
-=begin%>
-      <button class="actions__like">editar &nbsp; <i class="fas fa-heart"></i> </button>
-      <button class="actions__trade">mostrar &nbsp; <i class="fas fa-exchange-alt"></i> </button>
-      <button class="actions__cancel">borrar &nbsp; <i class="fas fa-times"></i> </button>
-      <%
-=end%>
+<div class="col-md-3 ">
+    <div class="card">
+        <div class="title title--epic"><%= guardarropa.name %></div>
+        <div class="actions">
+            <%= link_to "", { :controller => :guardarropas, :action => :edit, id: guardarropa.id }, { class: "fa fa-pencil-square-o"} %>
+            <%= link_to "", { :controller => :guardarropas, :action => :show, id: guardarropa.id }, { class: "fa fa-eye"} %>
+            <%= link_to "", guardarropa, method: :delete, :class =>"fa fa-times" %>
+        </div>
     </div>
-  </div>
+
 </div>

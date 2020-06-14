@@ -1,6 +1,5 @@
-<section class="section-form">
-  <div class="container-form">
-    <div>
+<section class="row center margin-container">
+  <div>
       <h2>Edicion de prenda</h2>
       <%= form_for @prenda, :url => { :action => "update", :id => @prenda.id }, :method => :put do |f| %>
         <p class="form-group">
@@ -29,5 +28,4 @@
         </p>
       <% end %>
     </div>
-  </div>
 </section>

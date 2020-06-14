@@ -1,4 +1,4 @@
-<div class="card-wrapper container_prenda_atuendos">
+<div class="container_prenda_atuendos">
   <div class="card">
     <div class="title title--epic"><%= prenda.prenda_tipo.tipo %></div>
     <h2><%= prenda.tela %></h2>
@@ -7,16 +7,9 @@
       Guardarropa: <%= prenda.guardarropa.name %>
     </div>
     <div class="actions">
-      <%= link_to "Edit", action: :edit, id: prenda.id %>
-      <%= link_to "Show", action: :show, id: prenda.id %>
-      <%= link_to "Destroy", prenda, method: :delete %>
-      
+      <%= link_to "", { :controller => :prendas, :action => :edit, id: prenda.id }, { class: "fa fa-pencil-square-o"} %>
+      <%= link_to "", { :controller => :prendas, :action => :show, id: prenda.id }, { class: "fa fa-eye"} %>
+      <%= link_to "", prenda, method: :delete, :class =>"fa fa-times" %>
     </div>
   </div>
 </div>
-<!--
-
-      
-      
-
-      -->
