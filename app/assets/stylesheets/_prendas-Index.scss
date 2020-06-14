@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
 
-*,
+/* *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
-
+ */
 body {
-  height: 100vh;
+/*   height: 100vh;
 
   box-sizing: border-box;
   font-family: "Roboto", "Sans-serif";
-  background-color: whitesmoke;
+  background-color: whitesmoke; */
 
     a.link-nueva-prenda{
       border-radius: 50%;
@@ -54,16 +54,16 @@ body {
 }
 
 .main-section {
-  display: flex;
-  overflow: hidden;
+ /*  display: flex;
+  overflow: hidden; */
   .prendas-index {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     flex: 2 1 40rem;
     margin: 6em;
-    width: 100%;
+    width: 100%; */
     .container_new_atuendos{
       width: 100%;
     }
@@ -109,12 +109,12 @@ body {
 
 .card {
   margin: 1rem;
-  width: 200px;
+ /*  width: 200px; */
   height: 250px;
   padding: 0.5rem 1rem;
-  background-color: #f9f9f9;
+ /*  background-color: #f9f9f9; */
   border-radius: 8px;
-  box-shadow: 0 12px 32px 4px rgba(black, 0.2);
+  box-shadow: 0 12px 32px 4px rgba(black, 0.15);
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -1,5 +1,11 @@
-<% @guardarropa.prendas.each do |p| %>
-  <%= render 'prenda', prenda: p %>
-<%end%>
-<%=@guardarropa.id%>
+<div class=" margin-container">
+  <div class="row center">
+    <h2>Prendas</h2>
+  </div>
+  <div class="row">
+    <% @guardarropa.prendas.each do |p| %>
+      <%= render 'prenda', prenda: p %>
+    <%end%>
+  </div>
+</div>
 <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos/new">Crea un atuendo</a>

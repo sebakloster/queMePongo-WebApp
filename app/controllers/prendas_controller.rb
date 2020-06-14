@@ -41,8 +41,10 @@ class PrendasController < ApplicationController
   end
 
   def destroy
+    @prenda = Prenda.find(params[:id])
+    @guardarropa = Guardarropa.find(@prenda.guardarropa_id)
     Prenda.destroy(params[:id])
-    redirect_to action: :index
+    redirect_to @guardarropa
   end
 
   private

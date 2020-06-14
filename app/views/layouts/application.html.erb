@@ -23,8 +23,8 @@
         <ul class="nav-links">
           <li><a href="#about" class="text-dark no-underline">Nosotros</a></li>
           <li>
-            <a href="/prendas" class="text-dark no-underline"
-        >Prendas</a
+            <a href="/guardarropas" class="text-dark no-underline"
+        >Guardarropas</a
       >
           </li>
           <li>
@@ -40,19 +40,8 @@
       </div>
     </header>
     <main>
-      <section class="main-section">
-        <%
-=begin%>
-        <div class="hero-img">
-          <div class="hero-cindy"><%=image_tag("cindy-Sherman.png")%></div>
-          <div class="plant1 plant" ><%=image_tag("plant1.png")%></div>
-          <div class="plant2 plant"><%=image_tag("plant2.png")%></div>
-        </div>
-        <%
-=end%>
-        <div class="prendas-index">
+      <section class="container">
           <%= yield %>
-        </div>
       </section>
     </main>
   </body>
