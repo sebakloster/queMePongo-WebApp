@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200614224241) do
+ActiveRecord::Schema.define(version: 20200615155348) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "torso_id"
@@ -18,10 +18,7 @@ ActiveRecord::Schema.define(version: 20200614224241) do
     t.integer "piernas_id"
     t.integer "pies_id"
     t.integer "puntaje"
-    t.integer "etiqueta_estacion"
-    t.integer "etiqueta_tiempo"
-    t.integer "etiqueta_formalidad"
-    t.text "descripcion"
+    t.string "etiquetas"
     t.index ["cabeza_id"], name: "index_atuendos_on_cabeza_id"
     t.index ["piernas_id"], name: "index_atuendos_on_piernas_id"
     t.index ["pies_id"], name: "index_atuendos_on_pies_id"
@@ -44,6 +41,7 @@ ActiveRecord::Schema.define(version: 20200614224241) do
     t.integer "prenda_tipo_id"
     t.integer "guardarropa_id"
     t.integer "tela"
+    t.index ["color_primario", "color_secundario"], name: "index_prendas_on_color_primario_and_color_secundario", unique: true
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
   end
