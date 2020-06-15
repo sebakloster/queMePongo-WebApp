@@ -8,4 +8,6 @@ class Prenda < ApplicationRecord
     validates :tela, presence: true
     validates :color_primario, presence: true
     validates :color_secundario, presence: true
+
+   # validates :color_secundario, uniqueness: { scope: :color_primario }
 end
