@@ -25,6 +25,6 @@ class AtuendosController < ApplicationController
     end
 
     def atuendos_params
-        params.require(:atuendo).permit(:guardarropa_id, :cabeza_id, :torso_id, :pies_id, :piernas_id)
+        params.require(:atuendo).permit(:guardarropa_id, :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion)
     end
 end

@@ -4,43 +4,70 @@
 
     <%= form_for @atuendo, :url => { :action => "create" } do |f| %>
     <div class="row">
-        <div class="col-md-3">
-            <h3 class="text-center">Cabeza</h3>
-            <% @prendas_cabeza.each do |p| %>
-            <%= f.radio_button :cabeza_id, p.id %>
-            <%= render 'prenda', prenda: p %>
-            <%end%>
+      <div class="col-md">
+        <h3 class="text-center">Cabeza</h3>
+        <% @prendas_cabeza.each do |p| %> <%= f.radio_button :cabeza_id, p.id %>
+        <%= render 'prenda', prenda: p %> <%end%>
+      </div>
+      <div class="col-md">
+        <h3 class="text-center">Torso</h3>
+        <% @prendas_torso.each do |p| %>
+        <div>
+          <%= f.radio_button :torso_id, p.id %> <%= render 'prenda', prenda: p
+          %>
         </div>
-        <div class="col-md-3">
-            <h3 class="text-center">Torso</h3>
-            <% @prendas_torso.each do |p| %>
-            <div>
-                <%= f.radio_button :torso_id, p.id %>
-                <%= render 'prenda', prenda: p %>
-            </div>
 
-            <%end%>
-        </div>
-        <div class="col-md-3">
-            <h3 class="text-center">Piernas</h3>
-            <% @prendas_piernas.each do |p| %>
-            <%= f.radio_button :piernas_id, p.id %>
-            <%= render 'prenda', prenda: p %>
-            <%end%>
-        </div>
-        <div class="col-md-3">
-            <h3 class="text-center">Pies</h3>
-            <% @prendas_pies.each do |p| %>
-            <%= f.radio_button :pies_id, p.id %>
-            <%= render 'prenda', prenda: p %>
-            <%end%>
-        </div>
+        <%end%>
+      </div>
+      <div class="col-md">
+        <h3 class="text-center">Piernas</h3>
+        <% @prendas_piernas.each do |p| %> <%= f.radio_button :piernas_id, p.id
+        %> <%= render 'prenda', prenda: p %> <%end%>
+      </div>
+      <div class="col-md">
+        <h3 class="text-center">Pies</h3>
+        <% @prendas_pies.each do |p| %> <%= f.radio_button :pies_id, p.id %> <%=
+        render 'prenda', prenda: p %> <%end%>
+      </div>
+    </div>
+    <div class="etiquetas row">
+      <div class="col-md">
+        <%= f.label :etiqueta_estacion %><br />
+        <%= f.select(:etiqueta_estacion,
+        options_for_select(Atuendo.etiqueta_estacions.keys.to_a),{required:
+        false, :prompt => "seleccione"})%>
+      </div>
+      <div class="col-md">
+        <%= f.label :etiqueta_tiempo %><br />
+        <%= f.select(:etiqueta_tiempo,
+        options_for_select(Atuendo.etiqueta_tiempos.keys.to_a),{required: false,
+        :prompt => "seleccione"})%>
+      </div>
+      <div class="col-md">
+        <%= f.label :etiqueta_formalidad %><br />
+        <%= f.select(:etiqueta_formalidad,
+        options_for_select(Atuendo.etiqueta_formalidads.keys.to_a),{required:
+        false, :prompt => "seleccione"})%>
+      </div>
+    </div>
+    <div class="desc-rating row">
+      <div class="descripcion col-md">
+        <%= f.label :descripcion %> <%= f.text_area(:descripcion) %>
+      </div>
+      <div class="puntaje col-md">
+        <%= f.label :puntaje %><br />
+        <%= f.radio_button :puntaje, 1 %> <%= f.radio_button :puntaje, 2 %> <%=
+        f.radio_button :puntaje, 3 %> <%= f.radio_button :puntaje, 4 %> <%=
+        f.radio_button :puntaje, 5 %> <%= f.radio_button :puntaje, 6 %> <%=
+        f.radio_button :puntaje, 7 %> <%= f.radio_button :puntaje, 8 %> <%=
+        f.radio_button :puntaje, 9 %> <%= f.radio_button :puntaje, 10 %>
+      </div>
     </div>
     <div>
-        <p class="container-btn-default">
-            <%= f.submit :class=>'btn  btn-default' %>
-        </p>
+      <p class="container-btn-default">
+        <%= f.submit :class=>'btn btn-default' %>
+      </p>
     </div>
     <% end %>
-</div>
+  </div>
 </section>
