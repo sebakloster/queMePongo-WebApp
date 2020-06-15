@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200615185414) do
+ActiveRecord::Schema.define(version: 20200615183722) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "torso_id"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20200615185414) do
   end
 
   create_table "prendas", force: :cascade do |t|
-    t.integer "categoria"
     t.string "color_primario"
     t.string "color_secundario"
     t.integer "prenda_tipo_id"

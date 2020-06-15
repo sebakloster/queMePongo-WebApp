@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-3">
             <h3 class="text-center">Cabeza</h3>
-            <% if @prendas_cabeza.length == 0  %>
+            <% if @prendas_cabeza.blank?  %>
                 <div class="col-sm-12 container-empty">
                 <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
                 </div>
@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-3">
             <h3 class="text-center">Torso</h3>
-            <% if @prendas_torso.length == 0  %>
+            <% if @prendas_torso.blank? %>
                 <div class="col-sm-12 container-empty">
                 <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
                 </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="col-md-3">
             <h3 class="text-center">Piernas</h3>
-            <% if @prendas_piernas.length == 0  %>
+            <% if @prendas_piernas.blank?  %>
                 <div class="col-sm-12 container-empty">
                 <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
                 </div>
@@ -48,7 +48,7 @@
         </div>
         <div class="col-md-3">
             <h3 class="text-center">Pies</h3>
-            <% if @prendas_pies.length == 0  %>
+            <% if @prendas_pies.blank?  %>
                 <div class="col-sm-12 container-empty">
                 <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
                 </div>
@@ -60,30 +60,30 @@
             <%end%>
         </div>
     </div>
-    <div class="etiquetas row">
-      <div class="col-md">
+    <div class="etiquetas row form-group">
+      <div class="col-md-4">
         <%= f.label :etiqueta_estacion %><br />
         <%= f.select(:etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a),{required:
-        false, :prompt => "seleccione"})%>
+        false, :prompt => "seleccione"}, {:class => 'form-control'})%>
       </div>
-      <div class="col-md">
+      <div class="col-md-4">
         <%= f.label :etiqueta_tiempo %><br />
         <%= f.select(:etiqueta_tiempo,
         options_for_select(Atuendo.etiqueta_tiempos.keys.to_a),{required: false,
-        :prompt => "seleccione"})%>
+        :prompt => "seleccione"}, {:class => 'form-control'})%>
       </div>
-      <div class="col-md">
+      <div class="col-md-4">
         <%= f.label :etiqueta_formalidad %><br />
         <%= f.select(:etiqueta_formalidad,
         options_for_select(Atuendo.etiqueta_formalidads.keys.to_a),{required:
-        false, :prompt => "seleccione"})%>
+        false, :prompt => "seleccione"}, {:class => 'form-control'})%>
       </div>
     </div>
-    <div class="desc-rating row">
-      <div class="descripcion col-md">
-        <%= f.label :descripcion %> <%= f.text_area(:descripcion) %>
+    <div class="desc-rating row form-group">
+      <div class="descripcion col-md-6">
+        <%= f.label :descripcion %> <%= f.text_area(:descripcion, {:class => 'form-control'}) %>
       </div>
-      <div class="puntaje col-md">
+      <div class="puntaje col-md-6">
         <%= f.label :puntaje %><br />
         <%= f.radio_button :puntaje, 1 %> <%= f.radio_button :puntaje, 2 %> <%=
         f.radio_button :puntaje, 3 %> <%= f.radio_button :puntaje, 4 %> <%=
