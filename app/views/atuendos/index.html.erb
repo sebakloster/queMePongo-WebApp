@@ -3,7 +3,7 @@
         <h2>Atuendos</h2>
     </div>
     <div class="row">
-        <% if @atuendos.length == 0  %>
+        <% if @atuendos.blank?  %>
             <div class="col-sm-12 container-empty">
                 <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay atuendos</span>
             </div>
