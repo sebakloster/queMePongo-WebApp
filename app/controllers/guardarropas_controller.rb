@@ -42,14 +42,6 @@ class GuardarropasController < ApplicationController
       Guardarropa.destroy(params[:id])
       redirect_to action: :index
     end
-    
-    def atuendos 
-      @prendas_cabeza = Prenda.where(prenda_tipo_id: PrendaTipo.cabeza)
-      @prendas_torso = Prenda.where(prenda_tipo_id: PrendaTipo.torso)
-      @prendas_pies = Prenda.where(prenda_tipo_id: PrendaTipo.pies)
-      @prendas_piernas = Prenda.where(prenda_tipo_id: PrendaTipo.piernas)
-      redirect_to action: :index
-    end
 
     def guardarropa_params
         params.require(:guardarropa).permit(:guardarropa_id, :name)

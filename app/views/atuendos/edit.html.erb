@@ -1,0 +1,45 @@
+<section class="row center margin-container">
+  <div class="container_new_atuendos">
+    <h2 class="text-center">Edición de atuendos</h2>
+    <%= form_for @atuendo, :url => { :action => "update" , :id => @atuendo.id}, :method => :put do |f| %>
+    <div class="row">
+        <div class="col-md-3">
+            <h3 class="text-center">Cabeza</h3>
+            <% @prendas_cabeza.each do |p| %>
+                <%= f.radio_button :cabeza_id, p.id %>
+                <%= render 'prenda', prenda: p %>
+            <%end%>
+        </div>
+        <div class="col-md-3">
+            <h3 class="text-center">Torso</h3>
+            <% @prendas_torso.each do |p| %>
+            <div>
+                <%= f.radio_button :torso_id, p.id %>
+                <%= render 'prenda', prenda: p %>
+            </div>
+
+            <%end%>
+        </div>
+        <div class="col-md-3">
+            <h3 class="text-center">Piernas</h3>
+            <% @prendas_piernas.each do |p| %>
+            <%= f.radio_button :piernas_id, p.id %>
+            <%= render 'prenda', prenda: p %>
+            <%end%>
+        </div>
+        <div class="col-md-3">
+            <h3 class="text-center">Pies</h3>
+            <% @prendas_pies.each do |p| %>
+            <%= f.radio_button :pies_id, p.id %>
+            <%= render 'prenda', prenda: p %>
+            <%end%>
+        </div>
+    </div>
+    <div>
+        <p class="container-btn-default">
+            <%= f.submit :class=>'btn  btn-default' %>
+        </p>
+    </div>
+    <% end %>
+</div>
+</section>

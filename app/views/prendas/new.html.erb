@@ -1,5 +1,4 @@
-<section class="section-form">
-  <div class="container-form">
+<section class="row center margin-container">
     <div>
       <h2>Creación de prenda</h2>
       <%= form_for @prenda, :url => { :action => "create" } do |f| %>
@@ -35,6 +34,5 @@
         <%= f.submit :class => 'btn btn-default'%>
       </p>
       <% end %>
-    </div>
   </div>
 </section>
