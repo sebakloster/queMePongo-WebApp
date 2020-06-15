@@ -53,25 +53,6 @@ body {
     }
 }
 
-.main-section {
- /*  display: flex;
-  overflow: hidden; */
-  .prendas-index {
-    /* display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex: 2 1 40rem;
-    margin: 6em;
-    width: 100%; */
-    .container_new_atuendos{
-      width: 100%;
-    }
-  }
- 
-}
-
-
 .card-wrapper {
   display: flex;
   padding: 1.5rem;
@@ -109,10 +90,8 @@ body {
 
 .card {
   margin: 1rem;
- /*  width: 200px; */
   height: 250px;
   padding: 0.5rem 1rem;
- /*  background-color: #f9f9f9; */
   border-radius: 8px;
   box-shadow: 0 12px 32px 4px rgba(black, 0.15);
   display: flex;

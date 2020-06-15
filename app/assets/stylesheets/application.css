@@ -4,14 +4,7 @@
   text-align: center;
   font-size: 20px;
 }
-.center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.margin-container{
-  margin-top: 12%;
-}
+
 /*Global styles*/
 html {
   font-size: 62.5%;
@@ -62,6 +55,35 @@ body {
 
 body .btn-success {
   background-color: #079453;
+}
+
+body .center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .margin-container {
+  margin-top: 12%;
+}
+
+body .container-empty {
+  background: #f2f2f2;
+  padding: 5%;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 11px;
+  margin: 5% 0;
+}
+
+body .container-new-atuendos {
+  width: 100%;
 }
 
 /*NAV BAR*/
@@ -186,25 +208,6 @@ body main .btn-default:hover {
   color: white;
 }
 
-.main-section {
-  /*  display: flex;
-  overflow: hidden; */
-}
-
-.main-section .prendas-index {
-  /* display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    flex: 2 1 40rem;
-    margin: 6em;
-    width: 100%; */
-}
-
-.main-section .prendas-index .container_new_atuendos {
-  width: 100%;
-}
-
 .card-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -240,8 +243,7 @@ body main .btn-default:hover {
   left: -20%;
   -webkit-transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
           transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
-  animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
- plant-shake 2.5s infinite ease alternate-reverse 2s;
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards, plant-shake 2.5s infinite ease alternate-reverse 2s;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   max-height: 80%;
@@ -253,10 +255,8 @@ body main .btn-default:hover {
 
 .card {
   margin: 1rem;
-  /*  width: 200px; */
   height: 250px;
   padding: 0.5rem 1rem;
-  /*  background-color: #f9f9f9; */
   border-radius: 8px;
   -webkit-box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.15);
           box-shadow: 0 12px 32px 4px rgba(0, 0, 0, 0.15);

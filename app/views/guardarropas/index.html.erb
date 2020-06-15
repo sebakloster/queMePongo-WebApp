@@ -3,9 +3,15 @@
     <h2>Guardarropas</h2>
   </div>
   <div class="row">
+  <% if @guardarropas.length == 0  %>
+    <div class="col-sm-12 container-empty">
+      <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay guardarropas</span>
+    </div>
+  <% else %>
     <% @guardarropas.each do |p| %>
       <%= render 'guardarropa', guardarropa: p %>
     <%end%>
+  <%end%>
   </div>
 <div>
 <a href="/guardarropas/new" class="link-nueva-prenda">

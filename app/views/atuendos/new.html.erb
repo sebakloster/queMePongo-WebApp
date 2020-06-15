@@ -1,38 +1,62 @@
 <section class="row center margin-container">
-  <div class="container_new_atuendos">
+  <div class="container-new-atuendos">
     <h2 class="text-center">Creación de atuendos</h2>
 
     <%= form_for @atuendo, :url => { :action => "create" } do |f| %>
     <div class="row">
         <div class="col-md-3">
             <h3 class="text-center">Cabeza</h3>
-            <% @prendas_cabeza.each do |p| %>
-            <%= f.radio_button :cabeza_id, p.id %>
-            <%= render 'prenda', prenda: p %>
+            <% if @prendas_cabeza.length == 0  %>
+                <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
+                </div>
+            <% else %>
+                <% @prendas_cabeza.each do |p| %>
+                    <%= f.radio_button :cabeza_id, p.id %>
+                    <%= render 'prenda', prenda: p %>
+                <%end%>
             <%end%>
         </div>
         <div class="col-md-3">
             <h3 class="text-center">Torso</h3>
-            <% @prendas_torso.each do |p| %>
-            <div>
-                <%= f.radio_button :torso_id, p.id %>
-                <%= render 'prenda', prenda: p %>
-            </div>
+            <% if @prendas_torso.length == 0  %>
+                <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
+                </div>
+            <% else %>
+                <% @prendas_torso.each do |p| %>
+                <div>
+                    <%= f.radio_button :torso_id, p.id %>
+                    <%= render 'prenda', prenda: p %>
+                </div>
 
+                <%end%>
             <%end%>
         </div>
         <div class="col-md-3">
             <h3 class="text-center">Piernas</h3>
-            <% @prendas_piernas.each do |p| %>
-            <%= f.radio_button :piernas_id, p.id %>
-            <%= render 'prenda', prenda: p %>
+            <% if @prendas_piernas.length == 0  %>
+                <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
+                </div>
+            <% else %>
+                <% @prendas_piernas.each do |p| %>
+                <%= f.radio_button :piernas_id, p.id %>
+                <%= render 'prenda', prenda: p %>
+                <%end%>
             <%end%>
         </div>
         <div class="col-md-3">
             <h3 class="text-center">Pies</h3>
-            <% @prendas_pies.each do |p| %>
-            <%= f.radio_button :pies_id, p.id %>
-            <%= render 'prenda', prenda: p %>
+            <% if @prendas_pies.length == 0  %>
+                <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas de este tipo</span>
+                </div>
+            <% else %>
+                <% @prendas_pies.each do |p| %>
+                <%= f.radio_button :pies_id, p.id %>
+                <%= render 'prenda', prenda: p %>
+                <%end%>
             <%end%>
         </div>
     </div>

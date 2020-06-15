@@ -7,21 +7,14 @@ class PrendasController < ApplicationController
     @prenda = Prenda.find(params[:id])
   end
 
-  def index
-    @prendas = Prenda.all
-  end
-
-  def show
-    @prenda = Prenda.find(params[:id])
-  end
-
   def create
     @prenda=Prenda.create(prenda_params)
     @prenda.prenda_tipo_id = prenda_params[:prenda_tipo_id]
     @prenda.guardarropa_id = prenda_params[:guardarropa_id]
     if @prenda.save
       flash[:success]="La prenda se guardó correctamente!"
-      redirect_to @prenda
+      @guardarropa = Guardarropa.find(prenda_params[:guardarropa_id])
+      redirect_to @guardarropa
     else
       flash[:error]="La prenda no se guardó :("
       render :new

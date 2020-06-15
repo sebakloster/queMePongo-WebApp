@@ -3,10 +3,20 @@
     <h2>Prendas</h2>
   </div>
   <div class="row">
+  <% if @guardarropa.prendas.length == 0  %>
+    <div class="col-sm-12 container-empty">
+      <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas</span>
+    </div>
+  <% else %>
     <% @guardarropa.prendas.each do |p| %>
       <%= render 'prenda', prenda: p %>
     <%end%>
+  <% end %>
+    
   </div>
 </div>
 <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos/new">Crea un atuendo</a>
 <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos">Ver atuendos</a>
+<a href="/prendas/new" class="link-nueva-prenda">
+  <i class="fa fa-plus"></i>
+</a>

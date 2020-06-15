@@ -52,4 +52,23 @@ body {
   .btn-success{
     background-color: #079453;
   }
+  .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .margin-container{
+    margin-top: 12%;
+  }
+  .container-empty{
+    background: #f2f2f2;
+    padding: 5%;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 11px;
+    margin: 5% 0;
+  }
+  .container-new-atuendos{
+    width: 100%;
+  }
 }

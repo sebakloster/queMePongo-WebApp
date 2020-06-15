@@ -1,7 +1,7 @@
 class AtuendosController < ApplicationController
     def index
         
-        @atuendos = Atuendo.joins("INNER JOIN prendas ON prendas.id = atuendos.cabeza_id AND prendas.guardarropa_id = 3")
+        @atuendos = Atuendo.all
         logger.info('-antes-');
         logger.info(@atuendos);
     end
@@ -37,16 +37,12 @@ class AtuendosController < ApplicationController
       @atuendo= Atuendo.new
     end
 
-    def show
-        @atuendo = Atuendo.find(params[:id])
-    end
-
     def create
         
         @atuendo = Atuendo.create(atuendos_params);
         if @atuendo.save
             flash[:success]="El atuendo se guardó correctamente!"
-            redirect_to @atuendo
+            redirect_to action: :index
         else
             flash[:error]="El atuendo no se guardó :("
             render :new
