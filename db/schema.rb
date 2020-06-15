@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200606181433) do
+ActiveRecord::Schema.define(version: 20200614224241) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "torso_id"
@@ -18,7 +18,10 @@ ActiveRecord::Schema.define(version: 20200606181433) do
     t.integer "piernas_id"
     t.integer "pies_id"
     t.integer "puntaje"
-    t.string "etiquetas"
+    t.integer "etiqueta_estacion"
+    t.integer "etiqueta_tiempo"
+    t.integer "etiqueta_formalidad"
+    t.text "descripcion"
     t.index ["cabeza_id"], name: "index_atuendos_on_cabeza_id"
     t.index ["piernas_id"], name: "index_atuendos_on_piernas_id"
     t.index ["pies_id"], name: "index_atuendos_on_pies_id"
@@ -35,6 +38,7 @@ ActiveRecord::Schema.define(version: 20200606181433) do
   end
 
   create_table "prendas", force: :cascade do |t|
+    t.integer "categoria"
     t.string "color_primario"
     t.string "color_secundario"
     t.integer "prenda_tipo_id"

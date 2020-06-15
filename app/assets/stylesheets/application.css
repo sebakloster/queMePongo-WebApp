@@ -243,7 +243,8 @@ body main .btn-default:hover {
   left: -20%;
   -webkit-transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
           transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
-  animation: plant-entrance 1.5s ease-in-out 0.5s forwards, plant-shake 2.5s infinite ease alternate-reverse 2s;
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
+ plant-shake 2.5s infinite ease alternate-reverse 2s;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   max-height: 80%;
@@ -480,3 +481,52 @@ button::-moz-focus-inner {
 @media screen and (max-width: 320px) {
 }
 */
+.desc-rating {
+  margin: 2rem;
+}
+
+.desc-rating .descripcion,
+.desc-rating .puntaje {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.desc-rating .descripcion label,
+.desc-rating .puntaje label {
+  padding: 0rem 1rem;
+}
+
+.desc-rating .descripcion {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.etiquetas {
+  margin: 2rem;
+}
+
+.etiquetas .col-md {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=application.css.map */
