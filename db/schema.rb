@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200615190611) do
+ActiveRecord::Schema.define(version: 20200615185414) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "torso_id"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20200615190611) do
     t.integer "prenda_tipo_id"
     t.integer "guardarropa_id"
     t.integer "tela"
-    t.index ["color_primario", "color_secundario"], name: "index_prendas_on_color_primario_and_color_secundario", unique: true
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
   end
