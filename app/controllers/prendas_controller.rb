@@ -8,16 +8,24 @@ class PrendasController < ApplicationController
   end
 
   def create
-    @prenda=Prenda.create(prenda_params)
-    @prenda.prenda_tipo_id = prenda_params[:prenda_tipo_id]
-    @prenda.guardarropa_id = prenda_params[:guardarropa_id]
-    if @prenda.save
-      flash[:success]="La prenda se guardó correctamente!"
-      @guardarropa = Guardarropa.find(prenda_params[:guardarropa_id])
-      redirect_to @guardarropa
+
+    if (prenda_params[:color_primario] != prenda_params[:color_secundario])
+      @prenda=Prenda.create(prenda_params)
+      @prenda.prenda_tipo_id = prenda_params[:prenda_tipo_id]
+      @prenda.guardarropa_id = prenda_params[:guardarropa_id]
+   
+
+      if @prenda.save
+        flash[:success]="La prenda se guardó correctamente!"
+        @guardarropa = Guardarropa.find(prenda_params[:guardarropa_id])
+        redirect_to @guardarropa
+      else
+        flash[:error]="La prenda no se guardó :("
+        render :new
+      end
     else
-      flash[:error]="La prenda no se guardó :("
-      render :new
+    flash[:error]="Los colores deben ser distintos."
+    redirect_to prendas_path
     end
   end
 
