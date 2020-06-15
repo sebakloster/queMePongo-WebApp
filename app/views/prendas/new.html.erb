@@ -3,31 +3,37 @@
     <div>
       <h2>Creación de prenda</h2>
       <%= form_for @prenda, :url => { :action => "create" } do |f| %>
-        <p class="form-group">
-          <%= f.label :prenda_tipo_id %><br>
-          <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :tipo, { :prompt => "Elija el tipo de Prenda" }, { :class => "form-control",required: true  }%>
-          <!--  <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.tipos.keys.to_a),required: true, :class => 'form-control')%> -->
-        </p>
-        <p class="form-group">
-          <%= f.label :tela %><br>
-          <%= f.select(:tela, options_for_select(Prenda.telas.keys.to_a),{required: true},{:class => 'form-control'})%>
-        </p>
-        <p class="form-group">
-          <%= f.label :color_primario %><br>
-          <%= f.color_field :color_primario ,required: true, :class => 'form-control', :id => 'container_color_primario' %>
-        </p>
-        <p class="form-group">
-          <%= f.label :color_secundario %><br>
-          <%= f.color_field :color_secundario ,required: true, :class => 'form-control', :value => '#FFFFFF',:id => 'container_color_secundario'%>
-        </p>
-        <p class="form-group">
-          <%= f.label :guardarropa_id %><br>
-          <%= f.collection_select :guardarropa_id, Guardarropa.all, :id, :name, { :prompt => "Elija un guardarropas" }, { :class => "form-control" ,required: true} %>
-          <!--  <%= f.select(:prenda_tipo, options_for_select(PrendaTipo.tipos.keys.to_a),required: true, :class => 'form-control')%> -->
-        </p>
-        <p class="container-btn-default">
-          <%= f.submit :class => 'btn btn-default'%>
-        </p>
+      <p class="form-group">
+        <%= f.label :prenda_tipo_id %><br />
+        <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :tipo,
+        {:prompt => "Elija el tipo de Prenda" }, { :class =>"form-control",
+        required: true} %>
+      </p>
+      <p class="form-group">
+        <%= f.label :tela %><br />
+        <%= f.select(:tela, options_for_select(Prenda.telas.keys.to_a),
+        {required: true}, {:class => 'form-control'})%>
+      </p>
+      <p class="form-group">
+        <%= f.label :color_primario %><br />
+        <%= f.color_field :color_primario ,required: true, :class=>
+        'form-control', :id => 'container_color_primario' %>
+      </p>
+      <p class="form-group">
+        <%= f.label :color_secundario %><br />
+        <%= f.color_field :color_secundario ,required: true, :class =>
+        'form-control', :value => '#FFFFFF',:id =>
+        'container_color_secundario'%>
+      </p>
+      <p class="form-group">
+        <%= f.label :guardarropa_id %><br />
+        <%= f.collection_select :guardarropa_id, Guardarropa.all, :id, :name,
+        {:prompt => "Elija un guardarropas" }, { :class => "form-control",
+        required: true} %>
+      </p>
+      <p class="container-btn-default">
+        <%= f.submit :class => 'btn btn-default'%>
+      </p>
       <% end %>
     </div>
   </div>
