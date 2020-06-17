@@ -58,7 +58,7 @@ class AtuendosController < ApplicationController
     end
 
     def show
-        @atuendo = Atuendo.find(params[:id])
+        @atuendo= Atuendo.find(params[:id].to_i)
     end
 
     def new
