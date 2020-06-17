@@ -1,0 +1,28 @@
+<section class="row center margin-container">
+    <div class="col-md-12">
+      <h2>Creación de guardarropa</h2>
+        <%= form_for @atuendo, :url => { :action => "create" } do |f| %>
+        <div class="row">
+            <div class="col-md-3">
+                <%= render 'prenda', prenda: @prendas_cabeza_selected %>
+                <%= f.hidden_field :cabeza_id, :value => @prendas_cabeza_selected.id %>
+            </div>
+            <div class="col-md-3">
+                <%= render 'prenda', prenda: @prendas_torso_selected %>
+                <%= f.hidden_field :torso_id, :value => @prendas_torso_selected.id %>
+            </div>
+            <div class="col-md-3">
+                <%= render 'prenda', prenda: @prendas_piernas_selected %>
+                <%= f.hidden_field :piernas_id, :value => @prendas_piernas_selected.id %>
+            </div>
+            <div class="col-md-3">
+                <%= render 'prenda', prenda: @prendas_pies_selected %>
+                <%= f.hidden_field :pies_id, :value => @prendas_pies_selected.id %>
+            </div>
+            <p class="container-btn-default">
+                <%= f.submit :class => 'btn btn-default', :value => 'Te gustó? Haz click acá para guardar'%>
+                <a type="button" class="btn btn-primary" href="/guardarropas/<%= @prendas_pies_selected.guardarropa_id %>/atuendos-generate">Generar otro</a>
+            </p>
+        </div>
+        <% end %>
+</section>

@@ -1,9 +1,7 @@
 class AtuendosController < ApplicationController
-    def index
-        
+    def index        
         @atuendos = Atuendo.all
-        logger.info('-antes-');
-        logger.info(@atuendos);
+        @guardarropa = Guardarropa.find(params[:guardarropa_id])
     end
 
     def edit
@@ -19,10 +17,7 @@ class AtuendosController < ApplicationController
   
         if @atuendo.update(atuendos_params)
             flash[:success]="El atuendo se actualizó correctamente!"
-        
-            @atuendos = Atuendo.joins("INNER JOIN prendas ON prendas.id = atuendos.cabeza_id AND prendas.guardarropa_id = 3")
-        
-            render :index
+            render :show
         else
             flash[:error]="El atuendo no se actualizó :("
             render :edit
@@ -40,21 +35,8 @@ class AtuendosController < ApplicationController
         @prendas_torso_selected = @prendas_torso.sample
         @prendas_piernas_selected = @prendas_piernas.sample
         @prendas_pies_selected = @prendas_pies.sample
-
-        @atuendo = Atuendo.create({
-            cabeza_id: @prendas_cabeza_selected.id,
-            torso_id: @prendas_torso_selected.id,
-            piernas_id: @prendas_piernas_selected.id,
-            pies_id: @prendas_pies_selected.id
-        })
-
-        if @atuendo.save
-            flash[:success]="El atuendo se guardó correctamente!"
-            render :show
-        else
-            flash[:error]="El atuendo no se guardó :("
-            render :new
-        end
+        
+        @atuendo= Atuendo.new
     end
 
     def show
