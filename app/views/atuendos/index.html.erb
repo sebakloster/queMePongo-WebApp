@@ -1,16 +1,14 @@
 <div class=" margin-container">
-    <div class="row center">
-        <h2>Atuendos</h2>
+    <div class="row center p-4">
+        <h1>Atuendos</h1>
     </div>
-    <div class="row">
+    <div class="row atuendos-wrapper">
         <% if @atuendos.blank?  %>
         <div class="col-sm-12 container-empty">
             <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay atuendos</span>
         </div>
         <% else %>
         <% @atuendos.each do |p| %>
-        <%= p.id %>
-        <%= link_to "", { :controller => :atuendos, :action => :edit, id: p.id }, { class: "fa fa-pencil-square-o"} %>
         <%= render 'atuendo', atuendo: p %>
         <%end%>
         <%end%>

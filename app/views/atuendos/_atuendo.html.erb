@@ -1,14 +1,67 @@
-<div class="row">
-    <div class="col-md">
-        <%= render 'prenda', prenda: atuendo.cabeza %>
+<div class="row center p-5 ">
+    <h3 class="mx-3">Atuendo <%= atuendo.id %> </h3>
+    <div class="actions">
+        <%= link_to "", { :controller => :atuendos, :action => :edit, id: atuendo.id }, { class: "fa fa-pencil-square-o"} %>
+        <%= link_to "", { :controller => :atuendos, :action => :show, id: atuendo.id }, { class: "fa fa-eye"} %>
+        <%= link_to "", guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id),class: "fa fa-times", method: :delete, data: { confirm: '¿Estas Seguro?' } %>
     </div>
-    <div class="col-md">
-        <%= render 'prenda', prenda: atuendo.torso %>
+</div>
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-3">
+            <% if atuendo.cabeza.blank?  %>
+            <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+            </div>
+            <% else %>
+            <%= render 'prenda', prenda: atuendo.cabeza %>
+            <%end%>
+        </div>
+        <div class="col-md-3">
+            <% if atuendo.torso.blank?  %>
+            <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+            </div>
+            <% else %>
+            <%= render 'prenda', prenda: atuendo.torso %>
+            <%end%>
+        </div>
+        <div class="col-md-3">
+            <% if atuendo.piernas.blank?  %>
+            <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+            </div>
+            <% else %>
+            <%= render 'prenda', prenda: atuendo.piernas %>
+            <%end%>
+        </div>
+        <div class="col-md-3">
+            <% if atuendo.pies.blank?  %>
+            <div class="col-sm-12 container-empty">
+                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+            </div>
+            <% else %>
+            <%= render 'prenda', prenda: atuendo.pies %>
+            <%end%>
+        </div>
     </div>
-    <div class="col-md">
-        <%= render 'prenda', prenda: atuendo.piernas %>
+    <%
+=begin%>
+    <div class="atuendoInfo-wrapper">
+        <div class="Etiquetas">
+            <h6>Etiquetas:</h6>
+            <%= atuendo.etiqueta_estacion %>
+            <%= atuendo.etiqueta_formalidad %>
+            <%= atuendo.etiqueta_tiempo %>
+        </div>
+        <div class="Descripcion">
+            <h6>Descripcion:</h6> <%= atuendo.descripcion %>
+        </div>
+        <div class="Puntaje">
+            <h6>Puntaje:</h6><%= atuendo.puntaje %>
+        </div>
     </div>
-    <div class="col-md">
-        <%= render 'prenda', prenda: atuendo.pies %>
-    </div>
+    <%
+=end%>
 </div>
