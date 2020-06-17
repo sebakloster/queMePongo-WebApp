@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :prendas, only: [:update, :destroy, :create, :new, :edit]
   resources :guardarropas do
     resources :atuendos
+    get 'atuendos-generate', to: 'atuendos#generate'
   end
   root "guardarropas#index"
 end
