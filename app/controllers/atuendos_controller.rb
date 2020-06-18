@@ -36,6 +36,11 @@ class AtuendosController < ApplicationController
         @prendas_piernas_selected = @prendas_piernas.sample
         @prendas_pies_selected = @prendas_pies.sample
         
+        if(@prendas_cabeza_selected.nil? || @prendas_torso_selected.nil? || @prendas_piernas_selected.nil? ||  @prendas_pies_selected.nil?)
+            flash[:error]="No hay prendas suficientes :("
+            @guardarropa = Guardarropa.find(params[:guardarropa_id])
+            redirect_to @guardarropa
+        end
         @atuendo= Atuendo.new
     end
 
@@ -59,6 +64,10 @@ class AtuendosController < ApplicationController
             redirect_to action: :index
         else
             flash[:error]="El atuendo no se guardó :("
+            @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 1, params[:guardarropa_id])
+            @prendas_torso = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 2, params[:guardarropa_id])
+            @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 3, params[:guardarropa_id])
+            @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 4, params[:guardarropa_id])
             render :new
         end
     end
