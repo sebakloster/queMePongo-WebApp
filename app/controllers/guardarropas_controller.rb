@@ -8,7 +8,7 @@ class GuardarropasController < ApplicationController
     end
   
     def index
-      @guardarropas = Guardarropa.all
+      @guardarropas = Guardarropa.where(user: current_user)
     end
   
     def show
@@ -17,6 +17,7 @@ class GuardarropasController < ApplicationController
   
     def create
       @guardarropa=Guardarropa.create(guardarropa_params);
+      @guardarropa.user_id = current_user.id
       if @guardarropa.save
         flash[:success]="El guardarropa se guardó correctamente!"
         redirect_to @guardarropa
@@ -44,6 +45,6 @@ class GuardarropasController < ApplicationController
     end
 
     def guardarropa_params
-        params.require(:guardarropa).permit(:guardarropa_id, :name)
+        params.require(:guardarropa).permit(:guardarropa_id, :name, :user_id)
     end
 end
