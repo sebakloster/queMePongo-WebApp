@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200615183722) do
+ActiveRecord::Schema.define(version: 20200621204515) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "torso_id"
@@ -22,7 +22,9 @@ ActiveRecord::Schema.define(version: 20200615183722) do
     t.integer "etiqueta_tiempo"
     t.integer "etiqueta_formalidad"
     t.text "descripcion"
+    t.integer "guardarropa_id"
     t.index ["cabeza_id"], name: "index_atuendos_on_cabeza_id"
+    t.index ["guardarropa_id"], name: "index_atuendos_on_guardarropa_id"
     t.index ["piernas_id"], name: "index_atuendos_on_piernas_id"
     t.index ["pies_id"], name: "index_atuendos_on_pies_id"
     t.index ["torso_id"], name: "index_atuendos_on_torso_id"
@@ -30,6 +32,8 @@ ActiveRecord::Schema.define(version: 20200615183722) do
 
   create_table "guardarropas", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_guardarropas_on_user_id"
   end
 
   create_table "prenda_tipos", force: :cascade do |t|
@@ -38,6 +42,7 @@ ActiveRecord::Schema.define(version: 20200615183722) do
   end
 
   create_table "prendas", force: :cascade do |t|
+    t.integer "categoria"
     t.string "color_primario"
     t.string "color_secundario"
     t.integer "prenda_tipo_id"
@@ -45,6 +50,15 @@ ActiveRecord::Schema.define(version: 20200615183722) do
     t.integer "tela"
     t.index ["guardarropa_id"], name: "index_prendas_on_guardarropa_id"
     t.index ["prenda_tipo_id"], name: "index_prendas_on_prenda_tipo_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "admin"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

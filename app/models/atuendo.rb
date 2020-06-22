@@ -3,6 +3,8 @@ class Atuendo < ApplicationRecord
     belongs_to :pies, class_name: "Prenda"
     belongs_to :cabeza, class_name: "Prenda"
     belongs_to :piernas, class_name: "Prenda"
+    belongs_to :guardarropa
+    
 
     enum etiqueta_estacion: [:verano, :invierno, :primavera_otonio] 
     enum etiqueta_tiempo: [:dia, :noche] 

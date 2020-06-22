@@ -9,20 +9,18 @@
   </div>
   
   <div class="row">
-  
-  <% if @guardarropa.prendas.blank?  %>
-    <div class="col-sm-12 container-empty">
-      <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay prendas</span>
-    </div>
-  <% else %>
-    <% @guardarropa.prendas.each do |p| %>
-      <%= render 'prenda', prenda: p %>
-    <%end%>
-  <% end %>
-    
+    <% if @guardarropa.prendas.blank?  %>
+        <div class="col-sm-12 container-empty">
+            <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas</span>
+        </div>
+    <% else %>
+        <% @guardarropa.prendas.each do |p| %>
+        <%= render 'prenda', prenda: p %>
+        <%end%>
+    <% end %>
   </div>
 </div>
 
 <a href="/prendas/new" class="link-nueva-prenda">
-  <i class="fa fa-plus"></i>
+    <i class="fa fa-plus"></i>
 </a>
