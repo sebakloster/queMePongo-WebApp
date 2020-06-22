@@ -1,4 +1,7 @@
 class AtuendosController < ApplicationController
+
+    before_action :finder_guardarropa
+
     def index
         
         @atuendos = Atuendo.all
@@ -45,7 +48,8 @@ class AtuendosController < ApplicationController
             cabeza_id: @prendas_cabeza_selected.id,
             torso_id: @prendas_torso_selected.id,
             piernas_id: @prendas_piernas_selected.id,
-            pies_id: @prendas_pies_selected.id
+            pies_id: @prendas_pies_selected.id,
+            guardarropa_id: @guardarropa.id
         })
 
         if @atuendo.save
@@ -71,7 +75,8 @@ class AtuendosController < ApplicationController
 
     def create
         
-        @atuendo = Atuendo.create(atuendos_params);
+        @atuendo = Atuendo.new(atuendos_params);
+        @atuendo.guardarropa_id = @guardarropa.id
         if @atuendo.save
             flash[:success]="El atuendo se guardó correctamente!"
             redirect_to action: :index
@@ -86,7 +91,12 @@ class AtuendosController < ApplicationController
         redirect_to action: :index
     end
 
+    private
     def atuendos_params
-        params.require(:atuendo).permit(:guardarropa_id, :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion)
+        params.require(:atuendo).permit( :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion)
+    end
+
+    def finder_guardarropa
+    @guardarropa= Guardarropa.find(params[:guardarropa_id])
     end
 end
