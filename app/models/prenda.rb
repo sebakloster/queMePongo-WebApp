@@ -2,6 +2,7 @@ class Prenda < ApplicationRecord
 
     belongs_to :prenda_tipo
     belongs_to :guardarropa
+    belongs_to :user
 
 
     enum tela: [:algodon,:lino,:jean,:cuero,:gabardina]
