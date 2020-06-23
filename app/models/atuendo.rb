@@ -4,6 +4,7 @@ class Atuendo < ApplicationRecord
     belongs_to :cabeza, class_name: "Prenda"
     belongs_to :piernas, class_name: "Prenda"
     belongs_to :guardarropa
+    belongs_to :user
     
 
     enum etiqueta_estacion: [:verano, :invierno, :primavera_otonio] 

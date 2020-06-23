@@ -13,6 +13,7 @@ class PrendasController < ApplicationController
       @prenda=Prenda.create(prenda_params)
       @prenda.prenda_tipo_id = prenda_params[:prenda_tipo_id]
       @prenda.guardarropa_id = prenda_params[:guardarropa_id]
+      @prenda.user_id = current_user.id
    
 
       if @prenda.save
@@ -50,6 +51,6 @@ class PrendasController < ApplicationController
 
   private
     def prenda_params
-      params.require(:prenda).permit(:tela, :color_primario, :color_secundario, :prenda_tipo_id, :guardarropa_id)
+      params.require(:prenda).permit(:tela, :color_primario, :color_secundario, :prenda_tipo_id, :guardarropa_id, :user_id)
     end
 end
