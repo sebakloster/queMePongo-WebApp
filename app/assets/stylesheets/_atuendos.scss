@@ -23,3 +23,65 @@
     flex: 1 1 40rem;
   }
 }
+
+$starColour: #d35401;
+$starHoverColour: #df8046;
+
+.star-rating {
+  font-family: "FontAwesome";
+  margin: 2rem auto;
+
+  > fieldset {
+    border: none;
+    display: inline-block;
+
+    &:not(:checked) {
+      > input {
+        position: absolute;
+
+        clip: rect(0, 0, 0, 0);
+      }
+
+      > label {
+        float: right;
+        width: 1em;
+        padding: 0 0.05em;
+        overflow: hidden;
+        white-space: nowrap;
+        cursor: pointer;
+        font-size: 200%;
+        color: $starColour;
+
+        &:before {
+          content: "\f006  ";
+        }
+
+        &:hover,
+        &:hover ~ label {
+          color: $starHoverColour;
+          text-shadow: 0 0 3px $starHoverColour;
+          &:before {
+            content: "\f005  ";
+          }
+        }
+      }
+    }
+
+    > input:checked {
+      & ~ label {
+        &:before {
+          content: "\f005  ";
+        }
+      }
+    }
+
+    > label:active {
+      position: relative;
+      top: 2px;
+    }
+  }
+}
+fieldset {
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
