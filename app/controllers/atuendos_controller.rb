@@ -44,24 +44,9 @@ class AtuendosController < ApplicationController
             flash[:error]="No hay prendas suficientes :("
             @guardarropa = Guardarropa.find(params[:guardarropa_id])
             redirect_to @guardarropa
-        else    
-        @atuendo = Atuendo.create({
-            cabeza_id: @prendas_cabeza_selected.id,
-            torso_id: @prendas_torso_selected.id,
-            piernas_id: @prendas_piernas_selected.id,
-            pies_id: @prendas_pies_selected.id,
-            guardarropa_id: @guardarropa.id
-        })
-        @atuendo.user_id = current_user.id
-        
-         if @atuendo.save
-            flash[:success]="El atuendo se guardó correctamente!"
-            render :show
-        else
-            flash[:error]="El atuendo no se guardó :("
-            render :new
+       
         end
-        end
+        @atuendo= Atuendo.new
     end
 
     def show
