@@ -86,6 +86,10 @@ body .container-new-atuendos {
   width: 100%;
 }
 
+body .botonera-prendas {
+  padding: 3em;
+}
+
 /*NAV BAR*/
 header {
   background-color: #f5f5f5;
@@ -243,7 +247,8 @@ body main .btn-default:hover {
   left: -20%;
   -webkit-transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
           transform: translateY(10%) rotateZ(-10deg) rotateX(-90deg);
-  animation: plant-entrance 1.5s ease-in-out 0.5s forwards, plant-shake 2.5s infinite ease alternate-reverse 2s;
+  animation: plant-entrance 1.5s ease-in-out 0.5s forwards,
+ plant-shake 2.5s infinite ease alternate-reverse 2s;
   -webkit-transform-origin: bottom;
           transform-origin: bottom;
   max-height: 80%;

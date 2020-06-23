@@ -5,8 +5,7 @@ class AtuendosController < ApplicationController
     def index
         
         @atuendos = Atuendo.all
-        logger.info('-antes-');
-        logger.info(@atuendos);
+        @guardarropa = Guardarropa.find(params[:guardarropa_id])
     end
 
     def edit
@@ -22,10 +21,7 @@ class AtuendosController < ApplicationController
   
         if @atuendo.update(atuendos_params)
             flash[:success]="El atuendo se actualizó correctamente!"
-        
-            @atuendos = Atuendo.joins("INNER JOIN prendas ON prendas.id = atuendos.cabeza_id AND prendas.guardarropa_id = 3")
-        
-            render :index
+            render :show
         else
             flash[:error]="El atuendo no se actualizó :("
             render :edit
@@ -43,7 +39,7 @@ class AtuendosController < ApplicationController
         @prendas_torso_selected = @prendas_torso.sample
         @prendas_piernas_selected = @prendas_piernas.sample
         @prendas_pies_selected = @prendas_pies.sample
-
+      
         @atuendo = Atuendo.create({
             cabeza_id: @prendas_cabeza_selected.id,
             torso_id: @prendas_torso_selected.id,
@@ -52,13 +48,19 @@ class AtuendosController < ApplicationController
             guardarropa_id: @guardarropa.id
         })
         @atuendo.user_id = current_user.id
-        if @atuendo.save
+        if(@prendas_cabeza_selected.nil? || @prendas_torso_selected.nil? || @prendas_piernas_selected.nil? ||  @prendas_pies_selected.nil?)
+            flash[:error]="No hay prendas suficientes :("
+            @guardarropa = Guardarropa.find(params[:guardarropa_id])
+            redirect_to @guardarropa
+        end
+         if @atuendo.save
             flash[:success]="El atuendo se guardó correctamente!"
             render :show
         else
             flash[:error]="El atuendo no se guardó :("
             render :new
         end
+        @atuendo= Atuendo.new
     end
 
     def show
@@ -83,6 +85,10 @@ class AtuendosController < ApplicationController
             redirect_to action: :index
         else
             flash[:error]="El atuendo no se guardó :("
+            @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 1, params[:guardarropa_id])
+            @prendas_torso = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 2, params[:guardarropa_id])
+            @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 3, params[:guardarropa_id])
+            @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 4, params[:guardarropa_id])
             render :new
         end
     end
