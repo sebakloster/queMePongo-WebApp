@@ -1,45 +1,88 @@
 <section class="row center margin-container">
-  <div class="container_new_atuendos">
-    <h2 class="text-center">Edición de atuendos</h2>
-    <%= form_for @atuendo, :url => { :action => "update" , :id => @atuendo.id}, :method => :put do |f| %>
-    <div class="row">
-        <div class="col-md-3">
-            <h3 class="text-center">Cabeza</h3>
-            <% @prendas_cabeza.each do |p| %>
+    <div class="container_new_atuendos">
+        <h2 class="text-center">Edición de atuendos</h2>
+        <%= form_for @atuendo, :url => { :action => "update" , :id => @atuendo.id}, :method => :put do |f| %>
+        <div class="row center form-group m-3">
+            <%= f.label :nombre, {:class => 'm-3'} %>
+            <%= f.text_field :nombre %>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="text-center">Cabeza</h3>
+                <% @prendas_cabeza.each do |p| %>
                 <%= f.radio_button :cabeza_id, p.id %>
                 <%= render 'prenda', prenda: p %>
-            <%end%>
-        </div>
-        <div class="col-md-3">
-            <h3 class="text-center">Torso</h3>
-            <% @prendas_torso.each do |p| %>
-            <div>
-                <%= f.radio_button :torso_id, p.id %>
-                <%= render 'prenda', prenda: p %>
+                <%end%>
             </div>
+            <div class="col-md-3">
+                <h3 class="text-center">Torso</h3>
+                <% @prendas_torso.each do |p| %>
+                <div>
+                    <%= f.radio_button :torso_id, p.id %>
+                    <%= render 'prenda', prenda: p %>
+                </div>
 
-            <%end%>
+                <%end%>
+            </div>
+            <div class="col-md-3">
+                <h3 class="text-center">Piernas</h3>
+                <% @prendas_piernas.each do |p| %>
+                <%= f.radio_button :piernas_id, p.id %>
+                <%= render 'prenda', prenda: p %>
+                <%end%>
+            </div>
+            <div class="col-md-3">
+                <h3 class="text-center">Pies</h3>
+                <% @prendas_pies.each do |p| %>
+                <%= f.radio_button :pies_id, p.id %>
+                <%= render 'prenda', prenda: p %>
+                <%end%>
+            </div>
         </div>
-        <div class="col-md-3">
-            <h3 class="text-center">Piernas</h3>
-            <% @prendas_piernas.each do |p| %>
-            <%= f.radio_button :piernas_id, p.id %>
-            <%= render 'prenda', prenda: p %>
-            <%end%>
+        <div class="etiquetas row form-group">
+            <div class="col-md-4">
+                <%= f.label :etiqueta_estacion %><br />
+                <%= f.select(:etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a),{required:
+        false, :prompt => "seleccione"}, {:class => 'form-control'})%>
+            </div>
+            <div class="col-md-4">
+                <%= f.label :etiqueta_tiempo %><br />
+                <%= f.select(:etiqueta_tiempo,
+        options_for_select(Atuendo.etiqueta_tiempos.keys.to_a),{required: false,
+        :prompt => "seleccione"}, {:class => 'form-control'})%>
+            </div>
+            <div class="col-md-4">
+                <%= f.label :etiqueta_formalidad %><br />
+                <%= f.select(:etiqueta_formalidad,
+        options_for_select(Atuendo.etiqueta_formalidads.keys.to_a),{required:
+        false, :prompt => "seleccione"}, {:class => 'form-control'})%>
+            </div>
         </div>
-        <div class="col-md-3">
-            <h3 class="text-center">Pies</h3>
-            <% @prendas_pies.each do |p| %>
-            <%= f.radio_button :pies_id, p.id %>
-            <%= render 'prenda', prenda: p %>
-            <%end%>
+        <div class="desc-rating row form-group">
+            <div class="descripcion col-md-6">
+                <%= f.label :descripcion %> <%= f.text_area(:descripcion, {:class => 'form-control'}) %>
+            </div>
+            <div class="puntaje col-md-6 star-rating">
+                <%= f.label :puntaje %><br />
+                <fieldset>
+                    <%= f.radio_button :puntaje, 10, {id: "star10"}%><%= label_tag(:star10, "10 star") %>
+                    <%= f.radio_button :puntaje, 9, {id: "star9"} %> <%= label_tag(:star9, "9 star") %>
+                    <%=f.radio_button :puntaje, 8, {id: "star8"} %> <%= label_tag(:star8, "8 star") %>
+                    <%= f.radio_button :puntaje, 7, {id: "star7"} %> <%= label_tag(:star7, "7 star") %>
+                    <%=f.radio_button :puntaje, 6, {id: "star6"} %> <%= label_tag(:star6, "6 star") %>
+                    <%= f.radio_button :puntaje, 5 , {id: "star5"}%> <%= label_tag(:star5, "5 star") %>
+                    <%=f.radio_button :puntaje, 4, {id: "star4"} %> <%= label_tag(:star4, "4 star") %>
+                    <%= f.radio_button :puntaje, 3, {id: "star3"} %><%= label_tag(:star3, "3 star") %>
+                    <%=f.radio_button :puntaje, 2, {id: "star2"}%> <%= label_tag(:star2, "2 star") %>
+                    <%= f.radio_button :puntaje, 1, {id: "star1"} %><%= label_tag(:star1, "1 star") %>
+                </fieldset>
+            </div>
         </div>
+        <div>
+            <p class="container-btn-default">
+                <%= f.submit :class=>'btn  btn-default' %>
+            </p>
+        </div>
+        <% end %>
     </div>
-    <div>
-        <p class="container-btn-default">
-            <%= f.submit :class=>'btn  btn-default' %>
-        </p>
-    </div>
-    <% end %>
-</div>
 </section>
