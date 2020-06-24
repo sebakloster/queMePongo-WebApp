@@ -1,7 +1,11 @@
 <div class=" margin-container">
-    <div class="row center p-4">
-        <h1>Atuendos</h1>
-    </div>
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Guardarropa</li>
+            <li class="breadcrumb-item">Prendas</li>
+            <li class="breadcrumb-item" aria-current="page">Atuendos</li>
+        </ol>
+    </nav>
     <div class="row atuendos-wrapper">
         <% if @atuendos.blank?  %>
         <div class="col-sm-12 container-empty">
@@ -13,7 +17,7 @@
         <%end%>
         <%end%>
     </div>
-<div>
-<a href="/guardarropas/<%= @guardarropa.id %>/atuendos/new" class="link-nueva-prenda">
-  <i class="fa fa-plus"></i>
-</a>
+    <div>
+        <a href="/guardarropas/<%= @guardarropa.id %>/atuendos/new" class="link-nueva-prenda">
+            <i class="fa fa-plus"></i>
+        </a>
