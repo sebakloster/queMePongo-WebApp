@@ -1,8 +1,12 @@
 <section class="row center margin-container">
     <div class="container-new-atuendos">
-        <h2 class="text-center">Creación de atuendos</h2>
+        <h2 class="text-center p-3">Creación de atuendos</h2>
 
         <%= form_for @atuendo, :url => { :action => "create" } do |f| %>
+        <div class="row center form-group m-3">
+            <%= f.label :nombre, {:class => 'm-3'} %>
+            <%= f.text_field :nombre %>
+        </div>
         <div class="row">
             <div class="col-md-3">
                 <h3 class="text-center">Cabeza</h3>
@@ -99,6 +103,7 @@
                 </fieldset>
             </div>
         </div>
+
         <div>
             <p class="container-btn-default">
                 <%= f.submit :class=>'btn btn-default' %>
