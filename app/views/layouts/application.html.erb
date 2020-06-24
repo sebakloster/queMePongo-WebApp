@@ -28,15 +28,18 @@
                 <li>
                     <a href="/guardarropas" class="text-dark no-underline">Guardarropas</a>
                 </li>
-                <li>
-                    <a href="/login" class="text-dark no-underline">Login</a>
-                </li>
-                <li>
-                    <a href="/users/new" class="text-dark no-underline">Sign-Up</a>
-                </li>
-                <li>
-                    <a href="/logout" class="text-dark no-underline">Logout</a>
-                </li>
+                <% if current_user.blank?  %>
+                    <li>
+                        <a href="/login" class="text-dark no-underline">Login</a>
+                    </li>
+                    <li>
+                        <a href="/users/new" class="text-dark no-underline">Sign-Up</a>
+                    </li>
+                <% else %>
+                    <li>
+                        <a href="/logout" class="text-dark no-underline">Logout</a>
+                    </li>
+                <% end %>
             </ul>
         </nav>
         <div class="flashes">
