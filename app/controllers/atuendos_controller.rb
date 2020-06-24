@@ -3,8 +3,25 @@ class AtuendosController < ApplicationController
     before_action :finder_guardarropa
 
     def index
-        @atuendos = Atuendo.where("user_id = ? AND guardarropa_id = ?",current_user.id, params[:guardarropa_id])
+        
+        @atuendos = Atuendo.where("user_id = :user and guardarropa_id = :guardarropa",{user: current_user.id, guardarropa: params[:guardarropa_id]})
+
+        if(!params[:etiqueta_estacion].blank?)
+            @atuendos = @atuendos.where("etiqueta_estacion = :etiqueta", { etiqueta: Atuendo.etiqueta_estacions[params[:etiqueta_estacion]]})
+        end
+
+        if(!params[:etiqueta_formalidad].blank?)
+            @atuendos= @atuendos.where("etiqueta_formalidad = :etiqueta", { etiqueta: Atuendo.etiqueta_formalidads[params[:etiqueta_formalidad]]})
+        end
+
+        if(!params[:etiqueta_tiempo].blank?)
+            @atuendos = @atuendos.where("etiqueta_tiempo = :etiqueta", {etiqueta: Atuendo.etiqueta_tiempos[params[:etiqueta_tiempo]]})
+        end
+        
         @guardarropa = Guardarropa.find(params[:guardarropa_id])
+        @estacion_selected = !params[:etiqueta_estacion].blank? ? params[:etiqueta_estacion] : nil;
+        @tiempo_selected = !params[:etiqueta_tiempo].blank? ? params[:etiqueta_tiempo] : nil;
+        @formalidad_selected = !params[:etiqueta_formalidad].blank? ? params[:etiqueta_formalidad] : nil;
     end
 
     def edit

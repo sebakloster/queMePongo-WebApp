@@ -8,7 +8,24 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-
+        <div class="col-sm-12">
+            <% if(!atuendo.etiqueta_formalidad.blank?) %>
+                <span class="etiquetas-atuendos">
+                    <%= atuendo.etiqueta_formalidad%>
+                </span>
+            <%end%>
+            <% if(!atuendo.etiqueta_estacion.blank?) %>
+                <span class="etiquetas-atuendos">
+                    <%= atuendo.etiqueta_estacion%>
+                </span>
+            <%end%>
+            <% if(!atuendo.etiqueta_tiempo.blank?) %>
+                <span class="etiquetas-atuendos">
+                    <%= atuendo.etiqueta_tiempo%>
+                </span>
+            <%end%>
+        </div>
+        
         <div class="col-md-3">
             <% if atuendo.cabeza.blank?  %>
             <div class="col-sm-12 container-empty">

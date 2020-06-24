@@ -494,6 +494,14 @@ button::-moz-focus-inner {
       flex-wrap: nowrap;
 }
 
+.etiquetas-atuendos {
+  padding: 5px 15px;
+  border: 1px solid #bfbfbf;
+  border-radius: 15px;
+  text-transform: capitalize;
+  margin-left: 10px;
+}
+
 .atuendoInfo-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -583,4 +591,3 @@ fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;
 }
-/*# sourceMappingURL=application.css.map */

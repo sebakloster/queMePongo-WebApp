@@ -2,6 +2,17 @@
     <div class="row center p-4">
         <h1>Atuendos</h1>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            <%= form_tag('', {:method => 'get'}) do %>
+                <%= select_tag :etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a, @estacion_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por estación'%>
+                <%= select_tag :etiqueta_tiempo, options_for_select(Atuendo.etiqueta_tiempos.keys.to_a, @tiempo_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por tiempo'%>
+                <%= select_tag :etiqueta_formalidad, options_for_select(Atuendo.etiqueta_formalidads.keys.to_a, @formalidad_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por formalidad'%>
+                
+            <% end %>
+                    
+        </div>
+    </div>
     <div class="row atuendos-wrapper">
         <% if @atuendos.blank?  %>
         <div class="col-sm-12 container-empty">
