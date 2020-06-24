@@ -1,19 +1,25 @@
-<p id="alert"> <%= alert %> </p>
+<section class="row center margin-container">
 
-<h1>Login</h1>
+    <div>
+        <p id="alert"> <%= alert %> </p>
 
-<%= form_tag sessions_path do |_| %>
-<div class="field">
-    <%= label_tag :email %>
-    <%= text_field_tag :email %>
-</div>
+        <h1>Login</h1>
 
-<div class="field">
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-</div>
+        <%= form_tag sessions_path do |_| %>
+        <div class="field">
+            <%= label_tag :email %>
+            <%= text_field_tag :email %>
+        </div>
 
-<div class="actions">
-    <%= submit_tag "Login" %>
-</div>
-<% end %>
+        <div class="field">
+            <%= label_tag :password %>
+            <%= password_field_tag :password %>
+        </div>
+
+        <div class="actions">
+            <%= submit_tag "Login" %>
+        </div>
+        <% end %>
+    </div>
+
+</section>
