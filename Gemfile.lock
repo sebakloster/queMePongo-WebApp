@@ -85,7 +85,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     public_suffix (4.0.4)
     puma (3.12.4)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -153,7 +153,6 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2020.1)
       tzinfo (>= 1.0.0)
-    wdm (0.1.1)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -187,7 +186,6 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   sqlite3
   tzinfo-data
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
   webpacker (~> 4.2)
 
