@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200623005149) do
+ActiveRecord::Schema.define(version: 20200624181353) do
 
   create_table "atuendos", force: :cascade do |t|
     t.integer "torso_id"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20200623005149) do
     t.text "descripcion"
     t.integer "guardarropa_id"
     t.integer "user_id"
+    t.string "nombre"
     t.index ["cabeza_id"], name: "index_atuendos_on_cabeza_id"
     t.index ["guardarropa_id"], name: "index_atuendos_on_guardarropa_id"
     t.index ["piernas_id"], name: "index_atuendos_on_piernas_id"

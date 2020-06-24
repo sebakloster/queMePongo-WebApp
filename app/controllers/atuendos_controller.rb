@@ -109,7 +109,7 @@ class AtuendosController < ApplicationController
 
     private
     def atuendos_params
-        params.require(:atuendo).permit( :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion, :user_id)
+        params.require(:atuendo).permit( :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion, :user_id, :nombre)
     end
 
     def finder_guardarropa

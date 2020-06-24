@@ -7,7 +7,8 @@ class UsersController < ApplicationController
     if current_user && current_user.admin?
     @users = User.all
     else 
-      flash[:error]="Error 403, usted no tiene permisos"
+      flash[:error]="Error 401, usted no tiene permisos"
+      redirect_to root_path
     end
   end
 
@@ -32,7 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to login_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
