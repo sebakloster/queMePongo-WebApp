@@ -5,6 +5,12 @@ class PrendasController < ApplicationController
 
   def edit
     @prenda = Prenda.find(params[:id])
+    if(@prenda.user_id == current_user.id)
+      @prenda
+    else
+      flash[:error]="Ha ocurrido un error! :("
+      render :index, status: 403
+    end
   end
 
   def create
@@ -32,21 +38,34 @@ class PrendasController < ApplicationController
 
   def update
     @prenda = Prenda.find(params[:id])
-
-    if @prenda.update(prenda_params)
-      flash[:success]="La prenda se actualizó correctamente!"
-      redirect_to @prenda
+    
+    if(@prenda.user_id == current_user.id)
+      if @prenda.update(prenda_params)
+        flash[:success]="La prenda se actualizó correctamente!"
+        redirect_to @prenda
+      else
+        flash[:error]="La prenda no se actualizó :("
+        render :edit
+      end
     else
-      flash[:error]="La prenda no se actualizó :("
-      render :edit
+      flash[:error]="Ha ocurrido un error! :("
+      render :index, status: 403
     end
+
   end
 
   def destroy
     @prenda = Prenda.find(params[:id])
-    @guardarropa = Guardarropa.find(@prenda.guardarropa_id)
-    Prenda.destroy(params[:id])
-    redirect_to @guardarropa
+
+    if(@prenda.user_id == current_user.id)
+      @guardarropa = Guardarropa.find(@prenda.guardarropa_id)
+      Prenda.destroy(params[:id])
+      redirect_to @guardarropa
+    else
+      flash[:error]="Ha ocurrido un error! :("
+      render :index, status: 403
+    end
+
   end
 
   private

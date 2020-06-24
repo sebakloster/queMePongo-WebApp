@@ -13,6 +13,13 @@ class AtuendosController < ApplicationController
         @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 3, params[:guardarropa_id],  current_user.id)
         @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 4, params[:guardarropa_id],  current_user.id)
         @atuendo = Atuendo.find(params[:id])
+        if(@atuendo.user_id == current_user.id)
+            @atuendo
+        else
+            render :index, status: 403
+            flash[:error]="Ha ocurrido un error! :("
+        end
+
     end
 
     def update
