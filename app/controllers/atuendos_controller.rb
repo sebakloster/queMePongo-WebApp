@@ -4,7 +4,7 @@ class AtuendosController < ApplicationController
 
     def index
         
-        @atuendos = Atuendo.where("user_id = :user and guardarropa_id = :guardarropa",{user: current_user.id, guardarropa: params[:guardarropa_id]})
+        @atuendos=Atuendo.where(guardarropa: @guardarropa)
 
         if(!params[:etiqueta_estacion].blank?)
             @atuendos = @atuendos.where("etiqueta_estacion = :etiqueta", { etiqueta: Atuendo.etiqueta_estacions[params[:etiqueta_estacion]]})
@@ -18,19 +18,22 @@ class AtuendosController < ApplicationController
             @atuendos = @atuendos.where("etiqueta_tiempo = :etiqueta", {etiqueta: Atuendo.etiqueta_tiempos[params[:etiqueta_tiempo]]})
         end
         
-        @guardarropa = Guardarropa.find(params[:guardarropa_id])
         @estacion_selected = !params[:etiqueta_estacion].blank? ? params[:etiqueta_estacion] : nil;
         @tiempo_selected = !params[:etiqueta_tiempo].blank? ? params[:etiqueta_tiempo] : nil;
         @formalidad_selected = !params[:etiqueta_formalidad].blank? ? params[:etiqueta_formalidad] : nil;
     end
 
+  
+
+
     def edit #REFACTOR--> Ver bloc de notas
-        @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 1, params[:guardarropa_id], current_user.id) #Es necesario buscar por usuario? Si el guardarropas ya pertenece al user...
-        @prendas_torso = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 2, params[:guardarropa_id],  current_user.id)
-        @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 3, params[:guardarropa_id],  current_user.id)
-        @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 4, params[:guardarropa_id],  current_user.id)
+        
+        @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza #Es necesario buscar por usuario? Si el guardarropas ya pertenece al user...
+        @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso
+        @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas
+        @prendas_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies
         @atuendo = Atuendo.find(params[:id])
-        if(@atuendo.user_id == current_user.id)
+        if(@atuendo.user == current_user)
             @atuendo
         else
             render :index, status: 403
@@ -42,7 +45,7 @@ class AtuendosController < ApplicationController
     def update
         @atuendo = Atuendo.find(params[:id])
 
-        if(@atuendo.user_id = current_user.id)
+        if(@atuendo.user = current_user)
             if @atuendo.update(atuendos_params)
                 flash[:success]="El atuendo se actualizó correctamente!"
                 render :show
@@ -57,10 +60,10 @@ class AtuendosController < ApplicationController
 
     def generate
         
-        @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 1, params[:guardarropa_id], current_user.id)
-        @prendas_torso = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 2, params[:guardarropa_id], current_user.id)
-        @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 3, params[:guardarropa_id], current_user.id)
-        @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 4, params[:guardarropa_id], current_user.id)
+        @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
+        @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso
+        @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas
+        @prendas_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies
 
         @prendas_cabeza_selected = @prendas_cabeza.sample
         @prendas_torso_selected = @prendas_torso.sample
@@ -79,7 +82,7 @@ class AtuendosController < ApplicationController
     def show
         @atuendo= Atuendo.find(params[:id].to_i)
 
-        if(@atuendo.user_id == current_user.id)
+        if(@atuendo.user == current_user)
             @atuendo
         else
             render :index, status: 403
@@ -87,27 +90,26 @@ class AtuendosController < ApplicationController
     end
 
     def new
-        @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 1, params[:guardarropa_id], current_user.id)
-        @prendas_torso = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 2, params[:guardarropa_id], current_user.id)
-        @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 3, params[:guardarropa_id], current_user.id)
-        @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 4, params[:guardarropa_id], current_user.id)
+        @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
+        @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso 
+        @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas 
+        @prendas_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies 
         @atuendo= Atuendo.new
     end
 
     def create
         
         @atuendo = Atuendo.new(atuendos_params);
-        @atuendo.guardarropa_id = @guardarropa.id
-        @atuendo.user_id = current_user.id
+        @atuendo.guardarropa = @guardarropa
         if @atuendo.save
             flash[:success]="El atuendo se guardó correctamente!"
             redirect_to action: :index
         else
             flash[:error]="El atuendo no se guardó :("
-            @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 1, params[:guardarropa_id])
-            @prendas_torso = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 2, params[:guardarropa_id])
-            @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 3, params[:guardarropa_id])
-            @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ?", 4, params[:guardarropa_id])
+            @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
+            @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso 
+            @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas 
+            @prendas_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies 
             render :new
         end
     end
@@ -115,7 +117,7 @@ class AtuendosController < ApplicationController
     def destroy
         @atuendo= Atuendo.find(params[:id])
 
-        if(@atuendo.user_id == current_user.id)
+        if(@atuendo.user == current_user)
             Atuendo.destroy(params[:id])
             redirect_to action: :index
         else
@@ -126,7 +128,7 @@ class AtuendosController < ApplicationController
 
     private
     def atuendos_params
-        params.require(:atuendo).permit( :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion, :user_id, :nombre)
+        params.require(:atuendo).permit( :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion, :nombre)
     end
 
     def finder_guardarropa
