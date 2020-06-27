@@ -42,7 +42,7 @@ class PrendasController < ApplicationController
     if(@prenda.user_id == current_user.id)
       if @prenda.update(prenda_params)
         flash[:success]="La prenda se actualizó correctamente!"
-        redirect_to @prenda
+        redirect_to guardarropas_path
       else
         flash[:error]="La prenda no se actualizó :("
         render :edit

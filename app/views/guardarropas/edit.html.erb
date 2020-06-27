@@ -1,13 +1,1 @@
-<section class="row center margin-container">
-  <div>
-      <h2>Edicion de guardarropa</h2>
-      <%= form_for @guardarropa, :url => { :action => "update" , :id => @guardarropa.id}, :method => :put do |f| %>
-        <p class="form-group">
-          <%= text_field(:guardarropa, :name, {:class => 'form-control'}) %>
-        </p>
-        <p class="container-btn-default">
-          <%= f.submit :class => 'btn btn-default'%>
-        </p>
-      <% end %>
-  </div>
-</section>
+<%= render 'form', guardarropa: @guardarropa, text:"Edición de guardarropa" %>
