@@ -26,14 +26,14 @@ class AtuendosController < ApplicationController
   
 
 
-    def edit #REFACTOR--> Ver bloc de notas
+    def edit 
         
-        @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza #Es necesario buscar por usuario? Si el guardarropas ya pertenece al user...
+        @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
         @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso
         @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas
         @prendas_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies
         @atuendo = Atuendo.find(params[:id])
-        if(@atuendo.user == current_user)
+        if(UserValidado?)
             @atuendo
         else
             render :index, status: 403
@@ -45,7 +45,7 @@ class AtuendosController < ApplicationController
     def update
         @atuendo = Atuendo.find(params[:id])
 
-        if(@atuendo.user = current_user)
+        if(UserValidado?)
             if @atuendo.update(atuendos_params)
                 flash[:success]="El atuendo se actualizó correctamente!"
                 render :show
@@ -82,7 +82,7 @@ class AtuendosController < ApplicationController
     def show
         @atuendo= Atuendo.find(params[:id].to_i)
 
-        if(@atuendo.user == current_user)
+        if(UserValidado?)
             @atuendo
         else
             render :index, status: 403
@@ -117,7 +117,7 @@ class AtuendosController < ApplicationController
     def destroy
         @atuendo= Atuendo.find(params[:id])
 
-        if(@atuendo.user == current_user)
+        if(UserValidado?)
             Atuendo.destroy(params[:id])
             redirect_to action: :index
         else
@@ -134,4 +134,8 @@ class AtuendosController < ApplicationController
     def finder_guardarropa
         @guardarropa= Guardarropa.find(params[:guardarropa_id])
     end
+
+    def UserValidado?
+        @atuendo.user == current_user
+      end
 end

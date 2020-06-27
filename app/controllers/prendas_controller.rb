@@ -1,11 +1,12 @@
 class PrendasController < ApplicationController
+
   def new
     @prenda= Prenda.new
   end
 
   def edit
     @prenda = Prenda.find(params[:id])
-    if(@prenda.user_id == current_user.id)
+    if(UserValidado?)
       @prenda
     else
       flash[:error]="Ha ocurrido un error! :("
@@ -16,12 +17,10 @@ class PrendasController < ApplicationController
   def create
 
     if (prenda_params[:color_primario] != prenda_params[:color_secundario])
-      @prenda=Prenda.create(prenda_params)
-      @prenda.prenda_tipo_id = prenda_params[:prenda_tipo_id]  #Linea 20 y 21 innecesarias? prenda_params ya contempla prenda_tipo y guardarropa_id
-      @prenda.guardarropa_id = prenda_params[:guardarropa_id]
-      @prenda.user_id = current_user.id  #Es necesario el id? 
-   
 
+      @prenda=Prenda.create(prenda_params)
+      @prenda.user = current_user
+   
       if @prenda.save
         flash[:success]="La prenda se guardó correctamente!"
         @guardarropa = Guardarropa.find(prenda_params[:guardarropa_id])
@@ -30,16 +29,18 @@ class PrendasController < ApplicationController
         flash[:error]="La prenda no se guardó :("
         render :new
       end
+
     else
-    flash[:error]="Los colores deben ser distintos."
-    redirect_to prendas_path
+      flash[:error]="Los colores deben ser distintos."
+      redirect_to prendas_path
     end
+
   end
 
   def update
     @prenda = Prenda.find(params[:id])
     
-    if(@prenda.user_id == current_user.id)
+    if(UserValidado?)
       if @prenda.update(prenda_params)
         flash[:success]="La prenda se actualizó correctamente!"
         redirect_to guardarropas_path
@@ -57,7 +58,7 @@ class PrendasController < ApplicationController
   def destroy
     @prenda = Prenda.find(params[:id])
 
-    if(@prenda.user_id == current_user.id)
+    if(UserValidado?)
       @guardarropa = Guardarropa.find(@prenda.guardarropa_id)
       Prenda.destroy(params[:id])
       redirect_to @guardarropa
@@ -70,6 +71,10 @@ class PrendasController < ApplicationController
 
   private
     def prenda_params
-      params.require(:prenda).permit(:tela, :color_primario, :color_secundario, :prenda_tipo_id, :guardarropa_id, :user_id)
+      params.require(:prenda).permit(:tela, :color_primario, :color_secundario, :prenda_tipo_id, :guardarropa_id)
+    end
+
+    def UserValidado?
+      @prenda.user == current_user
     end
 end

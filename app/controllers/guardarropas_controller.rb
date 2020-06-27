@@ -5,8 +5,8 @@ class GuardarropasController < ApplicationController
   
     def edit
       @guardarropa = Guardarropa.find(params[:id])
-      if(@guardarropa.user_id != current_user.id)
-        flash[:error]="Ha ocurrido un error! :("
+      if(!UserValidado?)
+        flash[:error]="Ha ocurrido un errorr! :("
         render :index, status: 403
       end
       @guardarropa
@@ -18,7 +18,7 @@ class GuardarropasController < ApplicationController
   
     def show
       @guardarropa = Guardarropa.find(params[:id])
-      if(@guardarropa.user_id == current_user.id)
+      if(UserValidado?)
         @guardarropa
       else
         flash[:error]="Ha ocurrido un error! :("
@@ -29,7 +29,7 @@ class GuardarropasController < ApplicationController
   
     def create
       @guardarropa=Guardarropa.create(guardarropa_params);
-      @guardarropa.user_id = current_user.id
+      @guardarropa.user = current_user
       if @guardarropa.save
         flash[:success]="El guardarropa se guardó correctamente!"
         redirect_to @guardarropa
@@ -42,7 +42,7 @@ class GuardarropasController < ApplicationController
     def update
       @guardarropa = Guardarropa.find(params[:id])
       
-      if(@guardarropa.user_id == current_user.id)
+      if(UserValidado?)
         if @guardarropa.update(guardarropa_params)
           flash[:success]="El guardarropa se actualizó correctamente!"
           redirect_to @guardarropa
@@ -59,7 +59,7 @@ class GuardarropasController < ApplicationController
   
     def destroy
       @guardarropa = Guardarropa.find(params[:id])
-      if(@guardarropa.user_id == current_user.id)
+      if(UserValidado?)
         Guardarropa.destroy(params[:id])
         redirect_to action: :index
       else
@@ -69,7 +69,11 @@ class GuardarropasController < ApplicationController
      
     end
 
+    private
     def guardarropa_params
         params.require(:guardarropa).permit(:guardarropa_id, :name, :user_id)
+    end
+    def UserValidado?
+      @guardarropa.user == current_user
     end
 end
