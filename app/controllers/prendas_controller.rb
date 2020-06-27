@@ -17,9 +17,9 @@ class PrendasController < ApplicationController
 
     if (prenda_params[:color_primario] != prenda_params[:color_secundario])
       @prenda=Prenda.create(prenda_params)
-      @prenda.prenda_tipo_id = prenda_params[:prenda_tipo_id]
+      @prenda.prenda_tipo_id = prenda_params[:prenda_tipo_id]  #Linea 20 y 21 innecesarias? prenda_params ya contempla prenda_tipo y guardarropa_id
       @prenda.guardarropa_id = prenda_params[:guardarropa_id]
-      @prenda.user_id = current_user.id
+      @prenda.user_id = current_user.id  #Es necesario el id? 
    
 
       if @prenda.save

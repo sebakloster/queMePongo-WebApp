@@ -24,8 +24,8 @@ class AtuendosController < ApplicationController
         @formalidad_selected = !params[:etiqueta_formalidad].blank? ? params[:etiqueta_formalidad] : nil;
     end
 
-    def edit
-        @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 1, params[:guardarropa_id], current_user.id)
+    def edit #REFACTOR--> Ver bloc de notas
+        @prendas_cabeza = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 1, params[:guardarropa_id], current_user.id) #Es necesario buscar por usuario? Si el guardarropas ya pertenece al user...
         @prendas_torso = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 2, params[:guardarropa_id],  current_user.id)
         @prendas_piernas = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 3, params[:guardarropa_id],  current_user.id)
         @prendas_pies = Prenda.where("prenda_tipo_id = ? AND guardarropa_id = ? AND user_id = ?", 4, params[:guardarropa_id],  current_user.id)
@@ -130,6 +130,6 @@ class AtuendosController < ApplicationController
     end
 
     def finder_guardarropa
-    @guardarropa= Guardarropa.find(params[:guardarropa_id])
+        @guardarropa= Guardarropa.find(params[:guardarropa_id])
     end
 end

@@ -3,31 +3,13 @@
   justify-content: space-around;
   flex-wrap: nowrap;
 }
-.etiquetas-atuendos{
+
+.etiquetas-atuendos {
   padding: 5px 15px;
   border: 1px solid #bfbfbf;
   border-radius: 15px;
   text-transform: capitalize;
   margin-left: 10px;
-}
-.atuendoInfo-wrapper {
-  display: flex;
-  flex-direction: row;
-  background-color: #ebbfa3;
-  margin: 2rem;
-  text-align: center;
-  h6 {
-    font-weight: bold;
-  }
-  .Etiquetas {
-    flex: 1 1 40rem;
-  }
-  .Descripcion {
-    flex: 1 1 40rem;
-  }
-  .Puntaje {
-    flex: 1 1 40rem;
-  }
 }
 
 $starColour: #d35401;
@@ -37,18 +19,18 @@ $starHoverColour: #df8046;
   font-family: "FontAwesome";
   margin: 2rem auto;
 
-  > fieldset {
+  >fieldset {
     border: none;
     display: inline-block;
 
     &:not(:checked) {
-      > input {
+      >input {
         position: absolute;
 
         clip: rect(0, 0, 0, 0);
       }
 
-      > label {
+      >label {
         float: right;
         width: 1em;
         padding: 0 0.05em;
@@ -63,9 +45,10 @@ $starHoverColour: #df8046;
         }
 
         &:hover,
-        &:hover ~ label {
+        &:hover~label {
           color: $starHoverColour;
           text-shadow: 0 0 3px $starHoverColour;
+
           &:before {
             content: "\f005  ";
           }
@@ -73,20 +56,21 @@ $starHoverColour: #df8046;
       }
     }
 
-    > input:checked {
-      & ~ label {
+    >input:checked {
+      &~label {
         &:before {
           content: "\f005  ";
         }
       }
     }
 
-    > label:active {
+    >label:active {
       position: relative;
       top: 2px;
     }
   }
 }
+
 fieldset {
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em;

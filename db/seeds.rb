@@ -51,9 +51,9 @@
 #   Prenda.create tela: :jean, color_primario: 'verde', color_secundario: 'amarillo', prenda_tipo_id: 4, guardarropa_id: 4
 
 
-  # User.create email: "admin@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
-  # User.create email: "ej1@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
-  # User.create email: "ej2@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
-  # User.create email: "ej3@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
+   User.create email: "admin@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
+   User.create email: "ej1@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
+   User.create email: "ej2@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
+   User.create email: "ej3@gmail.com", password_digest: "ejemplo1234", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: true
 
   
