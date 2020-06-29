@@ -1,84 +1,65 @@
 <div class="row center p-5 ">
-    <h3 class="mx-3"> <%= atuendo.nombre %> </h3>
-    <div class="actions">
-        <%= link_to "", { :controller => :atuendos, :action => :edit, id: atuendo.id }, { class: "fa fa-pencil-square-o"} %>
-        <%= link_to "", { :controller => :atuendos, :action => :show, id: atuendo.id }, { class: "fa fa-eye"} %>
-        <%= link_to "", guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id),class: "fa fa-times", method: :delete, data: { confirm: '¿Está seguro que desea borrar el atuendo?' } %>
-    </div>
+  <h3 class="mx-3"> <%= atuendo.nombre %> </h3>
+  <div class="actions">
+    <%= link_to "", { :controller => :atuendos, :action => :edit, id: atuendo.id }, { class: "fa fa-pencil-square-o"} %>
+    <%= link_to "", { :controller => :atuendos, :action => :show, id: atuendo.id }, { class: "fa fa-eye"} %>
+    <%= link_to "", guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => atuendo.id),class: "fa fa-times", method: :delete, data: { confirm: '¿Está seguro que desea borrar el atuendo?' } %>
+  </div>
 </div>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-12">
-            <% if(!atuendo.etiqueta_formalidad.blank?) %>
-                <span class="etiquetas-atuendos">
-                    <%= atuendo.etiqueta_formalidad%>
-                </span>
-            <%end%>
-            <% if(!atuendo.etiqueta_estacion.blank?) %>
-                <span class="etiquetas-atuendos">
-                    <%= atuendo.etiqueta_estacion%>
-                </span>
-            <%end%>
-            <% if(!atuendo.etiqueta_tiempo.blank?) %>
-                <span class="etiquetas-atuendos">
-                    <%= atuendo.etiqueta_tiempo%>
-                </span>
-            <%end%>
-        </div>
-        
-        <div class="col-md-3">
-            <% if atuendo.cabeza.blank?  %>
-            <div class="col-sm-12 container-empty">
-                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
-            </div>
-            <% else %>
-            <%= render 'prenda', prenda: atuendo.cabeza %>
-            <%end%>
-        </div>
-        <div class="col-md-3">
-            <% if atuendo.torso.blank?  %>
-            <div class="col-sm-12 container-empty">
-                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
-            </div>
-            <% else %>
-            <%= render 'prenda', prenda: atuendo.torso %>
-            <%end%>
-        </div>
-        <div class="col-md-3">
-            <% if atuendo.piernas.blank?  %>
-            <div class="col-sm-12 container-empty">
-                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
-            </div>
-            <% else %>
-            <%= render 'prenda', prenda: atuendo.piernas %>
-            <%end%>
-        </div>
-        <div class="col-md-3">
-            <% if atuendo.pies.blank?  %>
-            <div class="col-sm-12 container-empty">
-                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
-            </div>
-            <% else %>
-            <%= render 'prenda', prenda: atuendo.pies %>
-            <%end%>
-        </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <% if(!atuendo.etiqueta_formalidad.blank?) %>
+        <span class="etiquetas-atuendos">
+          <%= atuendo.etiqueta_formalidad%>
+        </span>
+      <%end%>
+      <% if(!atuendo.etiqueta_estacion.blank?) %>
+        <span class="etiquetas-atuendos">
+          <%= atuendo.etiqueta_estacion%>
+        </span>
+      <%end%>
+      <% if(!atuendo.etiqueta_tiempo.blank?) %>
+        <span class="etiquetas-atuendos">
+          <%= atuendo.etiqueta_tiempo%>
+        </span>
+      <%end%>
     </div>
-    <%
-=begin%>
-    <div class="atuendoInfo-wrapper">
-        <div class="Etiquetas">
-            <h6>Etiquetas:</h6>
-            <%= atuendo.etiqueta_estacion %>
-            <%= atuendo.etiqueta_formalidad %>
-            <%= atuendo.etiqueta_tiempo %>
+    <div class="col-md-3">
+      <% if atuendo.cabeza.blank?  %>
+        <div class="col-sm-12 container-empty">
+          <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
         </div>
-        <div class="Descripcion">
-            <h6>Descripcion:</h6> <%= atuendo.descripcion %>
-        </div>
-        <div class="Puntaje">
-            <h6>Puntaje:</h6><%= atuendo.puntaje %>
-        </div>
+      <% else %>
+        <%= render 'prenda', prenda: atuendo.cabeza %>
+      <%end%>
     </div>
-    <%
-=end%>
+    <div class="col-md-3">
+      <% if atuendo.torso.blank?  %>
+        <div class="col-sm-12 container-empty">
+          <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
+        </div>
+      <% else %>
+        <%= render 'prenda', prenda: atuendo.torso %>
+      <%end%>
+    </div>
+    <div class="col-md-3">
+      <% if atuendo.piernas.blank?  %>
+        <div class="col-sm-12 container-empty">
+          <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
+        </div>
+      <% else %>
+        <%= render 'prenda', prenda: atuendo.piernas %>
+      <%end%>
+    </div>
+    <div class="col-md-3">
+      <% if atuendo.pies.blank?  %>
+        <div class="col-sm-12 container-empty">
+          <i class="fa fa-exclamation-triangle"></i> <span class="text-center">Se eliminó esta prenda</span>
+        </div>
+      <% else %>
+        <%= render 'prenda', prenda: atuendo.pies %>
+      <%end%>
+    </div>
+  </div>
 </div>
