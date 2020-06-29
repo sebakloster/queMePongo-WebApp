@@ -1,13 +1,15 @@
-<p id="notice"><%= notice %></p>
-<h1>Usuarios Registrados</h1>
-<table class="table">
+<section class="container">
+  <p id="notice"><%= notice %></p>
+  <h1>Usuarios Registrados</h1>
+  <table class="table">
     <%= render "cols_user"%>
     <% @users.each do |u| %>
-    <tr>
+      <tr>
         <td><%=u.email%></td>
-        <td><%= Guardarropa.where(user_id: u.id).count %> </td>
-        <td><%= Prenda.where(user_id: u.id).count %> </td>
+        <td><%= Guardarropa.where(user: u).count %> </td>
+        <td><%= Prenda.all %> </td>
         <td><%=u.created_at%></td>
-    </tr>
+      </tr>
     <% end %>
-</table>
+  </table>
+</section>

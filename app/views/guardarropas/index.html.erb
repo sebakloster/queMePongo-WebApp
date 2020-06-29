@@ -1,19 +1,21 @@
-<div class=" margin-container">
-  <div class="row center">
-    <h2>Guardarropas</h2>
-  </div>
-  <div class="row">
-  <% if @guardarropas.blank?  %>
-    <div class="col-sm-12 container-empty">
-      <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay guardarropas</span>
+<section class="container">
+  <div class=" margin-container">
+    <div class="row center">
+      <h2>Guardarropas</h2>
     </div>
-  <% else %>
-    <% @guardarropas.each do |p| %>
-      <%= render 'guardarropa', guardarropa: p %>
-    <%end%>
-  <%end%>
-  </div>
-<div>
-<a href="/guardarropas/new" class="link-nueva-prenda">
-  <i class="fa fa-plus"></i>
-</a>
+    <div class="row">
+      <% if @guardarropas.blank?  %>
+        <div class="col-sm-12 container-empty">
+          <i class="fa fa-exclamation-triangle"></i>  <span class="text-center">No hay guardarropas</span>
+        </div>
+      <% else %>
+        <% @guardarropas.each do |p| %>
+          <%= render 'guardarropa', guardarropa: p %>
+        <%end%>
+      <%end%>
+    </div>
+    <div>
+      <a href="/guardarropas/new" class="link-nueva-prenda">
+        <i class="fa fa-plus"></i>
+      </a>
+    </container>

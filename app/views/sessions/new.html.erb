@@ -1,25 +1,39 @@
-<section class="row center margin-container">
-
-    <div>
-        <p id="alert"> <%= alert %> </p>
-
-        <h1>Login</h1>
-
-        <%= form_tag sessions_path do |_| %>
-        <div class="field">
-            <%= label_tag :email %>
-            <%= text_field_tag :email %>
+<section class="login-section">
+  <div class="login-form">
+    <h1>Login</h1>
+    <%= form_tag sessions_path do |_| %>
+      <p id="alert"> <%= alert %> </p>
+      <div class="form-group row campo">
+        <%= label_tag :email ,"Usuario o Email: " , :class => "col-sm col-form-label" %>
+        <div  class="col-">
+          <%= text_field_tag :email , nil , html: {class: 'form-control'} %>
         </div>
-
-        <div class="field">
-            <%= label_tag :password %>
-            <%= password_field_tag :password %>
+      </div>
+      <div class="form-group row campo">
+        <%= label_tag :password ,"Contraseña: ", :class => "col-sm col-form-label"%>
+        <div class="col-">
+          <%= password_field_tag :password , nil , html: {class: 'form-control' }%>
         </div>
-
-        <div class="actions">
-            <%= submit_tag "Login" %>
+      </div>
+      <div class="form-group row center">
+        <div class="col- center">
+          <%= submit_tag "Login" , :class => "btn btn-success" %>
         </div>
-        <% end %>
+      </div>
+      <div class="form-group row center nuevo-user">
+        <p>Sos nuevo? <a href="/users/new">Crea tu cuenta</a>
+        </div>
+      <% end %>
     </div>
-
-</section>
+    <div class="waveWrapper waveAnimation">
+      <div class="waveWrapperInner bgTop">
+        <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+      </div>
+      <div class="waveWrapperInner bgMiddle">
+        <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+      </div>
+      <div class="waveWrapperInner bgBottom">
+        <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+      </div>
+    </div>
+  </section>

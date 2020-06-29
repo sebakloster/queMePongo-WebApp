@@ -1,32 +1,56 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+<section class="login-section">
+  <div class="login-form">
+    <h1>Crea tu cuenta</h1>
+    <%= form_with(model: user, local: true) do |form| %>
+      <div class="campo">
+        <% if user.errors.any? %>
+          <div class="error_explanation">
+            <h2>Mmm parece que algo salio mal... verifica lo siguiente:</h2>
+            <ul>
+              <% user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+      <div class="form-group row campo">
+        <%= form.label  :email ,"Email: " , :class => "col-sm col-form-label" %>
+        <div  class="col-">
+          <%= form.email_field :email , id: :user_email  , html: {class: 'form-control'} %>
+        </div>
+      </div>
+      <div class="form-group row campo">
+        <%= form.label :password ,"Contraseña: ", :class => "col-sm col-form-label"%>
+        <div class="col-">
+          <%= form.password_field :password , id: :user_password , html: {class: 'form-control' }%>
+        </div>
+      </div>
+      <div class="form-group row campo">
+        <%= form.label :password_confirmation ,"Confirma tu contraseña: ", :class => "col-sm col-form-label"%>
+        <div class="col-">
+          <%= form.password_field :password_confirmation , id: :user_password_confirmation , html: {class: 'form-control' }%>
+        </div>
+      </div>
+      <div class="form-group row center">
+        <div class="col- center">
+          <%= submit_tag "Crear cuenta" , :class => "btn btn-success" %>
+        </div>
+      </div>
+      <div class="form-group row center nuevo-user">
+        <p>Ya tenes cuenta? <a href="/login">Ingresa ahora</a>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :email %>*
-    <%= form.text_field :email, id: :user_email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>*
-    <%= form.password_field :password, id: :user_password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>*
-    <%= form.password_field :password_confirmation, id: :user_password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <div class="waveWrapper waveAnimation">
+      <div class="waveWrapperInner bgTop">
+        <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+      </div>
+      <div class="waveWrapperInner bgMiddle">
+        <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+      </div>
+      <div class="waveWrapperInner bgBottom">
+        <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+      </div>
+    </div>
+  </section>

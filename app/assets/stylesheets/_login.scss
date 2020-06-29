@@ -1,0 +1,173 @@
+.login-form {
+    h1 {
+        padding: 1rem 0rem;
+    }
+
+    font-family: 'Montserrat',
+    sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    justify-content: space-evenly;
+    background: #f5f5f5;
+    padding: 2rem 3rem;
+    max-width: 27%;
+    border-radius: 25px;
+
+
+
+    .campo {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        input {
+            font-size: 1.5rem;
+            margin: 1rem 0rem;
+            width: 70%;
+        }
+    }
+
+    label {
+        font-size: 2rem;
+    }
+
+    .nuevo-user {
+        a {
+            color: saddlebrown;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-top: 1rem;
+            margin-bottom: 0rem;
+        }
+    }
+
+    .btn {
+        font-size: 2rem;
+        margin: 1.2rem;
+        margin-bottom: 0rem;
+        padding: 0.5rem 1.5rem;
+        background: #a75123;
+        border: #a75123;
+    }
+
+    .btn:hover {
+        background: rgb(102, 58, 0);
+        border: rgb(102, 58, 0);
+    }
+
+}
+
+.login-section {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+}
+
+.error_explanation {
+    margin: 1rem;
+
+    li,
+    ul {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+}
+
+
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+
+.waveWrapper {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: -1;
+}
+
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, #bf5d24 20%, #402319 80%);
+}
+
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+
+.bgBottom {
+    z-index: 5;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+.waveTop {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.waveMiddle {
+    background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
