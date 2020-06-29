@@ -1,16 +1,16 @@
 <div class="col-md-3 ">
-    <div class="card">
-        <div class="title title--epic"><%= prenda.prenda_tipo.tipo %></div>
-        <h2><%= prenda.tela %></h2>
-        <div class="desc">Color Primario: <%= prenda.color_primario %> <br>
-            Color Secundario: <%= prenda.color_secundario %> <br>
-            Guardarropa: <%= prenda.guardarropa.name %>
-        </div>
-        <div class="actions">
-            <%= link_to "", { :controller => :prendas, :action => :edit, id: prenda.id }, { class: "fa fa-pencil-square-o"} %>
-            <%= link_to "", prenda, method: :delete, :class =>"fa fa-times" , data: { confirm: '¿Está seguro que desea borrar la prenda?' }%>
-        </div>
+  <div class="card">
+    <div class="title title--epic"><%= prenda.prenda_tipo.tipo %></div>
+    <h2><%= prenda.tela %></h2>
+    <div class="desc">Color Primario: <%= prenda.color_primario %> <br>
+      Color Secundario: <%= prenda.color_secundario %> <br>
+      Guardarropa: <%= prenda.guardarropa.name %>
     </div>
+    <div class="actions">
+      <%= link_to "", { :controller => :prendas, :action => :edit, id: prenda.id }, { class: "fa fa-pencil-square-o no-underline"} %>
+      <%= link_to "", prenda, method: :delete, :class =>"fa fa-times no-underline" , data: { confirm: '¿Está seguro que desea borrar la prenda?' }%>
+    </div>
+  </div>
 </div>
 <!--
 

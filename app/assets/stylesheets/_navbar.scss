@@ -4,7 +4,7 @@ header {
   width: 100%;
   z-index: 9999;
   top: 0;
-  height: 8vh;
+  min-height: 8vh;
 
 }
 
@@ -29,7 +29,6 @@ header {
   margin: auto;
   display: flex;
   align-items: center;
-  max-height: 64px;
   padding: 2rem 0rem;
   font-family: 'Montserrat', sans-serif;
 }

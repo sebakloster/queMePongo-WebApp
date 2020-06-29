@@ -1,11 +1,10 @@
 <div class="col-md-3 ">
-    <div class="card">
-        <div class="title title--epic"><%= guardarropa.name %></div>
-        <div class="actions">
-            <%= link_to "", { :controller => :guardarropas, :action => :edit, id: guardarropa.id }, { class: "fa fa-pencil-square-o"} %>
-            <%= link_to "", { :controller => :guardarropas, :action => :show, id: guardarropa.id }, { class: "fa fa-eye"} %>
-            <%= link_to "", guardarropa, method: :delete, :class =>"fa fa-times", data: { confirm: '¿Está seguro que desea borrar el guardarropa?' } %>
-        </div>
+  <div class="card">
+    <div class="title title--epic"><%= guardarropa.name %></div>
+    <div class="actions">
+      <%= link_to "", { :controller => :guardarropas, :action => :edit, id: guardarropa.id }, { class: "fa fa-pencil-square-o no-underline"} %>
+      <%= link_to "", { :controller => :guardarropas, :action => :show, id: guardarropa.id }, { class: "fa fa-eye no-underline"} %>
+      <%= link_to "", guardarropa, method: :delete, :class =>"fa fa-times no-underline", data: { confirm: '¿Está seguro que desea borrar el guardarropa?' } %>
     </div>
-
+  </div>
 </div>

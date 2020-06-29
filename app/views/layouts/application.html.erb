@@ -14,10 +14,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <title>Que Me Pongo | El arte de vestirse bien</title>
   </head>
   <body>
     <header class="main-head">
+      <% if flash[:success] %>
+        <div class="alert alert-warning alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Perfecto!</strong>  <%= flash[:success] %>
+        </div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="alert alert-danger alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Cuidado!</strong> <%= flash[:error] %>
+        </div>
+      <% end %>
       <nav class="nav-bar">
         <h1 class="logo">
           <a class="text-dark no-underline title-head" href="/home">Que me pongo</a>
@@ -41,10 +58,6 @@
           <% end %>
         </ul>
       </nav>
-      <div class="flashes">
-        <%= flash[:error] %>
-        <%= flash[:success] %>
-      </div>
     </header>
     <main>
       <%= yield %>

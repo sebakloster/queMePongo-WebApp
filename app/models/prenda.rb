@@ -11,4 +11,7 @@ class Prenda < ApplicationRecord
     validates :color_primario, presence: true
     validates :color_secundario, presence: true
    # validates :color_secundario, uniqueness: { scope: :color_primario }
+   def MiUser
+    this.user
+   end
 end
