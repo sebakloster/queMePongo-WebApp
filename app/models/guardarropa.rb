@@ -5,15 +5,15 @@ class Guardarropa < ApplicationRecord
     validates :name, presence: true
 
     def prendas_cabeza
-        Prenda.where(prenda_tipo_id: 1)
+        self.prendas.where(prenda_tipo_id: 1)
     end
     def prendas_torso
-        Prenda.where(prenda_tipo_id: 2)
+        self.prendas.where(prenda_tipo_id: 2)
     end
     def prendas_piernas
-        Prenda.where(prenda_tipo_id: 3)
+        self.prendas.where(prenda_tipo_id: 3)
     end
     def prendas_pies
-        Prenda.where(prenda_tipo_id: 4)
+        self.prendas.where(prenda_tipo_id: 4)
     end
 end

@@ -60,17 +60,12 @@ class AtuendosController < ApplicationController
 
     def generate
         
-        @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
-        @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso
-        @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas
-        @prendas_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies
+        @prenda_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza.sample
+        @prenda_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso.sample
+        @prenda_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas.sample
+        @prenda_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies.sample
 
-        @prendas_cabeza_selected = @prendas_cabeza.sample
-        @prendas_torso_selected = @prendas_torso.sample
-        @prendas_piernas_selected = @prendas_piernas.sample
-        @prendas_pies_selected = @prendas_pies.sample
-
-        if(@prendas_cabeza_selected.nil? || @prendas_torso_selected.nil? || @prendas_piernas_selected.nil? ||  @prendas_pies_selected.nil?)
+        if(@prenda_cabeza.nil? || @prenda_torso.nil? || @prenda_piernas.nil? ||  @prenda_pies.nil?)
             flash[:error]="No hay prendas suficientes :("
             @guardarropa = Guardarropa.find(params[:guardarropa_id])
             redirect_to @guardarropa
@@ -132,7 +127,7 @@ class AtuendosController < ApplicationController
     end
 
     def finder_guardarropa
-        @guardarropa= Guardarropa.find(params[:guardarropa_id])
+        @guardarropa= Guardarropa.find_by(params[:guardarropa_id], user: current_user)
     end
 
     def UserValidado?
