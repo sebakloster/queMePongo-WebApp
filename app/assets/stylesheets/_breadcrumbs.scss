@@ -1,0 +1,121 @@
+.cont_principal {
+    position: absolute;
+    margin-top: 1.5rem;
+}
+
+.cont_breadcrumbs_1 {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin: 20px;
+}
+
+.cont_breadcrumbs_1>ul>li {
+    list-style: none;
+    position: relative;
+    float: left;
+    transform: skewX(-15deg);
+    background-color: #fff;
+    box-shadow: -2px 0px 20px -6px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    width: 15rem;
+    margin-left: -50px;
+    transition: all 0.5s;
+}
+
+.cont_breadcrumbs_1>ul>li>a {
+    display: block;
+    padding: 10px;
+    font-size: 20px;
+    transform: skewX(15deg);
+    text-decoration: none;
+    color: #444;
+    font-weight: 300;
+}
+
+.cont_breadcrumbs_1>ul>li:first-child {
+    margin-left: 0px;
+}
+
+.cont_breadcrumbs_1>ul>li:hover {
+    background-color: #dcd4cf;
+}
+
+.cont_breadcrumbs_1>ul>li:last-child {
+    background-color: #b44c14;
+}
+
+.cont_breadcrumbs_1>ul>li:last-child>a {
+    color: #fff;
+    ;
+}
+
+
+.cont_breadcrumbs_1>ul:hover>li {
+    margin-left: 0px;
+}
+
+
+
+
+#home {
+    clip-path: url(#cache);
+}
+
+#red {
+    fill: none;
+    opacity: 0.15;
+    stroke: #b44c14;
+    stroke-width: 12;
+    stroke-miterlimit: 10;
+    animation: show 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+#blue {
+    fill: none;
+    opacity: 0.15;
+    stroke: red;
+    stroke-width: 12;
+    stroke-miterlimit: 10;
+    animation: show 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+#light-blue {
+    fill: none;
+    opacity: 0.15;
+    stroke: #ccac94;
+    stroke-width: 6;
+    stroke-miterlimit: 10;
+    stroke-dasharray: 200;
+    stroke-dashoffset: 800;
+    animation: draw 4s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes show {
+    0% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 0.15;
+    }
+}

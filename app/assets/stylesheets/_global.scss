@@ -12,7 +12,7 @@ body {
   }
 
   .margin-container {
-    margin-top: 12%;
+    margin-top: 5%;
   }
 
   .container-empty {
@@ -53,10 +53,13 @@ label {
 
 li,
 button,
-input,
 a-title-head,
 p {
   font-size: 2.5rem;
+}
+
+input {
+  font-size: 1.5rem;
 }
 
 h1 {
@@ -64,16 +67,16 @@ h1 {
 }
 
 h2 {
-  font-size: 4.5rem;
+  font-size: 2.5rem;
 }
 
 h3 {
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 h4,
 h5 {
-  font-size: 3.4rem;
+  font-size: 2.4rem;
 }
 
 ul {
@@ -87,4 +90,14 @@ a {
 
 .no-underline {
   text-decoration: none !important
+}
+
+.section-wrapper {
+
+  min-height: 89.9vh;
+
+  background: rgba(180, 76, 20, 0.1);
+
+
+
 }

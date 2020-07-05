@@ -1,34 +1,48 @@
-<section class="container">
-  <section class="row center margin-container ">
-    <div class="col-md-12 text-center">
-      <h2>Atuendo aleatorio</h2>
-      <%= form_for @atuendo, :url => { :action => "create" } do |f| %>
-        <div class="row center form-group m-3">
-          <%= f.label :nombre, {:class => 'm-3'} %>
-          <%= f.text_field :nombre %>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <%= render 'prenda', prenda: @prenda_cabeza %>
-            <%= f.hidden_field :cabeza_id, :value => @prenda_cabeza.id %>
+<section class="section-wrapper area">
+  <div class="container pt-5">
+    <div class="row center margin-container ">
+      <div class="col-md-12 text-center">
+        <h2>Atuendo aleatorio</h2>
+        <%= form_for @atuendo, :url => { :action => "create" } do |f| %>
+          <div class="row center form-group m-3">
+            <%= f.label :nombre, {:class => 'm-3'} %>
+            <%= f.text_field :nombre %>
           </div>
-          <div class="col-md-3">
-            <%= render 'prenda', prenda: @prenda_torso %>
-            <%= f.hidden_field :torso_id, :value => @prenda_torso.id %>
+          <div class="row">
+            <div class="col-md-3">
+              <%= render 'prenda', prenda: @prenda_cabeza %>
+              <%= f.hidden_field :cabeza_id, :value => @prenda_cabeza.id %>
+            </div>
+            <div class="col-md-3">
+              <%= render 'prenda', prenda: @prenda_torso %>
+              <%= f.hidden_field :torso_id, :value => @prenda_torso.id %>
+            </div>
+            <div class="col-md-3">
+              <%= render 'prenda', prenda: @prenda_piernas %>
+              <%= f.hidden_field :piernas_id, :value => @prenda_piernas.id %>
+            </div>
+            <div class="col-md-3">
+              <%= render 'prenda', prenda: @prenda_pies%>
+              <%= f.hidden_field :pies_id, :value => @prenda_pies.id %>
+            </div>
+            <p class="container-btn-default">
+              <%= f.submit :class => 'btn btn-default', :value => 'Te gustó? Haz click acá para guardar'%>
+              <a type="button" class="btn btn-primary" href="/guardarropas/<%= @prenda_pies.guardarropa_id %>/atuendos-generate">Generar otro</a>
+            </p>
           </div>
-          <div class="col-md-3">
-            <%= render 'prenda', prenda: @prenda_piernas %>
-            <%= f.hidden_field :piernas_id, :value => @prenda_piernas.id %>
-          </div>
-          <div class="col-md-3">
-            <%= render 'prenda', prenda: @prenda_pies%>
-            <%= f.hidden_field :pies_id, :value => @prenda_pies.id %>
-          </div>
-          <p class="container-btn-default">
-            <%= f.submit :class => 'btn btn-default', :value => 'Te gustó? Haz click acá para guardar'%>
-            <a type="button" class="btn btn-primary" href="/guardarropas/<%= @prenda_pies.guardarropa_id %>/atuendos-generate">Generar otro</a>
-          </p>
-        </div>
-      <% end %>
-    </section>
+        <% end %>
+        <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
   </section>
