@@ -127,7 +127,7 @@ class AtuendosController < ApplicationController
     end
 
     def finder_guardarropa
-        @guardarropa= Guardarropa.find_by(params[:guardarropa_id], user: current_user)
+        @guardarropa= Guardarropa.find_by(id: params[:guardarropa_id], user: current_user)
     end
 
     def UserValidado?

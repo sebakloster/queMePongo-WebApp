@@ -4,7 +4,7 @@
     <%= form_tag sessions_path do |_| %>
       <p id="alert"> <%= alert %> </p>
       <div class="form-group row campo">
-        <%= label_tag :email ,"Usuario o Email: " , :class => "col-sm col-form-label" %>
+        <%= label_tag :email ,"Email: " , :class => "col-sm col-form-label" %>
         <div  class="col-">
           <%= text_field_tag :email , nil , html: {class: 'form-control'} %>
         </div>
