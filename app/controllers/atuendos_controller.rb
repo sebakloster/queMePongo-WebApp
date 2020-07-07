@@ -17,10 +17,15 @@ class AtuendosController < ApplicationController
         if(!params[:etiqueta_tiempo].blank?)
             @atuendos = @atuendos.where("etiqueta_tiempo = :etiqueta", {etiqueta: Atuendo.etiqueta_tiempos[params[:etiqueta_tiempo]]})
         end
+
+        if(!params[:orden_puntaje].blank?)
+            @atuendos = @atuendos.order(puntaje: params[:orden_puntaje])
+        end
         
         @estacion_selected = !params[:etiqueta_estacion].blank? ? params[:etiqueta_estacion] : nil;
         @tiempo_selected = !params[:etiqueta_tiempo].blank? ? params[:etiqueta_tiempo] : nil;
         @formalidad_selected = !params[:etiqueta_formalidad].blank? ? params[:etiqueta_formalidad] : nil;
+        @order_puntaje = !params[:orden_puntaje].blank? ? params[:orden_puntaje] : nil;
     end
 
   
