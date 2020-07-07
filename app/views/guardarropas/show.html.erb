@@ -1,26 +1,47 @@
-<section class="container">
-  <div class=" margin-container">
-    <div class="row center">
-      <h2>Prendas</h2>
-      <div class="col-sm-12 botonera-prendas">
-        <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos">Ver atuendos</a>
-        <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos/new">Crea un atuendo</a>
-        <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos-generate">Generar atuendo</a>
-      </div>
-    </div>
-    <div class="row">
-      <% if @guardarropa.prendas.blank?  %>
-        <div class="col-sm-12 container-empty">
-          <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas</span>
-        </div>
-      <% else %>
-        <% @guardarropa.prendas.each do |p| %>
-          <%= render 'prenda', prenda: p %>
-        <%end%>
-      <% end %>
+<section class="section-wrapper area">
+  <div class="cont_principal">
+    <div class="cont_breadcrumbs_1">
+      <ul>
+        <li><a href="/guardarropas">Guardarropas</a></li>
+        <li><a>Prendas</a></li>
+      </ul>
     </div>
   </div>
-  <a href="/prendas/new" class="link-nueva-prenda">
-    <i class="fa fa-plus"></i>
-  </a>
-  <section>
+  <div class="container pt-5">
+    <div class=" margin-container">
+      <div class="row center">
+        <div class="col-sm-12 botonera-prendas">
+          <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos">Ver atuendos</a>
+          <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos/new">Crea un atuendo</a>
+          <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos-generate">Generar atuendo</a>
+        </div>
+      </div>
+      <div class="row">
+        <% if @guardarropa.prendas.blank?  %>
+          <div class="col-sm-12 container-empty">
+            <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas</span>
+          </div>
+        <% else %>
+          <% @guardarropa.prendas.each do |p| %>
+            <%= render 'prenda', prenda: p %>
+          <%end%>
+        <% end %>
+      </div>
+    </div>
+    <a href="/prendas/new" class="link-nueva-prenda">
+      <i class="fa fa-plus"></i>
+    </a>
+  </div>
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</section>
