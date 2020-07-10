@@ -1,14 +1,28 @@
 <div class="container_prenda_atuendos">
   <div class="card">
-    <div class="title title--epic"><%= prenda.prenda_tipo.tipo %></div>
-    <h5><%= prenda.tela %></h5>
-    <div class="desc">Color Primario: <%= prenda.color_primario %> <br>
-      Color Secundario: <%= prenda.color_secundario %> <br>
-      Guardarropa: <%= prenda.guardarropa.name %>
+    <div class="title title--epic"><%=prenda.tela.capitalize()  %></div>
+    <img src="<%= iconSelector(prenda) %>"/>
+    <div class="desc">
+      <div style="height: 1rem;
+  width: 4rem;
+  border-style: solid;
+  self-align: center;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: black;
+  background-color:  <%= prenda.color_primario %>"> </div>
+      <div style="height: 1rem;
+  width: 4rem;
+  border-style: solid;
+  self-align: center;
+  border-width: thin;
+  border-radius: 3px;
+  border-color: black;
+  background-color:  <%= prenda.color_secundario %>"> </div>
     </div>
     <div class="actions">
       <%= link_to "", { :controller => :prendas, :action => :edit, id: prenda.id }, { class: "fa fa-pencil-square-o no-underline"} %>
-      <%= link_to "", prenda, method: :delete, :class =>"fa fa-times no-underline" %>
+      <%= link_to "", prenda, method: :delete, :class =>"fa fa-times no-underline" , data: { confirm: '¿Está seguro que desea borrar la prenda?' }%>
     </div>
   </div>
 </div>

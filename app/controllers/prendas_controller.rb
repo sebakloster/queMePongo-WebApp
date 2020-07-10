@@ -23,7 +23,7 @@ class PrendasController < ApplicationController
    
       if @prenda.save
         flash[:success]="La prenda se guardó correctamente!"
-        @guardarropa = Guardarropa.find(prenda_params[:guardarropa_id])
+        @guardarropa = Guardarropa.find(params[:guardarropa_id])
         redirect_to @guardarropa
       else
         flash[:error]="La prenda no se guardó :("
