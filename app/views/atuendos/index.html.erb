@@ -15,13 +15,16 @@
       <div class="row">
         <div class="col-md-12">
           <%= form_tag('', {:method => 'get'}) do %>
+            <%= label_tag :etiqueta_estacion, "Filtrar por:" %>
             <%= select_tag :etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a, @estacion_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por estación'%>
             <%= select_tag :etiqueta_tiempo, options_for_select(Atuendo.etiqueta_tiempos.keys.to_a, @tiempo_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por tiempo'%>
             <%= select_tag :etiqueta_formalidad, options_for_select(Atuendo.etiqueta_formalidads.keys.to_a, @formalidad_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por formalidad'%>
+            <%= label_tag :orden_puntaje, "Ordenar puntaje:" %>
+            <%= select_tag :orden_puntaje, options_for_select({ "Mayor a menor" => "desc", "Menor a mayor" => "asc" }, @order_puntaje), :onchange => "this.form.submit();", :prompt => 'Seleccione aqui'%>
           <% end %>
         </div>
       </div>
-      <div class="row atuendos-wrapper">
+      <div class="row ">
         <% if @atuendos.blank?  %>
           <div class="col-sm-12 container-empty">
             <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay atuendos</span>
