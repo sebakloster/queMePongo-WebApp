@@ -4,7 +4,7 @@ class AtuendosController < ApplicationController
 
     def index
         
-        @atuendos=Atuendo.where(guardarropa: @guardarropa)
+        @atuendos=Atuendo.where(guardarropa: @guardarropa).paginate(page: params[:page], per_page: 3)
 
         if(!params[:etiqueta_estacion].blank?)
             @atuendos = @atuendos.where("etiqueta_estacion = :etiqueta", { etiqueta: Atuendo.etiqueta_estacions[params[:etiqueta_estacion]]})

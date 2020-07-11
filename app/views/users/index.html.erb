@@ -16,6 +16,7 @@
       </tr>
     <% end %>
   </table>
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
   <ul class="circles">
     <li></li>
     <li></li>
