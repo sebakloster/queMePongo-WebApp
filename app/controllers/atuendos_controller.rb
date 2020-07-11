@@ -28,9 +28,7 @@ class AtuendosController < ApplicationController
         @order_puntaje = !params[:orden_puntaje].blank? ? params[:orden_puntaje] : nil;
     end
 
-  
-
-
+    
     def edit 
         
         @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
