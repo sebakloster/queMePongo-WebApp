@@ -20,18 +20,6 @@
   </head>
   <body>
     <header class="main-head">
-      <% if flash[:success] %>
-        <div class="alert alert-warning alert-dismissible fade show">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Perfecto!</strong>  <%= flash[:success] %>
-        </div>
-      <% end %>
-      <% if flash[:error] %>
-        <div class="alert alert-danger alert-dismissible fade show">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Cuidado!</strong> <%= flash[:error] %>
-        </div>
-      <% end %>
       <nav class="nav-bar">
         <h1 class="logo">
           <a class="text-dark no-underline title-head" href="/home">Que me pongo</a>
@@ -57,6 +45,18 @@
       </nav>
     </header>
     <main>
+      <% if flash[:success] %>
+        <div class="alert alert-warning alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Perfecto!</strong>  <%= flash[:success] %>
+        </div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="alert alert-danger alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Cuidado!</strong> <%= flash[:error] %>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
   </body>

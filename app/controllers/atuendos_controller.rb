@@ -71,7 +71,7 @@ class AtuendosController < ApplicationController
         @prenda_pies = Guardarropa.find(params[:guardarropa_id]).prendas_pies.sample
 
         if(@prenda_cabeza.nil? || @prenda_torso.nil? || @prenda_piernas.nil? ||  @prenda_pies.nil?)
-            flash[:error]="No hay prendas suficientes :("
+            flash[:error]="No hay prendas de cada categoría suficientes :("
             @guardarropa = Guardarropa.find(params[:guardarropa_id])
             redirect_to @guardarropa
        
@@ -119,6 +119,7 @@ class AtuendosController < ApplicationController
 
         if(UserValidado?)
             Atuendo.destroy(params[:id])
+            flash[:success]="El atuendo se borró correctamente!"
             redirect_to action: :index
         else
             render :index, status: 403
