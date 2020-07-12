@@ -34,6 +34,7 @@
             <%= render 'atuendo', atuendo: p %>
           <%end%>
         <%end%>
+        <%= will_paginate @atuendos, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
       </div>
       <div>
         <a href="/guardarropas/<%= @guardarropa.id %>/atuendos/new" class="link-nueva-prenda">

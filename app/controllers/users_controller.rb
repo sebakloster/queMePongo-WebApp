@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     if current_user && current_user.admin?
-    @users = User.all
+    @users = User.all.paginate(page: params[:page], per_page: 7)
     else 
       flash[:error]="Error 401, usted no tiene permisos"
       redirect_to root_path
