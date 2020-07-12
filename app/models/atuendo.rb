@@ -18,6 +18,7 @@ class Atuendo < ApplicationRecord
     validates :piernas_id, presence: true
     validates :pies_id, presence: true
     validates :cabeza_id, presence: true
+    
 
 
 end

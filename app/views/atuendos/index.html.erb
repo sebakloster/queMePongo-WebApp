@@ -13,7 +13,7 @@
         <h1>Atuendos</h1>
       </div>
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 d-flex justify-content-around p-5">
           <%= form_tag('', {:method => 'get'}) do %>
             <%= label_tag :etiqueta_estacion, "Filtrar por:" %>
             <%= select_tag :etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a, @estacion_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por estación'%>
@@ -31,12 +31,14 @@
           </div>
         <% else %>
           <% @atuendos.each do |p| %>
-            <div class="row center p-5 ">
-              <h3 class="mx-3"> <%= p.nombre %> </h3>
-              <div class="actions">
-                <%= link_to "", { :controller => :atuendos, :action => :edit, id: p.id }, { class: "fa fa-pencil-square-o no-underline"} %>
-                <%= link_to "", { :controller => :atuendos, :action => :show, id: p.id }, { class: "fa fa-eye no-underline"} %>
-                <%= link_to "", guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => p.id),class: "fa fa-times no-underline", method: :delete, data: { confirm: '¿Está seguro que desea borrar el atuendo?' } %>
+            <div class="container">
+              <div class="row center pt-5 align-items-center mt-5">
+                <h3 class="m-0 "> <%= p.nombre %> </h3>
+                <div class="actions mx-5 ">
+                  <%= link_to "", { :controller => :atuendos, :action => :edit, id: p.id }, { class: "fa fa-pencil-square-o no-underline"} %>
+                  <%= link_to "", { :controller => :atuendos, :action => :show, id: p.id }, { class: "fa fa-eye no-underline"} %>
+                  <%= link_to "", guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => p.id),class: "fa fa-times no-underline", method: :delete, data: { confirm: '¿Está seguro que desea borrar el atuendo?' } %>
+                </div>
               </div>
             </div>
             <%= render 'atuendo', atuendo: p %>

@@ -21,7 +21,9 @@
   <body>
     <header class="main-head">
       <nav class="nav-bar">
-        <%= link_to(image_tag("logo.PNG", alt:"logo-que-me-pongo", class:"logo"), "/") %>
+        <div class="logo">
+          <%= link_to(image_tag("logo.PNG", alt:"logo-que-me-pongo", class:"logo-img"), "/") %>
+        </div>
         <ul class="nav-links">
           <li><a href="#about" class="text-dark no-underline">Nosotros</a></li>
           <% if current_user.blank?  %>

@@ -1,5 +1,5 @@
 header {
-  background-color: white;
+  background-color: #f5f5f5;
   position: fixed;
   width: 100%;
   z-index: 9999;
@@ -34,16 +34,17 @@ header {
 }
 
 .logo {
-  max-width: 175px;
+  flex: 1 1 20rem;
+}
+
+.logo-img {
+  max-width: 15rem;
 }
 
 .nav-links {
-  flex: auto;
+  flex: 1 1 20rem;
   display: flex;
-  justify-content: flex-end;
-  a{
-    padding: 0 1em;
-  }
+  justify-content: space-around;
 }
 
 th,

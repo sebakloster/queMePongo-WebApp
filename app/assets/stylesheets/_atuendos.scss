@@ -4,14 +4,10 @@
   flex-wrap: nowrap;
 }
 
-.etiquetas-atuendos {
-  padding: 5px 15px;
-  border: 1px solid #bfbfbf;
-  border-radius: 15px;
-  text-transform: capitalize;
-  margin-left: 10px;
-  background-color: #c7c7c7;
-  box-shadow: inset 3px 3px 3px rgba(255,255,255,.7), inset -2px -2px 3px rgba(0,0,0,.1), 2px 2px 10px rgba(0,0,0,.1);
+.badge {
+  padding: 0.7rem !important;
+  margin: 1rem 0rem !important;
+  margin-left: 1.5rem !important;
 }
 
 $starColour: #d35401;
@@ -50,6 +46,7 @@ $starHoverColour: #df8046;
     label.star-color {
       color: $starHoverColour;
       text-shadow: 0 0 3px $starHoverColour;
+
       &:before {
         content: "\f005  ";
       }
@@ -110,7 +107,7 @@ $starHoverColour: #df8046;
   }
 }
 
-.atuendo-descripcion{
+.atuendo-descripcion {
   margin: 0 12px 32px;
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
