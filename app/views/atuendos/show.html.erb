@@ -1,6 +1,33 @@
 <section class="section-wrapper area">
   <div class="container">
+    
+    
+    <div class="row center p-5 ">
+      <h3 class="mx-3"> <%= @atuendo.nombre %> </h3>
+      <div class="actions">
+        <%= link_to "", { :controller => :atuendos, :action => :edit, id: @atuendo.id }, { class: "fa fa-pencil-square-o no-underline"} %>
+        <%= link_to "", guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => @atuendo.id),class: "fa fa-times no-underline", method: :delete, data: { confirm: '¿Está seguro que desea borrar el atuendo?' } %>
+      </div>
+    </div>
+    <div class="star-rating">
+      <fieldset class="star-show">
+        <label class="one-star <%= !@atuendo.puntaje.nil? and @atuendo.puntaje == 5 ? "star-color" : '' %>"></label>
+        <label class="one-star <%= !@atuendo.puntaje.nil? and @atuendo.puntaje > 3 ? "star-color" : '' %>"></label>
+        <label class="one-star <%= !@atuendo.puntaje.nil? and @atuendo.puntaje > 2 ? "star-color" : '' %>"></label>
+        <label class="one-star <%= !@atuendo.puntaje.nil? and @atuendo.puntaje > 1 ? "star-color" : '' %>"></label>
+        <label class="one-star <%= !@atuendo.puntaje.nil? and @atuendo.puntaje > 0 ? "star-color" : '' %>"></label>
+      </fieldset>
+    </div>
+    <% if(!@atuendo.descripcion.blank?) %>
+      <article class="row">
+        <div class="col-sm-12 atuendo-descripcion">
+          <%= @atuendo.descripcion %> 
+        </div>
+        
+      </article>
+    <% end %>
     <%= render 'atuendo', atuendo: @atuendo%>
+    
     <ul class="circles">
       <li></li>
       <li></li>
