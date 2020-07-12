@@ -98,12 +98,16 @@ class AtuendosController < ApplicationController
     end
 
     def create
-        
         @atuendo = Atuendo.new(atuendos_params);
         @atuendo.guardarropa = @guardarropa
         if @atuendo.save
             flash[:success]="El atuendo se guardó correctamente!"
-            redirect_to action: :index
+            if(params[:atuendo][:from_generate].blank?)
+                redirect_to action: :index
+            else
+                render :generated
+            end
+            
         else
             flash[:error]="El atuendo no se guardó :("
             @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
@@ -128,7 +132,7 @@ class AtuendosController < ApplicationController
 
     private
     def atuendos_params
-        params.require(:atuendo).permit( :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion, :nombre)
+        params.require(:atuendo).permit( :cabeza_id, :torso_id, :pies_id, :piernas_id, :etiqueta_estacion, :etiqueta_tiempo, :etiqueta_formalidad, :puntaje, :descripcion, :nombre )
     end
 
     def finder_guardarropa

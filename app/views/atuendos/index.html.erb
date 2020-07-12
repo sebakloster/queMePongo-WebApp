@@ -24,13 +24,21 @@
           <% end %>
         </div>
       </div>
-      <div class="row ">
+      <div>
         <% if @atuendos.blank?  %>
           <div class="col-sm-12 container-empty">
             <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay atuendos</span>
           </div>
         <% else %>
           <% @atuendos.each do |p| %>
+            <div class="row center p-5 ">
+              <h3 class="mx-3"> <%= p.nombre %> </h3>
+              <div class="actions">
+                <%= link_to "", { :controller => :atuendos, :action => :edit, id: p.id }, { class: "fa fa-pencil-square-o no-underline"} %>
+                <%= link_to "", { :controller => :atuendos, :action => :show, id: p.id }, { class: "fa fa-eye no-underline"} %>
+                <%= link_to "", guardarropa_atuendo_path(:guardarropa_id => params[:guardarropa_id],:id => p.id),class: "fa fa-times no-underline", method: :delete, data: { confirm: '¿Está seguro que desea borrar el atuendo?' } %>
+              </div>
+            </div>
             <%= render 'atuendo', atuendo: p %>
           <%end%>
         <%end%>

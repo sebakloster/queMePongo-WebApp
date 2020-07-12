@@ -32,9 +32,7 @@
         </div>
       <% end %>
       <nav class="nav-bar">
-        <h1 class="logo">
-          <a class="text-dark no-underline title-head" href="/home">Que me pongo</a>
-        </h1>
+        <%= link_to(image_tag("logo.PNG", alt:"logo-que-me-pongo", class:"logo"), "/") %>
         <ul class="nav-links">
           <li><a href="#about" class="text-dark no-underline">Nosotros</a></li>
           <% if current_user.blank?  %>

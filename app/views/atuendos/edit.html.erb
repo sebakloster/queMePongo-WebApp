@@ -64,7 +64,7 @@
           </div>
           <div class="puntaje col-md-6 star-rating">
             <%= f.label :puntaje %><br />
-            <fieldset>
+            <fieldset class="star-edit">
               <%= f.radio_button :puntaje, 5 , {id: "star5"}%> <%= label_tag(:star5, "5 star") %>
               <%=f.radio_button :puntaje, 4, {id: "star4"} %> <%= label_tag(:star4, "4 star") %>
               <%= f.radio_button :puntaje, 3, {id: "star3"} %><%= label_tag(:star3, "3 star") %>
