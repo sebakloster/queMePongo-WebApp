@@ -1,36 +1,26 @@
 class AtuendosController < ApplicationController
-
     before_action :finder_guardarropa
-
     def index
-        
         @atuendos=Atuendo.where(guardarropa: @guardarropa).paginate(page: params[:page], per_page: 3)
-
         if(!params[:etiqueta_estacion].blank?)
             @atuendos = @atuendos.where("etiqueta_estacion = :etiqueta", { etiqueta: Atuendo.etiqueta_estacions[params[:etiqueta_estacion]]})
         end
-
         if(!params[:etiqueta_formalidad].blank?)
             @atuendos= @atuendos.where("etiqueta_formalidad = :etiqueta", { etiqueta: Atuendo.etiqueta_formalidads[params[:etiqueta_formalidad]]})
         end
-
         if(!params[:etiqueta_tiempo].blank?)
             @atuendos = @atuendos.where("etiqueta_tiempo = :etiqueta", {etiqueta: Atuendo.etiqueta_tiempos[params[:etiqueta_tiempo]]})
         end
-
         if(!params[:orden_puntaje].blank?)
             @atuendos = @atuendos.order(puntaje: params[:orden_puntaje])
-        end
-        
+        end      
         @estacion_selected = !params[:etiqueta_estacion].blank? ? params[:etiqueta_estacion] : nil;
         @tiempo_selected = !params[:etiqueta_tiempo].blank? ? params[:etiqueta_tiempo] : nil;
         @formalidad_selected = !params[:etiqueta_formalidad].blank? ? params[:etiqueta_formalidad] : nil;
         @order_puntaje = !params[:orden_puntaje].blank? ? params[:orden_puntaje] : nil;
     end
-
     
     def edit 
-        
         @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
         @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso
         @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas
@@ -42,7 +32,6 @@ class AtuendosController < ApplicationController
             render :index, status: 403
             flash[:error]="Ha ocurrido un error! :("
         end
-
     end
 
     def update
@@ -61,8 +50,7 @@ class AtuendosController < ApplicationController
         end
     end
 
-    def generate
-        
+    def generate 
         @prenda_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza.sample
         @prenda_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso.sample
         @prenda_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas.sample
@@ -97,15 +85,15 @@ class AtuendosController < ApplicationController
 
     def create
         @atuendo = Atuendo.new(atuendos_params);
-        @atuendo.guardarropa = @guardarropa
+        @atuendo.guardarropa = @guardarropa      
+        @atuendo.puntaje = 0 if !@atuendo.puntaje.to_i.between?(0, 5) || @atuendo.puntaje == nil
         if @atuendo.save
             flash[:success]="El atuendo se guardó correctamente!"
             if(params[:atuendo][:from_generate].blank?)
                 redirect_to action: :index
             else
                 render :generated
-            end
-            
+            end   
         else
             flash[:error]="El atuendo no se guardó :("
             @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
@@ -118,7 +106,6 @@ class AtuendosController < ApplicationController
 
     def destroy
         @atuendo= Atuendo.find(params[:id])
-
         if(UserValidado?)
             Atuendo.destroy(params[:id])
             flash[:success]="El atuendo se borró correctamente!"
@@ -126,7 +113,6 @@ class AtuendosController < ApplicationController
         else
             render :index, status: 403
         end
-        
     end
 
     private
