@@ -16,6 +16,18 @@
   User.create email: "ej1@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
   User.create email: "ej2@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
   User.create email: "ej3@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej4@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej5@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej6@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej7@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej8@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej9@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej10@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej11@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej12@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej13@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej14@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
+  User.create email: "ej15@gmail.com", password: "asdasdasd", created_at: "2020-06-21 21:00", updated_at: "2020-06-21 21:00:32", admin: false
 
   Guardarropa.create name: "Guardarropa Admin" , user_id: 1
   Guardarropa.create name: "Guardarropa 2" , user_id: 2

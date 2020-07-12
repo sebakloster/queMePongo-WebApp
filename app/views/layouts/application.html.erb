@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ujs/1.2.2/rails.min.js" integrity="sha256-BbyWhCn0G+F6xbWJ2pcI5LnnpsnpSzyjJNVtl7ABp+M=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <%= stylesheet_link_tag "application.css" %>
     <%= javascript_pack_tag "application" %>
     <%= csrf_meta_tags %>
@@ -19,18 +20,6 @@
   </head>
   <body>
     <header class="main-head">
-      <% if flash[:success] %>
-        <div class="alert alert-warning alert-dismissible fade show">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Perfecto!</strong>  <%= flash[:success] %>
-        </div>
-      <% end %>
-      <% if flash[:error] %>
-        <div class="alert alert-danger alert-dismissible fade show">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Cuidado!</strong> <%= flash[:error] %>
-        </div>
-      <% end %>
       <nav class="nav-bar">
         <%= link_to(image_tag("logo.PNG", alt:"logo-que-me-pongo", class:"logo"), "/") %>
         <ul class="nav-links">
@@ -54,6 +43,18 @@
       </nav>
     </header>
     <main>
+      <% if flash[:success] %>
+        <div class="alert alert-warning alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Perfecto!</strong>  <%= flash[:success] %>
+        </div>
+      <% end %>
+      <% if flash[:error] %>
+        <div class="alert alert-danger alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Cuidado!</strong> <%= flash[:error] %>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
   </body>

@@ -1,4 +1,5 @@
 class Guardarropa < ApplicationRecord
+    before_destroy :borrarAtuendos
     has_many :prendas, dependent: :destroy
     has_many :atuendos, dependent: :destroy
     belongs_to :user
@@ -16,4 +17,9 @@ class Guardarropa < ApplicationRecord
     def prendas_pies
         self.prendas.where(prenda_tipo_id: 4)
     end
+
+    def borrarAtuendos
+        self.atuendos.destroy_all
+    end
+
 end

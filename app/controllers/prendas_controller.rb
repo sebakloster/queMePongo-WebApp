@@ -61,6 +61,7 @@ class PrendasController < ApplicationController
     if(UserValidado?)
       @guardarropa = Guardarropa.find(@prenda.guardarropa_id)
       Prenda.destroy(params[:id])
+      flash[:success]="La prenda se borró correctamente!"
       redirect_to @guardarropa
     else
       flash[:error]="Ha ocurrido un error! :("
