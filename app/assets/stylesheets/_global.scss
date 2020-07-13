@@ -128,3 +128,26 @@ a {
 .fade {
   opacity: 100% !important;
 }
+
+.carousel-item {
+  height: 65vh;
+  min-height: 300px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.portfolio-item {
+  margin-bottom: 30px;
+}
+
+.text-primary {
+  color: #f26a1c !important;
+}
+
+.carousel-caption p {
+  color: white !important;
+  text-shadow: 2px 2px 5px black;
+}
