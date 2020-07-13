@@ -1,5 +1,5 @@
 class AtuendosController < ApplicationController
-    before_action :finder_guardarropa
+    before_action :finder_guardarropa, :require_user
     def index
         @atuendos=Atuendo.where(guardarropa: @guardarropa).paginate(page: params[:page], per_page: 3)
         if(!params[:etiqueta_estacion].blank?)

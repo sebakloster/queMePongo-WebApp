@@ -9,6 +9,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def logged_in?
+    current_user.present?
+  end
+
+  def require_user
+    return true if logged_in?
+    render template: 'sessions/new'
+    return false
+  end
+
     rescue_from ActionController::RoutingError, with: -> { render_404  }
     rescue_from ActionController::UnknownController, with: -> { render_404  }
     rescue_from ActiveRecord::RecordNotFound, with: -> { render_404  }

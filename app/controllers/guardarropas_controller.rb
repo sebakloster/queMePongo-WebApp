@@ -1,4 +1,5 @@
 class GuardarropasController < ApplicationController
+  before_action :require_user
     def new
       @guardarropa= Guardarropa.new
     end
