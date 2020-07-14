@@ -26,7 +26,7 @@
           <%= link_to(image_tag("logo.PNG", alt:"logo-que-me-pongo", class:"logo-img"), "/") %>
         </div>
         <ul class="nav-links">
-          <li><a href="#about" class="text-dark no-underline">Nosotros</a></li>
+          <li><a href="/" class="text-dark no-underline">Nosotros</a></li>
           <% if current_user.blank?  %>
             <li>
               <a href="/login" class="text-dark no-underline">Login</a>
@@ -35,6 +35,9 @@
               <a href="/users/new" class="text-dark no-underline">Sign-Up</a>
             </li>
           <% else %>
+            <% if current_user.admin?  %>
+              <li><a href="/users" class="text-dark no-underline">Usuarios</a></li>
+            <% end %>
             <li>
               <a href="/guardarropas" class="text-dark no-underline">Guardarropas</a>
             </li>
@@ -60,5 +63,19 @@
       <% end %>
       <%= yield %>
     </main>
+    <footer>
+      <h4>Que me pongo &copy; 2020</h4>
+      <ul>
+        <li>
+          <a href="#"><%= link_to(image_tag("youtube-symbol1.svg", alt:"logo-que-me-pongo"), "/") %></a>
+        </li>
+        <li>
+          <a href="#"><%= link_to(image_tag("instagram1.svg", alt:"logo-que-me-pongo"), "/") %></a>
+        </li>
+        <li>
+          <a href="#"><%= link_to(image_tag("twitter1.svg", alt:"logo-que-me-pongo"), "/") %></a>
+        </li>
+      </ul>
+    </footer>
   </body>
 </html>
