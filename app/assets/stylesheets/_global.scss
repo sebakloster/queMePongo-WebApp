@@ -2,6 +2,19 @@ body {
   animation: opening 1s ease-in-out;
   font-family: 'Montserrat', sans-serif;
 
+  .btn-primary{
+    color: #fff;
+    background-color: #5f4837;
+    border-color: #5f4837;
+  }
+
+  .btn-primary:hover{
+    color: #fff;
+    background-color: #CCAC94;
+    border-color: #CCAC94;
+  }
+
+
   .btn-success {
     background-color: #079453;
   }
@@ -11,9 +24,24 @@ body {
     justify-content: center;
     align-items: center;
   }
-
+  
   .margin-container {
     margin-top: 5%;
+    .margin-container-sides{
+      padding: 1em;
+    }
+    .container-flex{
+      display: flex;
+      select{
+        margin-right: 1em;
+      }
+      label:first-of-type{
+        min-width: 100px;
+      }
+      label{
+        min-width: 150px;
+      }
+    }
   }
 
   .container-empty {
@@ -25,12 +53,10 @@ body {
     margin: 5% 0;
   }
 
-  .container-new-atuendos {
-    width: 100%;
-  }
+ 
 
   .botonera-prendas {
-    padding: 3em;
+    padding: 2em;
   }
 }
 

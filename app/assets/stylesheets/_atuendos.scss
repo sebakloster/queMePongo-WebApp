@@ -1,3 +1,14 @@
+$starColour: #d35401;
+$starHoverColour: #df8046;
+
+.container-new-atuendos {
+  width: 100%;
+
+  .name-atuendo {
+    max-width: 14em;
+  }
+}
+
 .atuendos-wrapper {
   display: flex;
   justify-content: space-around;
@@ -10,8 +21,6 @@
   margin-left: 1.5rem !important;
 }
 
-$starColour: #d35401;
-$starHoverColour: #df8046;
 
 .star-rating {
   font-family: "FontAwesome";

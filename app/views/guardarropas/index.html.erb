@@ -1,13 +1,10 @@
 <section class="section-wrapper area">
-  <div class="cont_principal">
-    <div class="cont_breadcrumbs_1">
-      <ul>
-        <li><a>Guardarropas</a></li>
-      </ul>
-    </div>
-  </div>
+ 
   <div class="container pt-5">
     <div class=" margin-container">
+      <div class="row center ">
+        <h1>Guardarropas</h1>
+      </div>
       <div class="row center m-5">
         <% if @guardarropas.blank?  %>
           <div class="col-sm-12 container-empty">
@@ -20,7 +17,7 @@
         <%end%>
       </div>
       <div>
-        <a href="/guardarropas/new" class="link-nueva-prenda">
+        <a href="/guardarropas/new" data-toggle="tooltip" data-placement="top" title="Creá un guardarropa" class="link-nueva-prenda">
           <i class="fa fa-plus"></i>
         </a>
         <ul class="circles">

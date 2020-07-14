@@ -1,26 +1,27 @@
 <section class="section-wrapper area">
-  <div class="cont_principal">
-    <div class="cont_breadcrumbs_1">
-      <ul>
-        <li><a href="/guardarropas">Guardarropas</a></li>
-        <li><a>Atuendos</a></li>
-      </ul>
-    </div>
-  </div>
+  
   <div class="container pt-5">
     <div class=" margin-container">
+      <div class="row">
+        <div class="cont_breadcrumbs_1">
+          <ul>
+            <li><a href="/guardarropas/<%=+params[:guardarropa_id]%>">Guardarropa</a></li>
+            <li><a>Atuendos</a></li>
+          </ul>
+        </div>
+      </div>
       <div class="row center p-4">
         <h1>Atuendos</h1>
       </div>
       <div class="row">
-        <div class="col-md-12 d-flex justify-content-around p-5">
-          <%= form_tag('', {:method => 'get'}) do %>
+        <div class="col-md-12">
+          <%= form_tag('', {:method => 'get', :class => 'container-flex'}) do %>
             <%= label_tag :etiqueta_estacion, "Filtrar por:" %>
-            <%= select_tag :etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a, @estacion_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por estación'%>
-            <%= select_tag :etiqueta_tiempo, options_for_select(Atuendo.etiqueta_tiempos.keys.to_a, @tiempo_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por tiempo'%>
-            <%= select_tag :etiqueta_formalidad, options_for_select(Atuendo.etiqueta_formalidads.keys.to_a, @formalidad_selected), :onchange => "this.form.submit();", :prompt => 'Filtra por formalidad'%>
+            <%= select_tag :etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a, @estacion_selected), :onchange => "this.form.submit();", :prompt => 'Estación', :class => 'form-control'%>
+            <%= select_tag :etiqueta_tiempo, options_for_select(Atuendo.etiqueta_tiempos.keys.to_a, @tiempo_selected), :onchange => "this.form.submit();", :prompt => 'Tiempo',  :class => 'form-control'%>
+            <%= select_tag :etiqueta_formalidad, options_for_select(Atuendo.etiqueta_formalidads.keys.to_a, @formalidad_selected), :onchange => "this.form.submit();", :prompt => 'Formalidad',  :class => 'form-control'%>
             <%= label_tag :orden_puntaje, "Ordenar puntaje:" %>
-            <%= select_tag :orden_puntaje, options_for_select({ "Mayor a menor" => "desc", "Menor a mayor" => "asc" }, @order_puntaje), :onchange => "this.form.submit();", :prompt => 'Seleccione aqui'%>
+            <%= select_tag :orden_puntaje, options_for_select({ "Mayor a menor" => "desc", "Menor a mayor" => "asc" }, @order_puntaje), :onchange => "this.form.submit();", :prompt => 'Seleccione aqui', :class => 'form-control'%>
           <% end %>
         </div>
       </div>
