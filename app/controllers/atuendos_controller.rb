@@ -95,7 +95,7 @@ class AtuendosController < ApplicationController
                 render :generated
             end   
         else
-            flash[:error]="El atuendo no se guardó :("
+            flash[:error]="Asegurate de tener una prenda de cada categoria :("
             @prendas_cabeza = Guardarropa.find(params[:guardarropa_id]).prendas_cabeza 
             @prendas_torso = Guardarropa.find(params[:guardarropa_id]).prendas_torso 
             @prendas_piernas = Guardarropa.find(params[:guardarropa_id]).prendas_piernas 

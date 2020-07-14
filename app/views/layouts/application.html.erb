@@ -26,11 +26,13 @@
           <%= link_to(image_tag("logo.PNG", alt:"logo-que-me-pongo", class:"logo-img"), "/") %>
         </div>
         <ul class="nav-links">
-          <li><a href="#services" class="text-dark no-underline">Nosotros</a></li>
+          <li><a href="/" class="text-dark no-underline">Nosotros</a></li>
           <% if current_user.blank?  %>
-            <li>
-              <a href="/login" class="text-dark no-underline">Login</a>
-            </li>
+            <% if !current_page?(login_path) %>
+              <li>
+                <a href="/login" class="text-dark no-underline">Login</a>
+              </li>
+            <% end %>
             <li>
               <a href="/users/new" class="text-dark no-underline">Sign-Up</a>
             </li>

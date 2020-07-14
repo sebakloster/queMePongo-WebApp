@@ -1,7 +1,6 @@
 <section class="section-wrapper area">
-  
   <div class="container pt-5">
-    <div class=" margin-container">
+    <div>
       <div class="row">
         <div class="cont_breadcrumbs_1">
           <ul>
@@ -11,9 +10,8 @@
         </div>
       </div>
       <div class="row center">
-        <h1>Prendas</h1>
+        <h1><%= @guardarropa.name %></h1>
       </div>
-
       <div class="row center">
         <div class="col-sm-12 botonera-prendas">
           <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos">Ver atuendos</a>
@@ -28,9 +26,9 @@
             <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas</span>
           </div>
         <% else %>
-            <% @prendas.each do |p| %>
-              <%= render 'prenda', prenda: p %>
-            <%end%>
+          <% @prendas.each do |p| %>
+            <%= render 'prenda', prenda: p %>
+          <%end%>
         <% end %>
       </div>
     </div>

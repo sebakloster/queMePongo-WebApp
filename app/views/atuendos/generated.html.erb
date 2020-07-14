@@ -3,12 +3,11 @@
     <div class="row center margin-container">
       <div class="container-new-atuendos">
         <h2 class="text-center p-3">Completá la info de tu atuendo!</h2>
-         <%= form_for @atuendo, :url => { :action => "update" , :id => @atuendo.id}, :method => :put do |f| %>
+        <%= form_for @atuendo, :url => { :action => "update" , :id => @atuendo.id}, :method => :put do |f| %>
           <div class="row center form-group m-3">
             <%= f.label :nombre, {:class => 'm-3 '} %>
             <%= f.text_field :nombre %>
           </div>
-      
           <div class="etiquetas row form-group">
             <div class="col-md-4">
               <%= f.label :etiqueta_estacion %><br />
@@ -45,7 +44,7 @@
           </div>
           <div>
             <p class="container-btn-default">
-              <%= f.submit :class=>'btn btn-default' %>
+              <%= f.submit "Completar informacion", :class=>'btn btn-default' %>
             </p>
           </div>
         <% end %>

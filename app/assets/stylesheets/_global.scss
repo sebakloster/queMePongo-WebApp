@@ -2,13 +2,13 @@ body {
   animation: opening 1s ease-in-out;
   font-family: 'Montserrat', sans-serif;
 
-  .btn-primary{
+  .btn-primary {
     color: #fff;
-    background-color: #5f4837;
-    border-color: #5f4837;
+    background-color: #b44c14;
+    border-color: #b44c14;
   }
 
-  .btn-primary:hover{
+  .btn-primary:hover {
     color: #fff;
     background-color: #CCAC94;
     border-color: #CCAC94;
@@ -24,21 +24,26 @@ body {
     justify-content: center;
     align-items: center;
   }
-  
+
   .margin-container {
     margin-top: 5%;
-    .margin-container-sides{
+
+    .margin-container-sides {
       padding: 1em;
     }
-    .container-flex{
+
+    .container-flex {
       display: flex;
-      select{
+
+      select {
         margin-right: 1em;
       }
-      label:first-of-type{
+
+      label:first-of-type {
         min-width: 100px;
       }
-      label{
+
+      label {
         min-width: 150px;
       }
     }
@@ -53,7 +58,7 @@ body {
     margin: 5% 0;
   }
 
- 
+
 
   .botonera-prendas {
     padding: 2em;
@@ -176,4 +181,8 @@ a {
 .carousel-caption p {
   color: white !important;
   text-shadow: 2px 2px 5px black;
+}
+
+.user-index {
+  min-height: 90vh;
 }
