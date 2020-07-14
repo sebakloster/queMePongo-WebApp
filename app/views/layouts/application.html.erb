@@ -63,5 +63,19 @@
       <% end %>
       <%= yield %>
     </main>
+    <footer>
+      <h4>Que me pongo &copy; 2020</h4>
+      <ul>
+        <li>
+          <a href="#"><%= link_to(image_tag("youtube-symbol1.svg", alt:"logo-que-me-pongo"), "/") %></a>
+        </li>
+        <li>
+          <a href="#"><%= link_to(image_tag("instagram1.svg", alt:"logo-que-me-pongo"), "/") %></a>
+        </li>
+        <li>
+          <a href="#"><%= link_to(image_tag("twitter1.svg", alt:"logo-que-me-pongo"), "/") %></a>
+        </li>
+      </ul>
+    </footer>
   </body>
 </html>
