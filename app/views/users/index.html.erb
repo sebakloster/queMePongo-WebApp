@@ -1,32 +1,39 @@
-<section class="container area">
-  <p id="notice"><%= notice %></p>
-  <h1>Usuarios Registrados</h1>
-  <table class="table">
-    <%= render "cols_user"%>
-    <% @users.each do |u| %>
-      <tr>
-        <td><%=u.email%></td>
-        <td><%= Guardarropa.where(user: u).count %> </td>
-        <%sum=0%>
-        <% Guardarropa.where(user: u).each do |g| %>
-          <%sum= sum + Prenda.where(guardarropa_id: g.id).count %>
-        <% end %>
-        <td><%=sum%></td>
-        <td><%=u.created_at%></td>
-      </tr>
-    <% end %>
-  </table>
-  <%= will_paginate @users, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
-  <ul class="circles">
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
+<section class="container pt-5">
+    <div class=" margin-container">
+        <div class="row center p-4">
+            <p id="notice"><%= notice %></p>
+            <h1>Usuarios Registrados</h1>
+        </div>
+        <table class="table">
+            <%= render "cols_user"%>
+            <% @users.each do |u| %>
+            <tr>
+                <td><%=u.email%></td>
+                <td><%= Guardarropa.where(user: u).count %> </td>
+                <%sum=0%>
+                <% Guardarropa.where(user: u).each do |g| %>
+                <%sum= sum + Prenda.where(guardarropa_id: g.id).count %>
+                <% end %>
+                <td><%=sum%></td>
+                <td><%=u.created_at%></td>
+            </tr>
+            <% end %>
+        </table>
+        <%= will_paginate @users, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
+
+    </div>
+
+
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
 </section>

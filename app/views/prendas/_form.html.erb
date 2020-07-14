@@ -1,36 +1,36 @@
 <section class="row center margin-container">
   <div>
-    <h2><%= text2 %></h2>
+    <h2 class="center"><%= text2 %></h2>
     <%= form_for @prenda do |f| %>
-      <p class="form-group">
-        <%= f.label :prenda_tipo_id %><br />
+      <p class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-2 form-group">
+        <%= f.label :prenda_tipo_id, 'Tipo de prenda' %><br />
         <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :tipo,
         {:prompt => "Elija el tipo de Prenda" }, { :class =>"form-control",
         required: true} %>
       </p>
-      <p class="form-group">
+      <p class="col-sm-12 col-md-6 col-lg-4 form-group">
         <%= f.label :tela %><br />
         <%= f.select(:tela, options_for_select(Prenda.telas.keys.to_a, selected: prenda.tela),
         {required: true}, {:class => 'form-control'})%>
       </p>
-      <p class="form-group">
+      <p class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-2 form-group">
         <%= f.label :color_primario %><br />
         <%= f.color_field :color_primario ,required: true, :class=>
         'form-control', :id => 'container_color_primario' %>
       </p>
-      <p class="form-group">
+      <p class="col-sm-12 col-md-6 col-lg-4 form-group">
         <%= f.label :color_secundario %><br />
         <%= f.color_field :color_secundario ,required: true, :class =>
         'form-control', :value => '#FFFFFF',:id =>
         'container_color_secundario'%>
       </p>
-      <p class="form-group">
+      <p class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-2 form-group">
         <%= f.label :guardarropa_id %><br />
         <%= f.collection_select :guardarropa_id, Guardarropa.where(user: current_user), :id, :name,
         {:prompt => "Elija un guardarropas" }, { :class => "form-control",
         required: true} %>
       </p>
-      <p class="container-btn-default">
+      <p class="col-md-12 container-btn-default">
         <%= f.submit text, :class => 'btn btn-default'%>
       </p>
     <% end %>

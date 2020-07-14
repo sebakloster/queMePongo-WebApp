@@ -1,14 +1,19 @@
 <section class="section-wrapper area">
-  <div class="cont_principal">
-    <div class="cont_breadcrumbs_1">
-      <ul>
-        <li><a href="/guardarropas">Guardarropas</a></li>
-        <li><a>Prendas</a></li>
-      </ul>
-    </div>
-  </div>
+  
   <div class="container pt-5">
     <div class=" margin-container">
+      <div class="row">
+        <div class="cont_breadcrumbs_1">
+          <ul>
+            <li><a href="/guardarropas">Guardarropas</a></li>
+            <li><a>Prendas</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row center">
+        <h1>Prendas</h1>
+      </div>
+
       <div class="row center">
         <div class="col-sm-12 botonera-prendas">
           <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos">Ver atuendos</a>
@@ -16,21 +21,21 @@
           <a type="button" class="btn btn-primary" href="/guardarropas/<%= @guardarropa.id %>/atuendos-generate">Generar atuendo</a>
         </div>
       </div>
-      <div class="row">
+      <div class="row margin-container-sides">
         <%@prendas = @guardarropa.prendas.paginate(page: params[:page], per_page: 10) %>
         <% if @prendas.blank?  %>
           <div class="col-sm-12 container-empty">
             <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas</span>
           </div>
         <% else %>
-          <% @prendas.each do |p| %>
-            <%= render 'prenda', prenda: p %>
-          <%end%>
+            <% @prendas.each do |p| %>
+              <%= render 'prenda', prenda: p %>
+            <%end%>
         <% end %>
       </div>
     </div>
     <%= will_paginate @prendas, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
-    <a href="/prendas/new" class="link-nueva-prenda">
+    <a href="/prendas/new" data-toggle="tooltip" data-placement="top" title="Creá una prenda" class="link-nueva-prenda">
       <i class="fa fa-plus"></i>
     </a>
   </div>

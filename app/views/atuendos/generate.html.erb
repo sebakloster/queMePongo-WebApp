@@ -23,8 +23,8 @@
               <%= render 'prenda', prenda: @prenda_pies%>
               <%= f.hidden_field :pies_id, :value => @prenda_pies.id %>
             </div>
-            <p class="container-btn-default">
-              <%= f.submit :class => 'btn btn-default', :value => 'Te gustó? Haz click acá para guardar'%>
+            <p class="container-btn-default center col-md-12">
+              <%= f.submit :class => 'btn btn-default', :value => 'Guardar'%>
               <a type="button" class="btn btn-primary" href="/guardarropas/<%= @prenda_pies.guardarropa_id %>/atuendos-generate">Generar otro</a>
             </p>
           </div>

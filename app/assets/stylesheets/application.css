@@ -4,6 +4,18 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+body .btn-primary {
+  color: #fff;
+  background-color: #5f4837;
+  border-color: #5f4837;
+}
+
+body .btn-primary:hover {
+  color: #fff;
+  background-color: #CCAC94;
+  border-color: #CCAC94;
+}
+
 body .btn-success {
   background-color: #079453;
 }
@@ -24,6 +36,28 @@ body .margin-container {
   margin-top: 5%;
 }
 
+body .margin-container .margin-container-sides {
+  padding: 1em;
+}
+
+body .margin-container .container-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .margin-container .container-flex select {
+  margin-right: 1em;
+}
+
+body .margin-container .container-flex label:first-of-type {
+  min-width: 100px;
+}
+
+body .margin-container .container-flex label {
+  min-width: 150px;
+}
+
 body .container-empty {
   background: #f2f2f2;
   padding: 5%;
@@ -33,12 +67,8 @@ body .container-empty {
   margin: 5% 0;
 }
 
-body .container-new-atuendos {
-  width: 100%;
-}
-
 body .botonera-prendas {
-  padding: 3em;
+  padding: 2em;
 }
 
 .actions a {
@@ -578,6 +608,14 @@ button::-moz-focus-inner {
   border-color: black;
 }
 
+.container-new-atuendos {
+  width: 100%;
+}
+
+.container-new-atuendos .name-atuendo {
+  max-width: 14em;
+}
+
 .atuendos-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -688,7 +726,8 @@ button::-moz-focus-inner {
 }
 
 .login-form {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat',
+ sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -897,13 +936,6 @@ button::-moz-focus-inner {
 .cont_principal {
   position: absolute;
   margin-top: 1.5rem;
-}
-
-.cont_breadcrumbs_1 {
-  position: relative;
-  width: 100%;
-  float: left;
-  margin: 20px;
 }
 
 .cont_breadcrumbs_1 > ul > li {
@@ -1141,40 +1173,3 @@ body {
     height: 86px;
   }
 }
-
-footer {
-  background: #d35400;
-  color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 3rem 5%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-footer ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 40rem;
-          flex: 1 1 40rem;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-footer h4 {
-  -webkit-box-flex: 3;
-      -ms-flex: 3 1 40rem;
-          flex: 3 1 40rem;
-  font-size: 2rem;
-}
-/*# sourceMappingURL=application.css.map */
