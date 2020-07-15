@@ -21,5 +21,4 @@ class Guardarropa < ApplicationRecord
     def borrarAtuendos
         self.atuendos.destroy_all
     end
-
 end

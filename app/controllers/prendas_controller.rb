@@ -1,5 +1,7 @@
 class PrendasController < ApplicationController
+
   before_action :require_user
+  
   def new
     @prenda= Prenda.new
   end
@@ -15,7 +17,6 @@ class PrendasController < ApplicationController
   end
 
   def create
-
     if (prenda_params[:color_primario] != prenda_params[:color_secundario])
 
       @prenda=Prenda.create(prenda_params)
@@ -34,7 +35,6 @@ class PrendasController < ApplicationController
       flash[:error]="Los colores deben ser distintos."
       redirect_to prendas_path
     end
-
   end
 
   def update

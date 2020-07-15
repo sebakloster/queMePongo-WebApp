@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
   protect_from_forgery with: :exception
   helper_method :current_user
   def current_user
@@ -19,9 +20,9 @@ class ApplicationController < ActionController::Base
     return false
   end
 
-    rescue_from ActionController::RoutingError, with: -> { render_404  }
-    rescue_from ActionController::UnknownController, with: -> { render_404  }
-    rescue_from ActiveRecord::RecordNotFound, with: -> { render_404  }
+  rescue_from ActionController::RoutingError, with: -> { render_404  }
+  rescue_from ActionController::UnknownController, with: -> { render_404  }
+  rescue_from ActiveRecord::RecordNotFound, with: -> { render_404  }
 
   def render_404
     respond_to do |format|
@@ -29,6 +30,5 @@ class ApplicationController < ActionController::Base
       format.all { render nothing: true, status: 404 }
     end
   end
-
 
 end

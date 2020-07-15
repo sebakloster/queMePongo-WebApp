@@ -4,7 +4,6 @@ class Prenda < ApplicationRecord
     belongs_to :guardarropa
     has_one :user, through: :guardarropa
 
-
     enum tela: [:algodon,:lino,:jean,:cuero,:gabardina]
 
     validates :tela, presence: true
@@ -14,4 +13,5 @@ class Prenda < ApplicationRecord
    def MiUser
     this.user
    end
+   
 end
