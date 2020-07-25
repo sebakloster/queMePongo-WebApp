@@ -33,7 +33,8 @@ class PrendasController < ApplicationController
     @prenda = Prenda.find(params[:id])
       if @prenda.update(prenda_params)
         flash[:success]="La prenda se actualizó correctamente!"
-        redirect_to guardarropas_path
+        @guardarropa = Guardarropa.find(@prenda.guardarropa_id)
+        redirect_to @guardarropa
       else
         flash[:error]="La prenda no se actualizó :("
         render :edit

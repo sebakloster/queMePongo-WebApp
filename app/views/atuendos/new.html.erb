@@ -1,10 +1,12 @@
 <section class="section-wrapper area">
-  <div class="container pt-5">
-    <div class="margin-container">
-      <div class="row">
-        <div class="cont_breadcrumbs_1">
-          <ul>
-            <li><a href="/guardarropas/<%=+params[:guardarropa_id]%>">Atuendo</a></li>
+    <div class="container pt-5">
+        <div class="margin-container">
+
+
+            <div class="row">
+                <div class="cont_breadcrumbs_1">
+                    <ul>
+                        <li><a href="/guardarropas/<%=+params[:guardarropa_id]%>">Guardarropa</a></li>
                         <li><a>Crear</a></li>
                     </ul>
                 </div>
@@ -22,7 +24,12 @@
                             <h3 class="text-center">Cabeza</h3>
                             <% if @prendas_cabeza.blank?  %>
                             <div class="col-sm-12 container-empty">
-                                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+                              
+                              <span class="text-center"><i class="fa fa-exclamation-triangle"></i> No hay prendas de este tipo</span>
+                              <div>
+                                <a href="/prendas/new?prenda_tipo_id=1&guardarropa_id=<%=+params[:guardarropa_id]%>" type="button" class="btn btn-primary" data-whatever="@getbootstrap">Crear!</a>
+                              </div>
+
                             </div>
                             <% else %>
                             <% @prendas_cabeza.each do |p| %>
@@ -35,7 +42,10 @@
                             <h3 class="text-center">Torso</h3>
                             <% if @prendas_torso.blank? %>
                             <div class="col-sm-12 container-empty">
-                                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+                                <span class="text-center"><i class="fa fa-exclamation-triangle"></i> No hay prendas de este tipo</span>
+                                <div>
+                                  <a href="/prendas/new?prenda_tipo_id=2&guardarropa_id=<%=+params[:guardarropa_id]%>" type="button" class="btn btn-primary" data-whatever="@getbootstrap">Crear!</a>
+                                </div>
                             </div>
                             <% else %>
                             <% @prendas_torso.each do |p| %>
@@ -50,7 +60,11 @@
                             <h3 class="text-center">Piernas</h3>
                             <% if @prendas_piernas.blank?  %>
                             <div class="col-sm-12 container-empty">
-                                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+                                
+                                <span class="text-center"><i class="fa fa-exclamation-triangle"></i> No hay prendas de este tipo</span>
+                                <div>
+                                  <a href="/prendas/new?prenda_tipo_id=3&guardarropa_id=<%=+params[:guardarropa_id]%>" type="button" class="btn btn-primary" data-whatever="@getbootstrap">Crear!</a>
+                                </div>
                             </div>
                             <% else %>
                             <% @prendas_piernas.each do |p| %>
@@ -63,7 +77,10 @@
                             <h3 class="text-center">Pies</h3>
                             <% if @prendas_pies.blank?  %>
                             <div class="col-sm-12 container-empty">
-                                <i class="fa fa-exclamation-triangle"></i> <span class="text-center">No hay prendas de este tipo</span>
+                                <span class="text-center"><i class="fa fa-exclamation-triangle"></i> No hay prendas de este tipo</span>
+                                <div>
+                                  <a href="/prendas/new?prenda_tipo_id=4&guardarropa_id=<%=+params[:guardarropa_id]%>" type="button" class="btn btn-primary" data-whatever="@getbootstrap">Crear!</a>
+                                </div>
                             </div>
                             <% else %>
                             <% @prendas_pies.each do |p| %>
@@ -76,57 +93,53 @@
                     <div class="etiquetas row form-group">
                         <div class="col-md-4">
                             <%= f.label :etiqueta_estacion %><br />
-              <%= f.select(:etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a),{required:
-        false, :prompt => "seleccione"}, {:class => 'form-control'})%>
+                            <%= f.select(:etiqueta_estacion, options_for_select(Atuendo.etiqueta_estacions.keys.to_a),{required:false, :prompt => "seleccione"}, {:class => 'form-control'})%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= f.label :etiqueta_tiempo %><br />
+                            <%= f.select(:etiqueta_tiempo, options_for_select(Atuendo.etiqueta_tiempos.keys.to_a),{required: false, :prompt => "seleccione"}, {:class => 'form-control'})%>
+                        </div>
+                        <div class="col-md-4">
+                            <%= f.label :etiqueta_formalidad %><br />
+                            <%= f.select(:etiqueta_formalidad, options_for_select(Atuendo.etiqueta_formalidads.keys.to_a),{required: false, :prompt => "seleccione"}, {:class => 'form-control'})%>
+                        </div>
+                    </div>
+                    <div class="desc-rating row form-group">
+                        <div class="descripcion col-md-6">
+                            <%= f.label :descripcion %> <%= f.text_area(:descripcion, {:class => 'form-control'}) %>
+                        </div>
+                        <div class="puntaje col-md-6 star-rating">
+                            <%= f.label :puntaje %><br />
+                            <fieldset class="star-edit">
+                                <%= f.radio_button :puntaje, 5 , {id: "star5"}%> <%= label_tag(:star5, "5 star") %>
+                                <%=f.radio_button :puntaje, 4, {id: "star4"} %> <%= label_tag(:star4, "4 star") %>
+                                <%= f.radio_button :puntaje, 3, {id: "star3"} %><%= label_tag(:star3, "3 star") %>
+                                <%=f.radio_button :puntaje, 2, {id: "star2"}%> <%= label_tag(:star2, "2 star") %>
+                                <%= f.radio_button :puntaje, 1, {id: "star1"} %><%= label_tag(:star1, "1 star") %>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="container-btn-default">
+                            <%= f.submit "Crear atuendo", :class=>'btn btn-default' %>
+                        </p>
+                    </div>
+                    <% end %>
+                </div>
+                <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
             </div>
-            <div class="col-md-4">
-              <%= f.label :etiqueta_tiempo %><br />
-              <%= f.select(:etiqueta_tiempo,
-        options_for_select(Atuendo.etiqueta_tiempos.keys.to_a),{required: false,
-        :prompt => "seleccione"}, {:class => 'form-control'})%>
-            </div>
-            <div class="col-md-4">
-              <%= f.label :etiqueta_formalidad %><br />
-              <%= f.select(:etiqueta_formalidad,
-        options_for_select(Atuendo.etiqueta_formalidads.keys.to_a),{required:
-        false, :prompt => "seleccione"}, {:class => 'form-control'})%>
-            </div>
-          </div>
-          <div class="desc-rating row form-group">
-            <div class="descripcion col-md-6">
-              <%= f.label :descripcion %> <%= f.text_area(:descripcion, {:class => 'form-control'}) %>
-            </div>
-            <div class="puntaje col-md-6 star-rating">
-              <%= f.label :puntaje %><br />
-              <fieldset class="star-edit">
-                <%= f.radio_button :puntaje, 5 , {id: "star5"}%> <%= label_tag(:star5, "5 star") %>
-                <%=f.radio_button :puntaje, 4, {id: "star4"} %> <%= label_tag(:star4, "4 star") %>
-                <%= f.radio_button :puntaje, 3, {id: "star3"} %><%= label_tag(:star3, "3 star") %>
-                <%=f.radio_button :puntaje, 2, {id: "star2"}%> <%= label_tag(:star2, "2 star") %>
-                <%= f.radio_button :puntaje, 1, {id: "star1"} %><%= label_tag(:star1, "1 star") %>
-              </fieldset>
-            </div>
-          </div>
-          <div>
-            <p class="container-btn-default">
-              <%= f.submit "Crear atuendo", :class=>'btn btn-default' %>
-            </p>
-          </div>
-        <% end %>
-      </div>
-      <ul class="circles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-      </ul>
+        </div>
     </div>
-  </div>
-</div>
+
 </section>
