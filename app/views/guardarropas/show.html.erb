@@ -33,7 +33,7 @@
       </div>
     </div>
     <%= will_paginate @prendas, renderer: BootstrapPagination::Rails, previous_label: "Anterior", next_label: "Siguiente", inner_window: 1, outer_window: 0 %>
-    <a href="/prendas/new" data-toggle="tooltip" data-placement="top" title="Creá una prenda" class="link-nueva-prenda">
+    <a href="/prendas/new?guardarropa_id=<%=+params[:id]%>" data-toggle="tooltip" data-placement="top" title="Creá una prenda" class="link-nueva-prenda">
       <i class="fa fa-plus"></i>
     </a>
   </div>

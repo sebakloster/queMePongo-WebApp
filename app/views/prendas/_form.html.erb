@@ -5,7 +5,7 @@
       <p class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-2 form-group">
         <%= f.label :prenda_tipo_id, 'Tipo de prenda' %><br />
         <%= f.collection_select :prenda_tipo_id, PrendaTipo.all, :id, :tipo,
-        {:prompt => "Elija el tipo de Prenda" }, { :class =>"form-control",
+        {:prompt => "Elija el tipo de Prenda", :selected => params[:prenda_tipo_id]} , { :class =>"form-control",
         required: true} %>
       </p>
       <p class="col-sm-12 col-md-6 col-lg-4 form-group">
@@ -27,7 +27,7 @@
       <p class="col-sm-12 col-md-6 col-lg-4 col-lg-offset-2 form-group">
         <%= f.label :guardarropa_id %><br />
         <%= f.collection_select :guardarropa_id, Guardarropa.where(user: current_user), :id, :name,
-        {:prompt => "Elija un guardarropas" }, { :class => "form-control",
+        {:prompt => "Elija un guardarropas", :selected => params[:guardarropa_id]}, { :class => "form-control",
         required: true} %>
       </p>
       <p class="col-md-12 container-btn-default">

@@ -159,6 +159,9 @@ a {
 .fade {
   opacity: 100% !important;
 }
+.fade.show {
+  opacity: 1 !important;
+}
 
 .carousel-item {
   height: 65vh;
